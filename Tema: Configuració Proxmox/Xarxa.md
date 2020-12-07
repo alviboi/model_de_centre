@@ -166,7 +166,7 @@ Abans que res per a accedir al switch hem de tindre'l dins de la mateixa xarxa. 
 
 #### Reinicialitzar switch
 
-Per a reinicialitzar el switch hem d'utilitzar un clip i mantindre durant 10 segons el clip al botó de la imatge. L'adreça per defecte per a accedir és la 192.168.0.139 (depèn sempre de marques i models)
+Per a reinicialitzar el switch hem d'utilitzar un clip i mantindre durant 10 segons el clip al botó de la imatge. L'adreça per defecte per a accedir és la 192.168.0.239 (depèn sempre de marques i models)
 
 ![Reset del switch Netgear](switch/netgearreset.png)
 
@@ -189,7 +189,7 @@ Anem al panell de ferramentes i clickem sobre la icona del pc.
 
 ![Configuració de xarxa amb lliurex](Switchs/lliuxarxa1.png)
 
-Allí canviem la configuració. Podem crear-ne una nova fent click sobre el més. En aquest cas hem configurat l'adreça 10.90.90.100, però per al switch Netgear seria la 192.168.0.100, o qualsevol que no siga la 192.168.0.239.
+Allí canviem la configuració. Podem crear-ne una nova fent click sobre el més. En aquest cas hem configurat l'adreça 10.90.90.100 (que és l'adreça del switch de D-link), en el nostre cas per al switch Netgear seria la 192.168.0.100, o qualsevol que no siga la 192.168.0.239.
 
 ![Configuració de xarxa amb lliurex](Switchs/lliuxarxa2.png)
 
