@@ -75,7 +75,7 @@ A la fi els dos esquemes comparteixen el muntatge de les màquines virtuals ja q
 
 ![Esquema connexions màquines virtuals](Esquemes/Conexions hipervisor.png)
 
-## Configuració del proxmox
+# Configuració del proxmox
 
 Una vegada tenim instal·lat el proxmox i haja reiniciat, podrem accedir a ell. Tota la configuració del proxmox es realitza a través d'un servidor web que porta muntat. Per a accedir hem de fer-ho a través del port 8006 amb certificació ssl. Senzillament escrivim a una navegador d'una estació de treball que estiga a la mateixa xarxa el següent:
 
@@ -87,7 +87,7 @@ https://"IP_HIPERVISOR:8006
 Este és un dels motius pels quals deixem ports en cada switch amb la VLAN 1, per a poder accedir a través d'eixos ports sempre al proxmox. També es pot fer des de qualsevol ordinador del centre o l'aula d'informàtica, però cal habilitar el NAT en cada servidor LliureX. I estos han d'estar funcionant. Per tant en aquest pas és necessari estar connectat a la xarxa del centre.
 :::
 
-### Accés a proxmox
+## Màquines virtuals
 
 El primer que ens demana és l'usuari i contrasenya que hem configurat quan hem fet la instal·lació:
 
@@ -123,7 +123,7 @@ apt update
 apt upgrade
 ```
 
-### Crear màquina virtual
+## Crear màquina virtual
 
 Abans de crear una màquina virtual hem de pujar un iso de LliureX Server, podem descarregar-la [d'ací](http://releases.lliurex.net/isos/19.07_64bits/). Tractem de buscar l'última versió editada.
 
@@ -173,7 +173,7 @@ Finalment, no canviem res als paràmetre de xarxa i una vegada instal·lada la m
 
 ![Resum d'opcions](ConProxmox/prox14.png)
 
-### Instal·lació de la màquina virtual
+## Instal·lació de la màquina virtual
 
 Una vegada configurada la màquina virtual i haja arrancat podem veure com ens apareix una icona en la franja esquerra i es posa de color, podem desplegar el menú contextual i polsem sobre Console:
 
@@ -195,11 +195,11 @@ De manera similar, si volem seguir tot el procés caldria instal·lar els altres
 
 I per a l'administrador de cadascun dels servidor hem escollit **admin0**. 
 
-## Configuració de la xarxa
+# Configuració de la xarxa
 
 Una vegada tenim instal·lats tots els servidors procedim a configurar la xarxa. Per a accedir a la configuració de l'hipervisor hem de seleccionar el mateix (No la màquina virtual ni el Datacenter), i anem a les opcions **Network**.
 
-### Esquema 1
+## Esquema 1
 
 Recordem que aquest esquema té un bond al switch. Polsem sobre **Create** i seleccionem l'opció **Linux Bond**.
 
@@ -225,7 +225,7 @@ De manera anàloga realitzem totes les altres configuracions i ens quedaria de l
 
 ![Configuració de xarxes al proxmox](ConProxmox/prox23.png)
 
-### Esquema 2
+## Esquema 2
 
 Aquest esquema que no presenta cap VLAN es faria de manera anàloga a l'anterior, però sense configurar el bond. Agafaríem cada targeta virtual **Linux bridge** i l'enllacem a la targeta de sortida. L'esquema quedaria de la següent manera:
 
@@ -240,269 +240,147 @@ root@cefirevalencia:~# ip link show enp4s0
 5: enp4s0: <NO-CARRIER,BROADCAST,MULTICAST,SLAVE,UP> mtu 1500 qdisc pfifo_fast master bond0 state DOWN mode DEFAULT group default qlen 1000
 ``` 
 
-<!-- 
-![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](Proxmox-logo.png)
+# Configuració de la xarxa en cada màquina virtual
 
-És important tenir clar els següents conceptes abans de començar la instal·lació.
+Hem de recordar que cada servidor LliureX ha de tenir 3 targetes:
 
-* **AMT** funciona com un sistema independent, per tant tindrà la seua pròpia ip.
-* Els suports físics cada vegada s'utilitzen menys. Recorda quan va ser última vegada que utilitzares un CD-ROM.
-* Anem a fer una instal·lació de proxmox. No és necessari tenir accés a la consola de Proxmox en cap moment, per tant si ja tens l'hipervisor muntat al rack, no el desmuntes.
-* Les IPs utilitzades no corresponen amb les indicades al que recomana el SAI. És la tasca que se vos manarà!
-
-![Esquema orientatiu](Esquema.png)
-
-\newpage
-
-# Posada a punt del servidor
-
-Per a posar a punt el servidor, és recomanable, encara que no imprescindible habilitar el AMT, per a posteriorment utilitzar la ferramenta meshcomander per a fer una instal·lació remota.
-
-## Habilitar AMT de Intel
-
-Els servidors distribuïts als centres disposen de la ferramenta AMT de Intel per a poder connectar-se remotament, no sols ens permetrà arrancar l'hipervisor sinó que també ens permetrà configurar certes funcionalitats bàsiques. Però abans que res, caldrà entrar a la BIOS.
-Per a accedir a la BIOS (Model SEH1) polsem F2 en el setup de l'ordinador.
-
-![BIOS del sistema](amt-conf/Desktop--2020-11-25-18-25.png)
-
-\newpage
-
-Una vegada dins anem a la pestanya *Advanced*.
-
-![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-26.png)
-
-\newpage
-
-I seleccionem *AMT Configuration*.
-
-![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-262.png)
-
-\newpage
-
-Canviem *MEBx Mode* i seleccionem l'opció Enter MEBx Setup
-
-![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-26-2.png)
-
-\newpage
-
-Finalment salvem els paràmetres i reiniciem.
-
-![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-27.png)
-
-## Configuració del AMT
-
-Una vegada hem habilitat el AMT, entrem en la configuració del mateix i configurem els següents paràmetres.
-
-::: tip
-**Info**: Per obvis motius de seguretat no es permet entrar a la configuració del AMT per VNC, pel que algunes de les següents imatges están fotografiades de la pantalla.
-:::
-
-Quan entren a la ferramenta de configuració del AMT, hem de logar-nos. La contrasenya d'administrador és **admin**. Posteriorment ens demanarà que canviem la contrasenya per una nova.
-
-::: warning
-**Contrasenya**: Hem de respectar la política de contrasenyes, amb majúscula, minúscula i caràcter especial.
-:::
-
-![Entrem a la ferramenta de configuració](mebx/-000.png)
-
-![Introduïm la contrasenya](mebx/-001.png)
-
-Hem d'accedir a les següents opcions per a fer una configuració bàsica.
-
-| Opció | Funcionalitat |
+| Targeta | Característiques |
 | -- | -- |
-| **User Consent** | Ens permetrà poder connectar-nos al servidor per VNC sense donar permís |
-| **Network Setup** | Per a configurar les opcions de xarxa |
-| **Activate Network Access** | Hem de fer click sobre aquesta opció per a poder accedir a l'hipervisor |
+| Targeta externa | És la que es connectarà a la xarxa d'Aules |
+| Targeta interna | La que dona servei als ordinadors de l'Aula o les classes |
+| Targeta de replicació | Per a muntar el /net entre els servidors |
 
-![Opcions que hem de configurar](mebx/-002.png)
+En el nostre cas recordem que les tenim configurades de la següent manera:
 
-Dins de la opció de **User Content** hem de canviar l'opció assenyalada a *NONE*.
-
-![Canvi d'opció](mebx/-003.png)
-
-Per a configurar la xarxa anem a l'opció de Network Setup. 
-
-![Network Setup](mebx/-004.png)
-
-Després anem a **TCP/IP Settings**
-
-![Seleccionar l'opció](mebx/-005.png)
-
-I configurem la AMT segons els següents paràmetres
-
-::: caution
-**Vés amb compte**: L'adreça de l'AMT és diferent a l'adreça de l'hipervisor. A més has de tenir en compte que el AMT no té el ICMP activitat, pel que si fas un *ping* no et donarà resposta.
-:::
-
-Els paràmetres que mostrem són uns paràmetres d'exemple que anem a utilitzar dins del nostre banc de proves.
-
-| Opció | IP |
+| Targeta | nom |
 | -- | -- |
-| IP | 172.x.y.2 – 172.x.y.254 |
-| Máscara | 255.255.255.0 |
-| Puerta de Enlace | 172.x.y.1 |
-| DNS | 172.27.111.5 y 172.27.111.6 |
+| Targeta externa | vmbr0 |
+| Targeta interna | vmbr2, vmbr3, vmbr4, vmbr5 |
+| Targeta de replicació | vmbr10 |
 
-![Configuració xarxa](mebx/-006.png)
+Per a configurar cada màquina virtual seleccionem la màquina i anem a les opcions de **Hardware**, fem click sobre **Add** i escollim **Network device**.
 
-::: important
-**Accés**: Una vegada ja tingues funcionant el AMT, podràs accedir a través del navegador amb l'adreça http://172.x.y.238:16992 ó https://172.x.y.238:16993. Hauràs de canviar l'adreça segons la que hages escollit.
-:::
+![Configuració de xarxa de VM](ConProxmox/prox24.png)
 
-# Meshcomander
+Com quan hem instal·lat la màquina virtual ja ens ha agafat la vmbr0, eixa la deixem com la externa. I configurem ja la interna.
 
-> En aquest punt hem de tenir en compte que hem d'utilitzar Windows. Si algú coneix algun programari que permeta servir una imatge .iso a través de IDE-R en LliureX seria molt interessant que ho comentara als fòrums.
+![Configuració de targeta virtual](ConProxmox/prox25.png)
 
-El AMT ens permetrà tenir el servidor muntat dins del rack principal sense necessitat de tenir ni un monitor ni un teclat connectat. Tot i que es una ferramenta tremendament útil. Aquesta no està disponible per a cap distribució de linux, o al menys, no una versió que disposa de totes les funcionalitats que ens oferix AMT de Intel com el IDE-R.
+Aquest procediment l'hem de repetir en tots els servidors. Recorda que l'esquema de xarxa és el següent:
 
-::: note
-**Info**: IDE Redirect (IDE-R) permet muntar una imatge ISO remotament des d'un client. Aquesta opció és molt interessant ja que evita que necessàriament estiguem físicament presents a d'instal·lar o reinstal·lar el Proxmox. Podeu trobar més informació [ací](https://software.intel.com/content/www/us/en/develop/blogs/meshcommander-javascript-ider.html).
-:::
-
-Hem de descarregar el programari de la seua [pàgina web](https://www.meshcommander.com/meshcommander) i fer la instal·lació.
-
-![Pàgina per a descarregar el meshcomander](mesh/1.png)
-
-::: caution
-**Vés amb compte**: Recorda que has d'estar a la mateixa xarxa que l'hipervisor (la xarxa d'Aules en el nostre cas). L'hipervisor no té el perquè d'estar encés per a poder accedir.
-:::
-
-Una vegada instal·lat i funcionant el mesh comander veurem una cosa com la següent.
-
-![Meshcomander captura de pantalla](mesh/2.png)
-
-Farem click sobre *Add computer...* I configurarem el servidor amb els paràmetres del AMT que hem configurat prèviament. Podem accedir de dues maneres:
-
-* Amb TLS, pel que utilitzarem el port **16993**
-* Sense seguretat, utilitzarem el port **16992**
-
-![Configuració del meshcomander 1](mesh/3.png)
-
-![Configuració del meshcomander 2](mesh/4.png)
-
-Una vegada configurat el servidor veurem la pantalla de la següent manera. Ja només en cal, donar a **connect** i podrem accedir a la configuració del nostre servidor de manera remota.
-
-![Pantalla on es mostra el hipervisor](mesh/5.png)
-
-Si has escollit la connexió amb TLS, probablement t'apareixerà una advertència.
-
-![Indicació](mesh/6.png)
-
-Una vegada connectat veurem la següent pantalla. No anem a parar a explicar totes les funcionalitats que disposes, sinó que ens centrarem en la instal·lació remota. Per a això cal anar a Serial-over-LAN.
-
-![Pantalla d'opcions de l'hipervisor](mesh/7.png)
-
-En aquest punt hem de descarregar la ISO de Proxmox desde la seua [pàgina web](https://proxmox.com/en/downloads).
-
-![Opció per a descarregar el proxmox VE](mesh/proxmox.png)
-
-Aquí farem click sobre l'opció **IDER** i seleccionarem la imatge descarregada.
-
-![Selecció d'imatge de Proxmox](mesh/10.png)
-
-Una vegada seleccionada l'opció de Proxmox anirem  **Remote Desktop** i seleccionarem l'opció de **Power Actions**. Allí, hem d'escollir l'opció de *Power on to IDE-R CDROM*. Veurem que l'hipervisor es reinicia i començarà la instal·lació.
-
-![Remote Desktop](mesh/11.png)
-
-![Opció per a iniciar desde la ISO](mesh/12.png)
-
-Finalment veurem com comença la instal·lació de Proxmox.
-
-![Canvi d'opció](mesh/13.png)
-
-:::important
-És altament recomanable tenir una connexió al menys de 1Gb, ja que sinó la instal·lació es pot fer molt pesada i poden aparèixer errades de *timeout*.
-:::
-
-# Instal·lació de Proxmox
-
-Per a instal·lar Proxmox podem utilitzar l'opció explicada. És la més recomanable si ja tens el servidor muntat al rack. De tota manera, també es pot instal·lar amb una memòria usb.
-
-
-## Creació de usb d'arrancada de proxmox
-
-Per a fer la instal·lació de la iso de proxmox, la millor opció és utilitzar **dd**. Per a detectar on està muntat el usb podem executar abans i després lsblk i podem veure on s'ha muntat la partició.
-
-```tcsh
-lsblk
-```
-
-En el nostre exemple (ja que tenim un disc dur m2 no sata, s'ha muntat en sda). Per tant el nostre comandament seria:
-
-```tcsh
-dd if=./proxmox-ve_6.2-1.iso of=/dev/sda status=progress
-```
-
-\awesomebox[violet]{2pt}{\faUsb}{violet}{Es recomana fugir de d'aquelles opcions que creen un usb de manera gràfica. Ja que no solen crear bé les particions. Utilitzeu sempre dd.}
-
-## Instal·lació de proxmox
-
-Una vegada tenim creat el disc usb d'arrancada i iniciem amb l'usb, o a través de IDER. Veurem la següent imatge. Polsem *enter* i continuem. 
-
-![Pantalla inicial de la instal·lació de Proxmox](inst_proxmox/1.jpg)
-
-Tots sabem que és important llegir-se la llicència :smirk:.
-
-![Llicència de Proxmox](inst_proxmox/2.jpg)
-
-Aquesta és una de les parts més delicades i depèn del que vullgueu tenir muntat al vostre centre, també depèn de la quantitat de discs durs que tingueu instal·lats i de si voleu invertir diners en una cabina de discs durs.
-
-![Opcions d'instal·lació](inst_proxmox/3.jpg)
-
-Si voleu deixar-ho en ext4. I utilitzar un únic disc per a utilitzar Proxmox i les màquines virtuals no va a donar mals resultats. L'altre disc dur el podeu utilitzar per a fer còpies de seguretat.
-
-:::info
-Proxmox utilitza ZFS que és una combinació d'administrador de volums i sistema de fitxers.
-:::
-
-![Selecció d'opcions](inst_proxmox/4.jpg)
-
-Les opcions que tenim són les següents:
-
-| Sistema | Característiques  |
+| IP | Servidor |
 | -- | -- |
-| RAID0 | La capacitat de tal volum és la suma de les capacitats dels discos. La fallada d'una unitat fa el volum inservible. |
-| RAID1 | La dada és escrita idènticament a tots els discos. Aquest mode requereix com a mínim 2 discos amb la mateixa mida. |
-| RAID10 | Una combinació de RAID0 i RAID1. Requereix com a mínim 4 discos. |
-| RAIDZ-1 | Una variació de RAID-5, paritat sola. Requereix com a mínim 3 discos. |
-| RAIDZ-2 | Una variació de RAID-5, paritat doble. Requereix com a mínim 4 discos. |
-| RAIDZ-3 | Una variació damunt RAID-5, paritat triple. Requereix com a mínim 5 discos |
+| 172.X.Y.254 | Servidor Maestro |
+| 172.X.Y.253 | Servidor de Centro |
+| 172.X.Y.252 | Servidor de Aula 1 |
+| 172.X.Y.251 | Servidor de Aula 2 |
+| 172.X.Y.250 | Servidor de Aula 3 |
+
+## Targetes virtuals
 
 :::warning
-Si heu optat per adquirir una targeta controladora per a muntar el RAID, aquesta opció no l'heu de fer servir. Sempre i quan la targeta siga reconeguda per Proxmox, es veurà com un únic disc. Les opcions que estem configurant és RAID per via software.
+És important que ens assegurem abans d'inicialitzar el servidor quina targeta és quina, per a que no ens confonen. El servidor podria començar a donar DHCP a través de targeta connectada a la VLAN1 o router (depenent de l'esquema) i podria deixar sense servei a tot el centre.
 :::
 
-L'opció més anivellada entre tots els paràmetres a tenir en compte seria l'opció de RAID1.
+Podem comprovar quina és cada targeta amb el comandament ip fet al servidor i comparar les MAC.
 
-![Opció recomanada](inst_proxmox/5.jpg)
+![Configuració de xarxa de VM](ConProxmox/prox26.png)
 
-Configurem la zona geogràfica.
+## Inicialització servidors
 
-![Zona geogràfica](inst_proxmox/6.jpg)
+Quan iniciem el servidor, en aquest cas el màster, escollim les següents opcions:
 
-Configurem el password i la contrasenya.
+![Inicialitzar el servidor](ConProxmox/prox27.png)
+
+:::warning
+És molt important que habilites l'opció d'exportar el /net al servidor mestre.
+:::
+
+Un procediment extra que no ens ha d'oblidar en cap servidor és actualitzar-los sempre abans de fer res. I en el màster hem de configurar el lliurex mirror:
+
+![Mirror](ConProxmox/prox29.png)
+
+![Mirror](ConProxmox/prox30.png)
+
+![Mirror](ConProxmox/prox31.png)
+
+De manera similar inicialitzem els altres servidors:
+
+![Inicialitzar el servidor](ConProxmox/prox32.png)
+
+:::warning
+És molt important que habilites l'opció munta el /net des del mestre.
+:::
+
+# Configuracions addicionals
+
+## Arrancar les màquines virtuals quan inicia el servidor
+
+És important que quan es reinicie l'hipervisor les màquines virtuals arranquen automàticament per a no tindre que connectar-se al proxmox per engegar-les una a una. Per a configurar aquesta opció seleccionarem una màquina virtual i seleccionarem l'opció de configuració **Options** i canviarem els paràmetres **Start at boot** a **Yes** i **Start/Shutdown order** a 1 en el cas del servidor mestre.
 
 :::caution
-Si estàs fent la instal·lació per IDER utilitza la arroba del camp de text ja que és possible que no la pugues escriure amb Alt Gr+2.
+És recomanable arrancar primer el mestre i deixar un temps per a que arranque i posteriorment arrancar els esclaus. Així, als servidors esclaus afegirem un temps a **Startup delay**.
 :::
 
-![Configuració de contrasenya](inst_proxmox/7.jpg)
+![Configuració d'orde d'arrancada](ConProxmox/prox33.png)
 
-Configura la xarxa segons els paràmetres del teu centre. L'exemple donat no és el corresponent al que deuries utilitzar.
+![Configuració d'orde d'arrancada](ConProxmox/prox34.png)
 
-![Configuració de xarxa](inst_proxmox/8.jpg)
+Al servidor de centre i esclau les opcions quedarien de la següent manera:
 
-Comprovem que tots els paràmetres que hem configurat són els correctes i li donem a Install. De seguida començarà la instal·lació que sol ser bastant ràpida.
+![Configuració d'orde d'arrancada al servidor de centre](ConProxmox/prox35.png)
 
-![Instal·lació de proxmox](inst_proxmox/9.jpg)
+![Configuració d'orde d'arrancada al servidor de l'Aula d'informàtica](ConProxmox/prox36.png)
 
-Una vegada finalitzada la instal·lació. Reiniciem el sistema i passarem a la següent unitat. Configuració del Proxmox.
+## Muntatge de cabina externa (Opcional)
 
-![Instal·lació de proxmox](inst_proxmox/10.jpg)
+És possible que ens interesse l'opció d'una cabina externa. Té nombrosos avantatges, a l'espai de la cabina externa podem tindre emmagatzemat isos, discs durs de màquines virtuals, còpies de seguretat...
 
+:::warning
+Si decidiu muntar el /net a una cabina externa. Aneu amb compte amb les ACL!!!. Ja que solen donar problemes. L'opció en aquest cas més segura per a que funcione és tenir el /net en un disc dur virtual.
+A més, si aneu a tenir espai emmagatzemat a una cabina, la cabina ha de tenir unes característiques adeqüades. Jo recomanaria com a mínim:
+* Possibilitat de crear un bond amb 4 targetes de xarxa, o targeta de 10G (caldria un switch que ho suporte)
+* Al menys 4 discs durs per muntar un RAID10
+* Cache de disc SSD
+D'aquesta manera es podria muntar un sistema amb Alta disponibilitat.
+:::
 
- -->
+:::info
+En aquest curs no explicarem com configurar una cabina per a que funcione al model de xarxa. Les cabines no entren dins de la dotació de centre, per tant seria una adquisició pròpia del centre
+:::
+
+Una vegada tenim la cabina configurada podem afegir-la al nostre **Datacenter** seleccionant-lo i anant a l'opció de **Storage**. Fem click sobre **Add** i escollim **NFS**.
+
+![Configuració de cabina](ConProxmox/prox37.png)
+
+I seleccionem les diferents opcions de configuració:
+
+![Configuració de cabina](ConProxmox/prox38.png)
+
+## Creació de backup (Opcional)
+
+En principi no seria necessari crear un backup de les màquines virtuals ja que hem muntat un RAID1. Però hi han varies configuracions que podem recomanar l'opció del backup. Per a configurar la còpia de seguretat seleccionem el datacenter, anem a l'opció de Backup i fem click sobre **Add**.
+
+![Configuració de cabina](ConProxmox/prox39.png)
+
+Ens apareixerà la següent finestra, hem de tenir en compte en quin lloc volem fer el backup (**Storage**). I seleccionem la/les màquines virtuals que volem fer còpia de seguretat, en un principi, en el nostre cas només caldria fer la còpia de seguretat del Màster, ja que és on es guarda el /net i LDAP. La còpia de seguretat queda programada per a una data determinada, en principi, en un centre, un dissabte a les 12 de la nit no hi ha cap usuari connectat.
+
+![Configuració de la còpia de seguretat](ConProxmox/prox40.png)
+
+També és pot fer una còpia de seguretat en qualsevol moment. Les còpies de seguretat porten temps, per tant no és recomanable fer-ho en hores on s'estiguen utilitzant els servidors.
+
+![Creació de la còpia de seguretat](ConProxmox/prox41.png)
+
+![Creació de la còpia de seguretat](ConProxmox/prox42.png)
+
+Una vegada tenim la còpia de seguretat feta podem restaurar-la amb **Restore**.
+
+:::caution
+Quan es restaura la còpia de seguretat es crearà una nova màquina virtual amb les mateixes característiques que la màquina antiga i ens preguntarà en quin espai volem instal·lar la nova màquina. Hem d'anar amb compte de no tenir les dues màquines funcionant al mateix temps (després de restaurar-la) ja que crearà problemes de xarxa. També hem de recordar deshabilitar l'opció de **Start at boot**, sinó al reiniciar l'hipervisor arrancaran les dues màquines.
+
+![Restaurar la còpia de seguretat](ConProxmox/prox43.png)
+
+![Restaurar la còpia de seguretat](ConProxmox/prox44.png)
 
 
 # Bibliografia i referències
