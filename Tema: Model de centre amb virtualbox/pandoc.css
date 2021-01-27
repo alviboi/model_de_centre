@@ -1,0 +1,143 @@
+/*
+ * I add this to html files generated with pandoc.
+ */
+
+.tip {
+  padding: 10px;
+  padding-left: 15px;
+  font-size: 1em;
+  background-color: #27E717; /* Red */
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 15px;
+
+
+}
+
+.tip:before {
+    display: block;
+/*    font-style: normal;
+    font-variant: normal;*/
+    width: 20px;
+    height: 20px;
+    float: left;
+    text-rendering: auto;
+    font-size: 2em;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f059";
+
+    
+}
+
+.tip p {
+    margin-left: 50px;
+    padding-left: 15px;
+    display: block;
+    border-left: solid;
+}
+
+.info {
+  padding: 10px;
+  padding-left: 15px;
+  font-size: 1em;
+  background-color: #76DE6D; /* Red */
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 15px;
+
+
+}
+
+.info:before {
+    display: block;
+/*    font-style: normal;
+    font-variant: normal;*/
+    width: 20px;
+    height: 20px;
+    float: left;
+    text-rendering: auto;
+    font-size: 2em;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f05a";
+
+    
+}
+
+.info p {
+    margin-left: 50px;
+    padding-left: 15px;
+    display: block;
+    border-left: solid;
+}
+
+
+
+.warning {
+  padding: 10px;
+  padding-left: 15px;
+  font-size: 1em;
+  background-color: #F0827F; /* Red */
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 15px;
+
+
+}
+
+.warning:before {
+    display: block;
+/*    font-style: normal;
+    font-variant: normal;*/
+    width: 20px;
+    height: 20px;
+    float: left;
+    text-rendering: auto;
+    font-size: 2em;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f071";
+
+    
+}
+
+.warning p {
+    margin-left: 50px;
+    padding-left: 15px;
+    display: block;
+    border-left: solid;
+}
+
+
+
+.caution {
+  padding: 10px;
+  padding-left: 15px;
+  font-size: 1em;
+  background-color: #D274AA; /* Red */
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 15px;
+
+
+}
+
+.caution:before {
+    display: block;
+/*    font-style: normal;
+    font-variant: normal;*/
+    width: 20px;
+    height: 20px;
+    float: left;
+    text-rendering: auto;
+    font-size: 2em;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f06a";
+
+    
+}
+
+.caution p {
+    margin-left: 50px;
+    padding-left: 15px;
+    display: block;
+    border-left: solid;
+}
