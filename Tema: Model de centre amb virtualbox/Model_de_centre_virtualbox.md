@@ -1,7 +1,7 @@
 ---
-title: "CONFIGURACIÓ DE XARXA"
+title: "MODEL DE CENTRE AMB VIRTUALBOX"
 author: [Alfredo Rafael Vicente Boix i Javier Estellés Dasi]
-date: "2020-11-25"
+date: "2021-02-24"
 subject: "Proxmox"
 keywords: [Xarxa, Instal·lació]
 subtitle: "Exemple d'esquema de xarxa en el model de centre"
@@ -64,8 +64,8 @@ LliureX es presenta en varios sabors i cadascú té les seues característiques 
 | Sabor | Característiques |
 | -- | -- |
 | Servidor | Porta tot els paquets per a muntar el model de centre |
-| Client | És la versió que hem d'instal·lar als ordinadors que es connectaran al Servidor |
-| Escriptori | Pot funcionar de manera independent, no s'integra en el model de centre |
+| Client | És la versió que hem d'instal·lar al centre |
+| Escriptori | Pot funcionar de manera independent |
 
 Els sabors música, infantil, fp, etc... són una versió d'escriptori amb paquets característics de cadascuna de les especialitats.
 
@@ -116,7 +116,7 @@ Anem a realitzar el muntatge d'un model de centre pas a pas amb totes les seues 
 Heu de tenir en compte que ací no parlarem de tot el programari que ve amb LliureX, com el harvester, libreoffice, programes de disseny, etc... En aquest curs ens centrarem exclusivament en el muntatge i configuració del model de centre
 ::: 
 
-## Instal·lació de Lliurex
+## Instal·lació de Lliurex -->
 
 :::note
 Podeu trobar l'última ISO per a descarregar [ací](http://releases.lliurex.net/isos/19.07_64bits/lliurex-servidor_64bits_19_latest.iso).
