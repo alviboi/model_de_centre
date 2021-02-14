@@ -1,6 +1,6 @@
 ---
 title: "INSTALACIÓN DE PROXMOX"
-author: [Alfredo Rafael Vicente Boix i Javier Estellés Dasi]
+author: [Alfredo Rafael Vicente Boix y Javier Estellés Dasi]
 dato: "2020-11-25"
 subject: "Proxmox"
 keywords: [Proxmox, Instalación]
@@ -36,8 +36,8 @@ Es importante tener claro los siguientes conceptos antes de empezar la instalaci
 
 * **AMT** funciona como un sistema independiente, por lo tanto tendrá su propia ip.
 * Los apoyos físicos cada vez se utilizan menos. Recuerda cuando fue última vez que utilizaste un CD-ROM.
-* Vamos a hacer una instalación de proxmox. No es necesario tener acceso a la consola de Proxmox en ningún momento, por lo tanto si ya tenso el hipervisor montado al rack, no lo desmontas.
-* Las IPs utilizadas no corresponden con las indicadas al que recomienda el SAI. Es la tarea que se os mandará!
+* Vamos a hacer una instalación de proxmox. No es necesario tener acceso a la consola de Proxmox en ningún momento, por lo tanto si ya tenso lo hipervisor montado al rack, no lo desmontas.
+* Las IPs utilizadas no corresponden con las indicadas al que recomienda lo SAI. Es la tarea que se os mandará!
 
 ![Esquema orientativo](Esquema.png)
 
@@ -45,12 +45,12 @@ Es importante tener claro los siguientes conceptos antes de empezar la instalaci
 
 # Puesta a punto del servidor
 
-Para posar a punto el servidor, es recomendable, aunque no imprescindible habilitar el AMT, para posteriormente utilizar la herramienta meshcomander para hacer una instalación remota.
+Para posar a punto el servidor, es recomendable, aunque no imprescindible habilitar lo AMT, para posteriormente utilizar la herramienta meshcomander para hacer una instalación remota.
 
 ## Habilitar AMT de Intel
 
-Los servidores distribuidos en los centros disponen de la herramienta AMT de Intel para poder conectarse remotamente, no solo nos permitirá arrancar la hipervisor sino que también nos permitirá configurar ciertas funcionalidades básicas. Pero antes de que nada, habrá que entrar a la BIOS.
-Para acceder a la BIOS (Modelo SEH1) polsem F2 en el setup del ordenador.
+Los servidores distribuidos en los centros disponen de la herramienta AMT de Intel para poder conectarse remotamente, no solo nos permitirá arrancar lo hipervisor sino que también nos permitirá configurar ciertas funcionalidades básicas. Pero antes de que nada, habrá que entrar a la BIOS.
+Para acceder a la BIOS (Modelo SEH1) polsem F2  lo setup del ordenador.
 
 ![BIOS del sistema](amt-conf/Desktop--2020-11-25-18-25.png)
 
@@ -100,9 +100,9 @@ Tenemos que acceder a las siguientes opciones para hacer una configuración bás
 
 | Opción | Funcionalidad |
 | -- | -- |
-| **User Consiente** | Nos permitirá poder conectarnos al servidor por VNC sin dar permiso |
+| **User Consiente** | Conectarnos al servidor por VNC sin permiso |
 | **Network Setup** | Para configurar las opciones de red |
-| **Activate Network Access** | Tenemos que hacer click sobre esta opción para poder acceder a la hipervisor |
+| **Activate Network Access** | Para poder acceder a lo hipervisor |
 
 ![Opciones que tenemos que configurar](mebx/-002.png)
 
@@ -121,7 +121,7 @@ Después vamos a **TCP/IP Settings*
 Y configuramos la AMT según los siguientes parámetros
 
 ::: caution
-*Ten cuidado**: La dirección de la AMT es diferente a la dirección de la hipervisor. Además tienes que tener en cuenta que el AMT no tiene el ICMP actividad, por el que si haces un *ping* no te dará respuesta.
+*Ten cuidado**: La dirección de lo AMT es diferente a la dirección de lo hipervisor. Además tienes que tener en cuenta que lo AMT no tiene lo ICMP actividad, por el que si haces uno *ping* no te dará respuesta.
 :::
 
 Los parámetros que muestramos son unos parámetros de ejemplo que vayamos a utilizar dentro de nuestro banco de pruebas.
@@ -141,20 +141,20 @@ Los parámetros que muestramos son unos parámetros de ejemplo que vayamos a uti
 
 # Meshcomander
 
-> En este punto tenemos que tener en cuenta que tenemos que utilizar Windows. Si alguien conoce algún software que permita servir una imagen .iso a través de IDE-R en LliureX sería muy interesante que lo comentara a los foros.
+> En este punto tenemos que tener en cuenta que tenemos que utilizar Windows. Si alguien conoce algún software que permita servir una imagen .iso a través de IDE-R  LliureX sería muy interesante que lo comentara a los foros.
 
-El AMT nos permitirá tener el servidor montado dentro del rack principal sin necesidad de tener ni un monitor ni un teclado conectado. A pesar de que se una herramienta tremendamente útil. Esta no está disponible para ninguna distribución de linux, o al menos, no una versión que dispone de todas las funcionalidades que nos ofrece AMT de Intel como el IDE-R.
+Lo AMT nos permitirá tener el servidor montado dentro del rack principal sin necesidad de tener ni un monitor ni un teclado conectado. A pesar de que se una herramienta tremendamente útil. Esta no está disponible para ninguna distribución de linux, o al menos, no una versión que dispone de todas las funcionalidades que nos ofrece AMT de Intel como lo IDE-R.
 
-::: note
-**Info**: IDE Redirect (IDE-R) permite montar una imagen ISO remotamente desde un cliente. Esta opción es muy interesante puesto que evita que necesariamente estemos físicamente presentes a de instalar o reinstalar el Proxmox. Podéis encontrar más información [aquí](https://software.intel.com/content/www/us/en/develop/blogs/meshcommander-javascript-ider.html).
+::: noto
+**Info**: IDE Redirect (IDE-R) permite montar una imagen ISO remotamente desde un cliente. Esta opción es muy interesante puesto que evita que necesariamente estemos físicamente presentes a de instalar o reinstalar lo Proxmox. Podéis encontrar más información [aquí](https://software.intel.com/content/www/us/en/develop/blogs/meshcommander-javascript-ider.html).
 :::
 
 Tenemos que descargar el software de su [página web](https://www.meshcommander.com/meshcommander) y hacer la instalación.
 
-![Página para descargar el meshcomander](mesh/1.png)
+![Página para descargar lo meshcomander](mesh/1.png)
 
 ::: caution
-*Ten cuidado**: Recuerda que tienes que estar en la misma red que la hipervisor (la red de Aulas en nuestro caso). El hipervisor no tiene el porqué de estar encendido para poder acceder.
+*Ten cuidado**: Recuerda que tienes que estar en la misma red que lo hipervisor (la red de Aulas en nuestro caso). Lo hipervisor no tiene el porqué de estar encendido para poder acceder.
 :::
 
 Una vez instalado y funcionando lo mesh comander veremos una cosa como la siguiente.
@@ -172,7 +172,7 @@ Haremos click sobre *Add computer...* Y configuraremos el servidor con los pará
 
 Una vez configurado el servidor veremos la pantalla de la siguiente manera. Ya solo  hace falta, dar a **connect** y podremos acceder a la configuración de nuestro servidor de manera remota.
 
-![Pantalla donde se muestra el hipervisor](mesh/5.png)
+![Pantalla donde se muestra lo hipervisor](mesh/5.png)
 
 Si has escogido la conexión con TLS, probablemente te aparecerá una advertencia.
 
@@ -180,17 +180,17 @@ Si has escogido la conexión con TLS, probablemente te aparecerá una advertenci
 
 Una vez conectado veremos la siguiente pantalla. No vayamos a parar a explicar todas las funcionalidades que dispones, sino que nos centraremos en la instalación remota. Para lo cual hay que ir a Serial-over-LAN.
 
-![Pantalla de opciones de la hipervisor](mesh/7.png)
+![Pantalla de opciones de lo hipervisor](mesh/7.png)
 
 En este punto tenemos que descargar la ISO de Proxmox desde la suya [página web](https://proxmox.com/en/downloads).
 
-![Opción para descargar el proxmox VIENE](mesh/proxmox.png)
+![Opción para descargar lo proxmox VIENE](mesh/proxmox.png)
 
 Aquí haremos click sobre la opción **IDER** y seleccionaremos la imagen descargada.
 
 ![Selección de imagen de Proxmox](mesh/10.png)
 
-Una vez seleccionada la opción de Proxmox iremos  **Remote Desktop** y seleccionaremos la opción de **Power Actions**. Allí, tenemos que escoger la opción de *Power donde tono IDE-R CDROM*. Veremos que el hipervisor se reinicia y empezará la instalación.
+Una vez seleccionada la opción de Proxmox iremos  **Remote Desktop** y seleccionaremos la opción de **Power Actions**. Allí, tenemos que escoger la opción de *Power donde tono IDE-R CDROM*. Veremos que lo hipervisor se reinicia y empezará la instalación.
 
 ![Remote Desktop](mesh/11.png)
 
@@ -217,17 +217,17 @@ Para hacer la instalación de la iso de proxmox, la mejor opción es utilizar **
 lsblk
 ```
 
-En nuestro ejemplo (puesto que tenemos un disco llevar m² no sata, se ha montado en sda). Por lo tanto nuestro mando seria:
+En nuestro ejemplo (puesto que tenemos un disco llevar m² no sata, se ha montado  sda). Por lo tanto nuestro mando sería:
 
 ```tcsh
 dd if=./proxmox-viene_6.2-1.iso of=/dev/sda status=progress
 ```
 
-\awesomebox[violet]{2pt}{\faUsb}{violet}{Se recomienda huir de de aquellas opciones que crean un usb de manera gráfica. Puesto que no suelen crear bien las particiones. Utilizáis siempre dd.}
+\awesomebox[violet]{2pt}{\faUsb}{violet}{Se recomienda huir de de aquellas opciones que crean uno usb de manera gráfica. Puesto que no suelen crear bien las particiones. Utilizáis siempre dd.}
 
 ## Instalación de proxmox
 
-Una vez tenemos creado el disco usb de arrancada e iniciamos con el usb, o a través de IDER. Veremos la siguiente imagen. Polsem entero* y continuamos. 
+Una vez tenemos creado el disco usb de arrancada e iniciamos con lo usb, o a través de IDER. Veremos la siguiente imagen. Polsem entero* y continuamos. 
 
 ![Pantalla inicial de la instalación de Proxmox](inst_proxmox/1.jpg)
 
@@ -239,7 +239,7 @@ Esta es una de las partes más delicadas y depende del que vullgueu tener montad
 
 ![Opciones de instalación](inst_proxmox/3.jpg)
 
-Si queréis dejarlo en ext4. Y utilizar un único disco para utilizar Proxmox y las máquinas virtuales no va a dar males resultados. El otro disco llevar lo podéis utilizar para hacer copias de seguridad.
+Si queréis dejarlo  ext4. Y utilizar un único disco para utilizar Proxmox y las máquinas virtuales no va a dar males resultados. El otro disco llevar lo podéis utilizar para hacer copias de seguridad.
 
 :::info
 Proxmox utiliza ZFS que es una combinación de administrador de volúmenes y sistema de ficheros.
@@ -251,15 +251,15 @@ Las opciones que tenemos son las siguientes:
 
 | Sistema | Características  |
 | -- | -- |
-| RAID0 | La capacidad de tal volumen es la suma de las capacidades de los discos. El fallo de una unidad hace el volumen inservible. |
-| RAID1 | El dato es escrito idénticamente a todos los discos. Este modo requiere como mínimo 2 discos con la misma medida. |
-| RAID10 | Una combinación de RAID0 y RAID1. Requiere como mínimo 4 discos. |
-| RAIDZ-1 | Una variación de RAID-5, paridad sola. Requiere como mínimo 3 discos. |
-| RAIDZ-2 | Una variación de RAID-5, paridad doble. Requiere como mínimo 4 discos. |
-| RAIDZ-3 | Una variación encima RAID-5, paridad triple. Requiere como mínimo 5 discos |
+| RAID0 | Suma capacidades de los discos. Si falla una unidad es inservible. |
+| RAID1 | Dato escrito idénticamente. Mínimo 2 discos de la misma medida. |
+| RAID10 | Una combinación de RAID0 y RAID1. Mínimo 4 discos. |
+| RAIDZ-1 | Variación de RAID-5, paridad sola. Mínimo 3 discos. |
+| RAIDZ-2 | Variación de RAID-5, paridad doble. Mínimo 4 discos. |
+| RAIDZ-3 | Variación encima RAID-5, paridad triple. Mínimo 5 discos |
 
 :::warning
-Si habéis optado para adquirir una tarjeta controladora para montar el RAID, esta opción no lo tenéis que usar. Siempre y cuando la tarjeta sea reconocida por Proxmox, se verá como un único disco. Las opciones que estamos configurando es RAID por vía software.
+Si habéis optado para adquirir una tarjeta controladora para montar lo RAID, esta opción no lo tenéis que usar. Siempre y cuando la tarjeta sea reconocida por Proxmox, se verá como un único disco. Las opciones que estamos configurando es RAID por vía software.
 :::
 
 La opción más nivelada entre todos los parámetros a tener en cuenta sería la opción de RAID1.

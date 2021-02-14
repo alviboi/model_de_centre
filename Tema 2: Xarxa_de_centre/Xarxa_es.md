@@ -32,11 +32,11 @@ Hasta ahora hemos visto que en el modelo clásico de centro existía un servidor
 Con el nuevo modelo de centro cambiamos el paradigma y tendremos todos los servidores virtualitzats en un hipervisor o en un cluster de hipervisors.
 A modo de ejemplo tenemos el siguiente esquema de modelo clásico.
 
-![Esquema simplificado modelo clásico](modelos/classic.png) 
+![Esquema simplificado modelo clásico](models/classic.png) 
 
 Y tenemos que pasar al siguiente al nuevo esquema.
 
-![Esquema simplificado nuevo modelo](modelos/prox.png)
+![Esquema simplificado nuevo modelo](models/prox.png)
 
 Por lo tanto, es necesario que cada ordenador bien sea del centro, del aula de informática o la wifi sepa cuál es su red y/o su servidor. Para conseguirlo utilizaremos Redes virtuales (VLAN).
 
@@ -117,7 +117,7 @@ Partiremos del ejemplo del siguiente modelo. Para poder hacerlo hemos utilizado:
 
 El esquema se quedaría de la seqüent manera. Una vez tengamos diseñado el esquema de nuestro centro podemos pasar a configurar cada uno del switchs.
 
-![Ejemplo de modelo de centro para trabajar](modelos/Modelo_ex.png)
+![Ejemplo de modelo de centro para trabajar](models/Model_ex.png)
 
 ## Configuración de los switchs
 
@@ -150,8 +150,8 @@ Aunque para configurar el switch es mejor sacarte un esquema de la siguiente man
 
 | VLANs | Puertos | 
 | -- | -- | 
-| 1 | Uno-P1, Uno-P2, Uno-P3, Uno-P4, Uno-LAG1, T-LAG2, T-LAG3, T-LAG4| 
-| 110 | Uno-P5, Uno-P6, Uno-P7, Uno-P8, Uno-P9, Uno-P10 T-LAG1, T-LAG2, T-LAG3, T-LAG4 | 
+| 1 | U-P1, U-P2, U-P3, U-P4, U-LAG1, T-LAG2, T-LAG3, T-LAG4| 
+| 110 | U-P5, U-P6, U-P7, U-P8, U-P9, U-P10 T-LAG1, T-LAG2, T-LAG3, T-LAG4 | 
 | 120 | T-LAG1, T-LAG2, T-LAG3, T-LAG4 | 
 | 130 | T-LAG1, T-LAG2, T-LAG3, T-LAG4 | 
 | 200 | T-LAG2, T-LAG3, T-LAG4 |
@@ -266,9 +266,9 @@ Hay que decir que, a pesar de que denominamos este switch, switch de Aula, podr�
 
 | VLANs | Puertos | 
 | -- | -- | 
-| 1 | Uno-P1, Uno-P2, Uno-P3, Uno-P4, Uno-LAG1 (Uno-P47,Uno-P48) | 
-| 110 | Uno-P5 a Uno-P16 T-LAG1 (T-P47,T-P48) | 
-| 120 | Uno-P17 a Uno-P46 T-LAG1 (T-P47,T-P48) | 
+| 1 | U-P1, U-P2, U-P3, U-P4, U-LAG1 (U-P47,U-P48) | 
+| 110 | U-P5 a U-P16 T-LAG1 (T-P47,T-P48) | 
+| 120 | U-P17 a U-P46 T-LAG1 (T-P47,T-P48) | 
 | 130 | T-LAG1 (T-P47,T-P48) | 
 
 Hemos indicado los puertos entre paréntesis, puesto que, al contrario en el Netgear, en este switch sí que tienes que configurar los puertos pertenecientes al LAG.

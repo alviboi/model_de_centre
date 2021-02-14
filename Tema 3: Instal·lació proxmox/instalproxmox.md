@@ -100,9 +100,9 @@ Hem d'accedir a les següents opcions per a fer una configuració bàsica.
 
 | Opció | Funcionalitat |
 | -- | -- |
-| **User Consent** | Ens permetrà poder connectar-nos al servidor per VNC sense donar permís |
+| **User Consent** | Connectar-nos al servidor per VNC sense permís |
 | **Network Setup** | Per a configurar les opcions de xarxa |
-| **Activate Network Access** | Hem de fer click sobre aquesta opció per a poder accedir a l'hipervisor |
+| **Activate Network Access** | Per a poder accedir a l'hipervisor |
 
 ![Opcions que hem de configurar](mebx/-002.png)
 
@@ -251,12 +251,12 @@ Les opcions que tenim són les següents:
 
 | Sistema | Característiques  |
 | -- | -- |
-| RAID0 | La capacitat de tal volum és la suma de les capacitats dels discos. La fallada d'una unitat fa el volum inservible. |
-| RAID1 | La dada és escrita idènticament a tots els discos. Aquest mode requereix com a mínim 2 discos amb la mateixa mida. |
-| RAID10 | Una combinació de RAID0 i RAID1. Requereix com a mínim 4 discos. |
-| RAIDZ-1 | Una variació de RAID-5, paritat sola. Requereix com a mínim 3 discos. |
-| RAIDZ-2 | Una variació de RAID-5, paritat doble. Requereix com a mínim 4 discos. |
-| RAIDZ-3 | Una variació damunt RAID-5, paritat triple. Requereix com a mínim 5 discos |
+| RAID0 | Suma capacitats dels discos. Si falla una unitat el fa inservible. |
+| RAID1 | Dada escrita idènticament. Cal mínim 2 discos de la mateixa mida. |
+| RAID10 | Una combinació de RAID0 i RAID1. Cal com a mínim 4 discos. |
+| RAIDZ-1 | Variació de RAID-5, paritat sola. Cal com a mínim 3 discos. |
+| RAIDZ-2 | Variació de RAID-5, paritat doble. Cal com a mínim 4 discos. |
+| RAIDZ-3 | Variació damunt RAID-5, paritat triple. Cal com a mínim 5 discos |
 
 :::warning
 Si heu optat per adquirir una targeta controladora per a muntar el RAID, aquesta opció no l'heu de fer servir. Sempre i quan la targeta siga reconeguda per Proxmox, es veurà com un únic disc. Les opcions que estem configurant és RAID per via software.

@@ -1,0 +1,510 @@
+<!doctype html>
+<html  lang="es" >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alfredo Rafael Vicente Boix y Javier Estellés Dasi" />
+  <title>MODELO DE CENTRO CON VIRTUALBOX</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc.css" />
+  
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">MODELO DE CENTRO CON VIRTUALBOX</span>
+        <ul class="nav pull-right doc-info">
+                    <li><p class="navbar-text">Alfredo Rafael Vicente Boix y Javier Estellés Dasi</p></li>
+                            </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#introducción"><span class="toc-section-number">1</span> Introducción</a></li>
+        <li><a href="#modelo-de-centro"><span class="toc-section-number">2</span> Modelo de centro</a></li>
+        <li><a href="#sabores-de-lliurex"><span class="toc-section-number">3</span> Sabores de LliureX</a></li>
+        <li><a href="#servidor"><span class="toc-section-number">4</span> Servidor</a>
+        <ul>
+        <li><a href="#esquema-de-red"><span class="toc-section-number">4.1</span> Esquema de red</a></li>
+        </ul></li>
+        <li><a href="#instalación-del-modelo-de-centro"><span class="toc-section-number">5</span> Instalación del modelo de centro</a>
+        <ul>
+        <li><a href="#instalación-de-lliurex"><span class="toc-section-number">5.1</span> Instalación de Lliurex</a></li>
+        </ul></li>
+        <li><a href="#inicialización-del-servidor"><span class="toc-section-number">6</span> Inicialización del servidor</a>
+        <ul>
+        <li><a href="#inicialización-del-servidor-esclavo"><span class="toc-section-number">6.1</span> Inicialización del servidor esclavo</a></li>
+        </ul></li>
+        <li><a href="#instalación-de-clientes"><span class="toc-section-number">7</span> Instalación de clientes</a>
+        <ul>
+        <li><a href="#clientes-ligeros"><span class="toc-section-number">7.1</span> Clientes ligeros</a>
+        <ul>
+        <li><a href="#asociar-cliente-a-imagen"><span class="toc-section-number">7.1.1</span> Asociar cliente a imagen</a></li>
+        </ul></li>
+        <li><a href="#instalar-nuevo-software-en-una-imagen"><span class="toc-section-number">7.2</span> Instalar nuevo software en una imagen</a></li>
+        <li><a href="#clientes-pesados"><span class="toc-section-number">7.3</span> Clientes pesados</a></li>
+        <li><a href="#boot-manager"><span class="toc-section-number">7.4</span> Boot Manager</a></li>
+        </ul></li>
+        <li><a href="#creación-de-usuarios-con-llum"><span class="toc-section-number">8</span> Creación de usuarios con Llum</a></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+            <!-- \awesomebox[violet]{2pt}{\faRocket}{violet}{Lorem ipsum…} -->
+            <h1 data-number="1" id="introducción"><span class="header-section-number">1</span> Introducción</h1>
+            <p>En esta unidad veremos como montar el modelo de centro virtualitzat. Esto nos servirá para entender como funciona el modelo de centro de LliureX, qué es un servidor maestro.</p>
+            <h1 data-number="2" id="modelo-de-centro"><span class="header-section-number">2</span> Modelo de centro</h1>
+            <p>El modelo de centro se uno configuración que combina red y servidores para dar unos servicios a todos los ordenadores dentro del centro. Entre otras cosas el modelo de centro puede dar los siguientes servicios de red:</p>
+            <ul>
+            <li>Páginas web internet del centros</li>
+            <li>Jitsi para reuniones a la intranet</li>
+            <li>Moodle para sesiones internas</li>
+            <li>Videoconferencias</li>
+            <li>LDAP para autentificar-se los usuarios a cualquier ordenador del centro</li>
+            <li>Carpetas compartidas en todo el centro</li>
+            <li>Mirror compartido por todos los servidores</li>
+            <li>Servidor de imágenes para clientes ligeros</li>
+            <li>Nextcloud para compartir ficheros a la intranet</li>
+            <li>DHCP para cada aula</li>
+            </ul>
+            <p>Además de todas estas características, LliureX presenta numerosas herramientas que facilitan la instalación y configuración del software.</p>
+            <p>Pero la principal ventaja de todo es que LliureX permite configurarlo todo sin tocar la terminal y sin tener conocimientos avanzados de informática. La puesta a punto del modelo de centro es rápida y sencilla. Para entender mejor el modelo de centro hablaremos de cada elemento por separado.</p>
+            <h1 data-number="3" id="sabores-de-lliurex"><span class="header-section-number">3</span> Sabores de LliureX</h1>
+            <p>LliureX se presenta varios sabores y cada cual tiene sus características diferenciadas. Dentro del modelo de centro tenemos dos sabores principales:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Sabor</th>
+            <th>Características</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Servidor</td>
+            <td>Puerta todo los paquetes para montar el modelo de centro</td>
+            </tr>
+            <tr class="even">
+            <td>Cliente</td>
+            <td>Es la versión que tenemos que instalar en el centro</td>
+            </tr>
+            <tr class="odd">
+            <td>Escritorio</td>
+            <td>Puede funcionar de manera independiente</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Los sabores música, infantil, fp, etc… son una versión de escritorio con paquetes característicos de cada una de las especialidades.</p>
+            <h1 data-number="4" id="servidor"><span class="header-section-number">4</span> Servidor</h1>
+            <p>El servidor de LliureX puede trabajar de 3 maneras.</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Servidor</th>
+            <th>Características</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Independiente</td>
+            <td>El servidor trabaja de manera independiente</td>
+            </tr>
+            <tr class="even">
+            <td>Mestre</td>
+            <td>Mujer servicios a los esclavos</td>
+            </tr>
+            <tr class="odd">
+            <td>Esclavo</td>
+            <td>Puede trabajar de manera independiente, sincroniza con MASTER</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>El servidor tiene como mínimo 2 tarjetas de red:</p>
+            <ul>
+            <li>La red interna: a esta tarjeta se conectará uno switch donde se conectarán los clientes.</li>
+            <li>La red externa: se conectará directamente en la red de Aulas del router (antigua macrolan).</li>
+            </ul>
+            <p>Para que el servidor funciono dentro del modelo de centro hay que configurarlo e inicializarlo con el *zero-server-wizard** que vorem más adelante.</p>
+            <h2 data-number="4.1" id="esquema-de-red"><span class="header-section-number">4.1</span> Esquema de red</h2>
+            <p>Un esquema bastante habitual que nos encontramos en los centros es el siguiente:</p>
+            <figure>
+            <img src="Esquemes/model1.png" alt="Esquema orientativo 1" /><figcaption aria-hidden="true">Esquema orientativo 1</figcaption>
+            </figure>
+            <div class="warning">
+            <p>Al esquema se muestra un servidor NFS de archivos. Al último daremos unas recomendaciones de cómo se monta un servidor NFS, pero tienes que tener en cuenta que este tipo de servidores dan muchos problemas para montar el /limpio, dado un problema amn las ACLs y lo NFS v3, por lo tanto se recomienda dejar el /limpio al MASTER. Se puede montar al servidor NFS como un disco del PROXMOX (qcow por ejemplo), las ACLs no darán problemas en ese caso.</p>
+            </div>
+            <p>En este esquema nos encontramos 3 servidores, donde el servidor maestro guarda la base de de datos para autentificar-se todos los usuarios (LDAP), y puede dar servicio en la red de profesorado.</p>
+            <p>Un esquema más adecuado sería este:</p>
+            <figure>
+            <img src="Esquemes/Modelaula2val.png" alt="Esquema orientativo 2" /><figcaption aria-hidden="true">Esquema orientativo 2</figcaption>
+            </figure>
+            <p>Tenemos que tener en cuenta los siguiente elementos. Cada uno de los servidor tiene que tener como mínimo 3 tarjetas de red:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Tarjeta</th>
+            <th>Características</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>eth0</td>
+            <td>Tarjeta interna que mujer DHCP en el aula</td>
+            </tr>
+            <tr class="even">
+            <td>eth1</td>
+            <td>Tarjeta externa que se conecta en la red de Aulas</td>
+            </tr>
+            <tr class="odd">
+            <td>eth2</td>
+            <td>Tarjeta de replicación de servicios comunes</td>
+            </tr>
+            </tbody>
+            </table>
+            <h1 data-number="5" id="instalación-del-modelo-de-centro"><span class="header-section-number">5</span> Instalación del modelo de centro</h1>
+            <p>Vayamos a realizar el montaje de un modelo de centro paso a paso con todas sus funcionalidades, para tener claro sus conceptos. En esta unidad utilizaremos el software de Virtualbox para montar el modelo de centro.</p>
+            <div class="warning">
+            <p>Tenéis que tener en cuenta que aquí no hablaremos de todo el software que viene con LliureX, como lo harvester, libreoffice, programas de diseño, etc… En este curso nos centraremos exclusivamente en el montaje y configuración del modelo de centro</p>
+            </div>
+            <h2 data-number="5.1" id="instalación-de-lliurex"><span class="header-section-number">5.1</span> Instalación de Lliurex</h2>
+            <div class="noto">
+            <p>Podéis encontrar la última ISO para descargar <a href="http://releases.lliurex.net/isos/19.07_64bits/lliurex-servidor_64bits_19_latest.iso">aquí</a>.</p>
+            </div>
+            <p>Podéis instalar virtualbox con:</p>
+            <pre><code>sudo apt install virtualbox-dkms virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso</code></pre>
+            <p>Una vez tenéis instalado lo virtualbox, lo ejecutáis y os aparecerá la siguiente pantalla:</p>
+            <figure>
+            <img src="model/1.png" alt="Virtualbox" /><figcaption aria-hidden="true">Virtualbox</figcaption>
+            </figure>
+            <p>Clickem sobre <strong>Nueva</strong> y seguimos el siguiente ejemplo:</p>
+            <figure>
+            <img src="model/2.png" alt="Versión: Ubuntu 64" /><figcaption aria-hidden="true">Versión: Ubuntu 64</figcaption>
+            </figure>
+            <figure>
+            <img src="model/3.png" alt="Nombre: 4600xxxx.MAS" /><figcaption aria-hidden="true">Nombre: 4600xxxx.MAS</figcaption>
+            </figure>
+            <figure>
+            <img src="model/4.png" alt="RAM: con 2-2,5 GB será suficiente para probar cosas" /><figcaption aria-hidden="true">RAM: con 2-2,5 GB será suficiente para probar cosas</figcaption>
+            </figure>
+            <figure>
+            <img src="model/5.png" alt="Por defecto el que hay" /><figcaption aria-hidden="true">Por defecto el que hay</figcaption>
+            </figure>
+            <figure>
+            <img src="model/6.png" alt="Por defecto el que hay" /><figcaption aria-hidden="true">Por defecto el que hay</figcaption>
+            </figure>
+            <figure>
+            <img src="model/7.png" alt="Reservado dinámicamente" /><figcaption aria-hidden="true">Reservado dinámicamente</figcaption>
+            </figure>
+            <figure>
+            <img src="model/7.1.png" alt="Lo tamany recomendado para el MASTER es 90 GB" /><figcaption aria-hidden="true">Lo tamany recomendado para el MASTER es 90 GB</figcaption>
+            </figure>
+            <div class="caution">
+            <p>Si es un servidor MASTER que va a alojar lo mirror, tienes que dar bastante espacio para que quepa lo mirror (mínimo 70GB, en las pruebas se han utilizado 90GB).</p>
+            </div>
+            <figure>
+            <img src="model/8.png" alt="Máquina creada" /><figcaption aria-hidden="true">Máquina creada</figcaption>
+            </figure>
+            <p>Ahora clickem sobre configuración y name a la sección de almacenamiento (almacenamiento), clickem sobre “Vacío” y seleccionamos la iso de LliureX 19 descargada (desde el recuadro rojo)</p>
+            <figure>
+            <img src="model/9.png" alt="Vayamos a almacenamiento" /><figcaption aria-hidden="true">Vayamos a almacenamiento</figcaption>
+            </figure>
+            <figure>
+            <img src="model/10.png" alt="Almacenamiento" /><figcaption aria-hidden="true">Almacenamiento</figcaption>
+            </figure>
+            <figure>
+            <img src="model/11.png" alt="Seleccionamos el CD" /><figcaption aria-hidden="true">Seleccionamos el CD</figcaption>
+            </figure>
+            <figure>
+            <img src="model/12.png" alt="Seleccionamos la imagen" /><figcaption aria-hidden="true">Seleccionamos la imagen</figcaption>
+            </figure>
+            <p>Después vayamos a la sección de red y seleccionamos 3 adaptadores:</p>
+            <figure>
+            <img src="model/13.png" alt="Adaptador 1" /><figcaption aria-hidden="true">Adaptador 1</figcaption>
+            </figure>
+            <figure>
+            <img src="model/15.png" alt="Adaptador 2" /><figcaption aria-hidden="true">Adaptador 2</figcaption>
+            </figure>
+            <figure>
+            <img src="model/16.png" alt="Adaptador 3" /><figcaption aria-hidden="true">Adaptador 3</figcaption>
+            </figure>
+            <p>Después vayamos a pantalla y seleccionamos 128Mb de memoria de video.</p>
+            <figure>
+            <img src="model/17.png" alt="Pantalla" /><figcaption aria-hidden="true">Pantalla</figcaption>
+            </figure>
+            <p>Y le damos a Iniciar:</p>
+            <figure>
+            <img src="model/18.png" alt="Modelo" /><figcaption aria-hidden="true">Modelo</figcaption>
+            </figure>
+            <p>Después hacemos click sobre **Instala versión de LliureX*</p>
+            <figure>
+            <img src="model/19.png" alt="Instala versión de LliureX" /><figcaption aria-hidden="true">Instala versión de LliureX</figcaption>
+            </figure>
+            <figure>
+            <img src="model/20.png" alt="Basura click continúa" /><figcaption aria-hidden="true">Basura click continúa</figcaption>
+            </figure>
+            <figure>
+            <img src="model/21.png" alt="Basura click continúa" /><figcaption aria-hidden="true">Basura click continúa</figcaption>
+            </figure>
+            <figure>
+            <img src="model/22.png" alt="Basura click continúa" /><figcaption aria-hidden="true">Basura click continúa</figcaption>
+            </figure>
+            <figure>
+            <img src="model/23.png" alt="Basura click continúa" /><figcaption aria-hidden="true">Basura click continúa</figcaption>
+            </figure>
+            <figure>
+            <img src="model/24.png" alt="Basura click Instal·la ahora" /><figcaption aria-hidden="true">Basura click Instal·la ahora</figcaption>
+            </figure>
+            <figure>
+            <img src="model/25.0.png" alt="Basura click continúa" /><figcaption aria-hidden="true">Basura click continúa</figcaption>
+            </figure>
+            <figure>
+            <img src="model/25.1.png" alt="Basura click continúa" /><figcaption aria-hidden="true">Basura click continúa</figcaption>
+            </figure>
+            <p>Rellenamos los siguientes parámetros:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Parámetro</th>
+            <th>Opción</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Nombre</td>
+            <td>admin0</td>
+            </tr>
+            <tr class="even">
+            <td>Contraseña</td>
+            <td>Una segura, no lliurex</td>
+            </tr>
+            <tr class="odd">
+            <td>Nombre del ordenador</td>
+            <td>4600xxxx.MAS</td>
+            </tr>
+            </tbody>
+            </table>
+            <figure>
+            <img src="model/26.png" alt="Basura click continúa" /><figcaption aria-hidden="true">Basura click continúa</figcaption>
+            </figure>
+            <p>Y se procede a la instalación:</p>
+            <figure>
+            <img src="model/27.png" alt="Instalación" /><figcaption aria-hidden="true">Instalación</figcaption>
+            </figure>
+            <p>Podemos hacer click Reinicia o apagar el ordenador con el menú parar:</p>
+            <figure>
+            <img src="model/28.png" alt="Basura click Reinicia" /><figcaption aria-hidden="true">Basura click Reinicia</figcaption>
+            </figure>
+            <p>Una vez tenemos el ordenador apagado podemos clonar la máquina:</p>
+            <figure>
+            <img src="model/29.png" alt="Clonación de la máquina" /><figcaption aria-hidden="true">Clonación de la máquina</figcaption>
+            </figure>
+            <p>Le damos el nombre a la máquina: 46000xxxx.CEN:</p>
+            <figure>
+            <img src="model/30.png" alt="Nuevo Nombre" /><figcaption aria-hidden="true">Nuevo Nombre</figcaption>
+            </figure>
+            <p>Y seleccionamos clonación completa:</p>
+            <figure>
+            <img src="model/31.png" alt="Clonación" /><figcaption aria-hidden="true">Clonación</figcaption>
+            </figure>
+            <div class="warning">
+            <p>A pesar de que aquí se explica la clonación completa. NO es recomendable hacerla, puesto que después va a requerir unas tareas de mantenimiento en la carpeta /etc/netplan para asegurarte que no se duplican ips. Si se hace la clonación completa se tiene que tratar de hacer siempre antes de inicializar el servidor y reiniciar las macs.</p>
+            </div>
+            <p>El adaptador 2 lo cambiamos a centro en lugar de maestro:</p>
+            <figure>
+            <img src="model/32.png" alt="Adaptador 2" /><figcaption aria-hidden="true">Adaptador 2</figcaption>
+            </figure>
+            <figure>
+            <img src="model/33.png" alt="Adaptador 2" /><figcaption aria-hidden="true">Adaptador 2</figcaption>
+            </figure>
+            <p>Para simular la red del centro en virtualbox vayamos a hacer uso del administrador de red de virtualbox. Anema a <strong>Archivo &gt; Administrador de red anfitrión</strong> y llenamos los parámetros como los de la figura (podéis utilizar la red de vuestro centro)</p>
+            <figure>
+            <img src="model/34.1.png" alt="Administrador de red anfitrión" /><figcaption aria-hidden="true">Administrador de red anfitrión</figcaption>
+            </figure>
+            <p>Emularemos también lo DHCP del router a pesar de que no me hacemos uso:</p>
+            <figure>
+            <img src="model/35.1.png" alt="Servidor DHCP" /><figcaption aria-hidden="true">Servidor DHCP</figcaption>
+            </figure>
+            <div class="warning">
+            <p>Lo router de Telefónica que tenemos en los centros nos proporciona DHCP y la salida a internet, si queremos emular el centro como es debido, podríamos instalar dnsmasq en nuestro ordenador (el hueste de virtualbox). Pero como se trata solo de probar cosas, dejamos que lo virtualbox doy DHCP a través de la 172.254.254.100 (aunque no es necesario puesto que vayamos a dar direcciones estáticas). Y utilizamos la dirección 172.254.254.1 para nuestro ordenador (hueste), para poder conectarnos remotamente si fuera necesario.</p>
+            </div>
+            <p>Si queréis tener acceso a internet desde los servidores de virtualbox tenéis que hacer el siguiente:</p>
+            <pre><code>sysctl limpio.ipv4.ip_forward
+            // Si se 0 entonces hay que aplicar la siguiente línea
+            sudo sysctl -w limpio.ipv4.ip_forward=1
+
+            sudo iptables -t nato -A POSTROUTING -o eth0 -j MASQUERADE
+
+            sudo iptables -A FORWARD -y vboxnet0 -j ACCEPT</code></pre>
+            <h1 data-number="6" id="inicialización-del-servidor"><span class="header-section-number">6</span> Inicialización del servidor</h1>
+            <p>Para poder tener el modelo de centro es importante inicializar el servidor, dependiendo de la configuración que queremos tener tenemos que hacerlo de una manera u otra.</p>
+            <ul>
+            <li>Si solo volamos un servidor de aula, el servidor se inicia como *independiente**.</li>
+            <li>Si queremos tener un servidor *maestro** donde se hace la autenticación (LDAP), lo mirror, las carpetas de usuario y todos los servicios que vullguem dar hay que configurar el maestro y los servidor que se conectan a él, como *esclavos**.</li>
+            </ul>
+            <p>Esta última es la configuración que más nos interesa. Para poder iniciar el servidor haremos uso del programa *zero-server-wizard**. Podemos iniciarlo bés desde la terminal con:</p>
+            <pre><code>zero-server-wizard</code></pre>
+            <div class="info">
+            <p>El cero-center es un apartado exclusivo de lliurex donde se puede encontrar todo aquel software específico de la distribución o instaladores de software que bien porque requieren configuraciones especiales o bien porque son complicados de instalar, facilitan la tarea enormemente.</p>
+            </div>
+            <p>Dónde amem al <strong>zero-center</strong> y buscamos el zero-server-wizard:</p>
+            <figure>
+            <img src="model/36.png" alt="Cero-center" /><figcaption aria-hidden="true">Cero-center</figcaption>
+            </figure>
+            <p>Iniciamos el zero-server-wizard</p>
+            <figure>
+            <img src="model/37.png" alt="zero-server-wizard" /><figcaption aria-hidden="true">zero-server-wizard</figcaption>
+            </figure>
+            <p>En nuestro caso, vamos a iniciar este servidor como maestro. Tenemos que tener especial cura al incluir *exporta el /limpio**, para tener solo uno mirror. La *IP interna** nos interesa tenerla controlada para saber cuál es cada servidor. Y la interfaz de replicación que es por donde se montará el /limpio entre los servidores.</p>
+            <figure>
+            <img src="model/39.png" alt="Configuración del servidor maestro" /><figcaption aria-hidden="true">Configuración del servidor maestro</figcaption>
+            </figure>
+            <div class="caution">
+            <p>Si estás haciendo pruebas al virtualbox en tu casa tienes que tener en cuenta que no estás conectado en la red de Aulas, por lo tanto tienes que posar unos DNS diferentes. Se podan utilizado a modo de ejemplo 1.1.1.1 y 8.8.8.8.</p>
+            </div>
+            <h2 data-number="6.1" id="inicialización-del-servidor-esclavo"><span class="header-section-number">6.1</span> Inicialización del servidor esclavo</h2>
+            <p>Una vez iniciamos el servidor maestro, los esclavos los iniciamos del mismo modo, pero teniendo en cuenta que la ip será diferente y montaremos lo mirror del servidor maestro.</p>
+            <figure>
+            <img src="model/41.png" alt="Configuración del servidor esclavo" /><figcaption aria-hidden="true">Configuración del servidor esclavo</figcaption>
+            </figure>
+            <p>Después de reiniciar volvemos al rape-center (recuerda que siempre al servidor esclavo) y ejecutamos lo <strong>lliurex-mirror-redirect</strong>.</p>
+            <figure>
+            <img src="model/42.png" alt="liurex-mirror-redirect" /><figcaption aria-hidden="true">liurex-mirror-redirect</figcaption>
+            </figure>
+            <p>Escribimos nuestro usuario y contraseña. La última entrada la dejamos en blanco.</p>
+            <figure>
+            <img src="model/43.png" alt="Usuario y contraseña" /><figcaption aria-hidden="true">Usuario y contraseña</figcaption>
+            </figure>
+            <p>Y activamos la opción del lliurex-mirror-redirect. Puedes ir después a la carpeta */limpio/mirror<strong> o escribir a la terminal </strong>mount | grep mirror** para asegurarte que está montado.</p>
+            <figure>
+            <img src="model/44.png" alt="Activar la opción" /><figcaption aria-hidden="true">Activar la opción</figcaption>
+            </figure>
+            <h1 data-number="7" id="instalación-de-clientes"><span class="header-section-number">7</span> Instalación de clientes</h1>
+            <p>De hace un tiempo Consellería ha decidido prescindir de los clientes ligero, y ya no se realizan compras de los mismos. Aunque en los centros han muchos y LliureX continuará apoyando.</p>
+            <h2 data-number="7.1" id="clientes-ligeros"><span class="header-section-number">7.1</span> Clientes ligeros</h2>
+            <p>Para utilizar clientes ligeros utilizaremos *lo admin-center** que podemos encontrar tan en el cero-center como en la página de inicio del firefox. Al entrar a lo admin-center nos encontraremos este menú.</p>
+            <figure>
+            <img src="model/45.png" alt="Menú Admin Center" /><figcaption aria-hidden="true">Menú Admin Center</figcaption>
+            </figure>
+            <p>Haremos click sobre LliureX LTSP y veremos el menú de Gestión de Clientes LTSP, haremos click sobre Gestión de Imágenes de cliente.</p>
+            <figure>
+            <img src="model/46.png" alt="Gestión de Clientes LTSP" /><figcaption aria-hidden="true">Gestión de Clientes LTSP</figcaption>
+            </figure>
+            <p>Una vez ahí Crearemos una nueva imagen.</p>
+            <div class="info">
+            <p>Puedes tener tantas imágenes como vullgues. Si tienes diferentes modelos de clientes ligeros, tal vez te interese tener varías. Además, si tienes una pizarra digital, es conveniente tener una imagen para el ordenador en pizarra y otra para el resto de ordenadores.</p>
+            </div>
+            <figure>
+            <img src="model/47.png" alt="Creación de una nueva imagen" /><figcaption aria-hidden="true">Creación de una nueva imagen</figcaption>
+            </figure>
+            <p>Escogemos la opción de cliente puesto que esta es la que nos permite logar-noes con LDAP del servidor del servidor maestro.</p>
+            <figure>
+            <img src="model/48.png" alt="Cliente" /><figcaption aria-hidden="true">Cliente</figcaption>
+            </figure>
+            <figure>
+            <img src="model/49.png" alt="Cliente - parámetros" /><figcaption aria-hidden="true">Cliente - parámetros</figcaption>
+            </figure>
+            <h3 data-number="7.1.1" id="asociar-cliente-a-imagen"><span class="header-section-number">7.1.1</span> Asociar cliente a imagen</h3>
+            <p>Podemos asociar la imagen de un cliente para que se inicie siempre con esa imagen. Esta situación nos interesarà principalmente al ordenador del profesor si tiene una pizarra digital. Vamos a Gestión de cliente del aula:</p>
+            <figure>
+            <img src="model/54.png" alt="Gestión de clientes del aula" /><figcaption aria-hidden="true">Gestión de clientes del aula</figcaption>
+            </figure>
+            <p>Para poder ver los clientes es necesario que se hayan puesto en marcha al menos una vez y sea lo mismo servidor quién los haya dado una ip (Las ips se agafan de la tabla del dnsmasq).</p>
+            <figure>
+            <img src="model/55.png" alt="Listado de ordenadores en el aula" /><figcaption aria-hidden="true">Listado de ordenadores en el aula</figcaption>
+            </figure>
+            <p>Haces doble click sobre un ordenador (estos vienen identificados con la ip y la MAC). Y nos aparecerá el siguiente menú:</p>
+            <figure>
+            <img src="model/56.png" alt="Configuración de cliente" /><figcaption aria-hidden="true">Configuración de cliente</figcaption>
+            </figure>
+            <p>En el último apartado podemos ver un menú desplegable para escoger la imagen con la cual queremos arrancar.</p>
+            <div class="info">
+            <p>Hace falta actualizado la página de lo admin-center una vez se han detectado los clientes para que funciono la ventana de parámetros.</p>
+            </div>
+            <h2 data-number="7.2" id="instalar-nuevo-software-en-una-imagen"><span class="header-section-number">7.2</span> Instalar nuevo software en una imagen</h2>
+            <h2 data-number="7.3" id="clientes-pesados"><span class="header-section-number">7.3</span> Clientes pesados</h2>
+            <p>Para instalar clientes pesados la mejor opción es habilitar la instalación por red. Por lo tanto, vamos a LliureX Netinstall y configuramos los parámetros para hacer una instalación desatendida.</p>
+            <figure>
+            <img src="model/50.1.png" alt="LliureX Netinstall" /><figcaption aria-hidden="true">LliureX Netinstall</figcaption>
+            </figure>
+            <p>Ejemplo de intal·lació.</p>
+            <figure>
+            <img src="model/50.png" alt="Parámetros instalación desatendida 1" /><figcaption aria-hidden="true">Parámetros instalación desatendida 1</figcaption>
+            </figure>
+            <figure>
+            <img src="model/51.png" alt="Parámetros instalación desatendida 2" /><figcaption aria-hidden="true">Parámetros instalación desatendida 2</figcaption>
+            </figure>
+            <h2 data-number="7.4" id="boot-manager"><span class="header-section-number">7.4</span> Boot Manager</h2>
+            <p>Para escoger la imagen que se ejecuta por defecto podemos ir al menú principal a <strong>Boot Manager</strong> y cambiar qué opciones por defecto volamos para iniciar el servidor.</p>
+            <figure>
+            <img src="model/53.png" alt="Menú boot manager" /><figcaption aria-hidden="true">Menú boot manager</figcaption>
+            </figure>
+            <h1 data-number="8" id="creación-de-usuarios-con-llum"><span class="header-section-number">8</span> Creación de usuarios con Llum</h1>
+            <p>Llum es al herramienta que nos va a permitir gestionar los usuarios de nuestro centro. Podemos acceder a la luz desde el cero-center. Podemos crear todos los usuarios del centro importando los usuarios de Itaca, para hacer esto hay que ir a la pestaña de “Centro” y escoger la entrada “Importación/Exportación” donde seleccionaremos la opción Aula LliureX.</p>
+            <figure>
+            <img src="model/usuarios29.png" alt="Itaca" /><figcaption aria-hidden="true">Itaca</figcaption>
+            </figure>
+            <p>Y después iniciamos llum:</p>
+            <figure>
+            <img src="model/57.png" alt="Llum" /><figcaption aria-hidden="true">Llum</figcaption>
+            </figure>
+            <p>Una vez hemos iniciado Llum vamos a la opción de importar/exportar de Itaca e importamos los usuarios.</p>
+            <div class="warning">
+            <p>Se podría tener un modelo de centro funcionando con servidores virtualitzats sobre una misma LliureX? Sí, en ninguna parte de PROXMOX, podríamos tener como sistema base una LliureX y enlazar la tarjeta externa de cada servidor a la tarjeta física donde está conectado lo switch para el aula de informática, para los ordenadores del centro, etc… Pero no tendríamos gestión remota (o sería más complicado). Y LliureX no se un sistema pensado para tal fin. PROXMOX sí.</p>
+            </div>
+            </div>
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>

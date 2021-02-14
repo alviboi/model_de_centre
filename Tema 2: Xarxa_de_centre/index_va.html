@@ -1,0 +1,809 @@
+<!doctype html>
+<html  lang="ca" >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alfredo Rafael Vicente Boix i Javier Estellés Dasi" />
+  <meta name="date" content="2020-11-25" />
+  <title>CONFIGURACIÓ DE XARXA</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">CONFIGURACIÓ DE XARXA</span>
+        <ul class="nav pull-right doc-info">
+                    <li><p class="navbar-text">Alfredo Rafael Vicente Boix i Javier Estellés Dasi</p></li>
+                              <li><p class="navbar-text">2020-11-25</p></li>
+                  </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#introducció"><span class="toc-section-number">1</span> Introducció</a></li>
+        <li><a href="#conceptes-de-xarxa"><span class="toc-section-number">2</span> Conceptes de xarxa</a>
+        <ul>
+        <li><a href="#vlan-i-lag"><span class="toc-section-number">2.1</span> VLAN i LAG</a>
+        <ul>
+        <li><a href="#com-sap-un-ordinador-amb-diferents-vlans-quina-xarxa-ha-descollir"><span class="toc-section-number">2.1.1</span> Com sap un ordinador amb diferents VLANS quina xarxa ha d’escollir?</a></li>
+        </ul></li>
+        <li><a href="#bondinglink-aggregation"><span class="toc-section-number">2.2</span> Bonding/Link Aggregation</a></li>
+        </ul></li>
+        <li><a href="#model-dexemple"><span class="toc-section-number">3</span> Model d’exemple</a>
+        <ul>
+        <li><a href="#configuració-dels-switchs"><span class="toc-section-number">3.1</span> Configuració dels switchs</a>
+        <ul>
+        <li><a href="#configuració-de-switch-principal-amb-el-netgear-gs724t"><span class="toc-section-number">3.1.1</span> Configuració de Switch principal amb el Netgear GS724T</a></li>
+        <li><a href="#configuració-de-switch-de-aula-d-link-dgs1210-48"><span class="toc-section-number">3.1.2</span> Configuració de Switch de Aula D-LINK DGS1210-48</a></li>
+        </ul></li>
+        </ul></li>
+        <li><a href="#bibliografia-i-referències"><span class="toc-section-number">4</span> Bibliografia i referències</a></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+            <!-- \awesomebox[violet]{2pt}{\faRocket}{violet}{Lorem ipsum…} -->
+            <h1 data-number="1" id="introducció"><span class="header-section-number">1</span> Introducció</h1>
+            <p>Fins ara hem vist que en el model clàssic de centre existia un servidor en cadascuna de les aules d’informàtica. Per tant, per a gestionar-lo calia anar a l’aula d’informàtica, o connectar-se bé via ssh o per vnc. Amb el nou model de centre canviem el paradigma i tindrem tots els servidors virtualitzats en un hipervisor o en un cluster d’hipervisors. A mode d’exemple tenim el següent esquema de model clàssic.</p>
+            <figure>
+            <img src="models/classic.png" alt="Esquema simplificat model clàssic" /><figcaption aria-hidden="true">Esquema simplificat model clàssic</figcaption>
+            </figure>
+            <p>I hem de passar al següent al nou esquema.</p>
+            <figure>
+            <img src="models/prox.png" alt="Esquema simplificat nou model" /><figcaption aria-hidden="true">Esquema simplificat nou model</figcaption>
+            </figure>
+            <p>Per tant, és necessari que cada ordinador bé siga del centre, de l’Aula d’informàtica o la wifi sàpiga quina és la seua xarxa i/o el seu servidor. Per a aconseguir-ho utilitzarem Xarxes virtuals (VLAN).</p>
+            <div class="info">
+            <p>La VLAN que utilitzarem en es una VLAN de nivell 1 o per port, existeixen altres tipus de VLAN, per mac, subxarxa, protocol… Que poden tindre interès en un entorn empresarial o siga necessària la mobilitat del lloc de treball.</p>
+            </div>
+            <h1 data-number="2" id="conceptes-de-xarxa"><span class="header-section-number">2</span> Conceptes de xarxa</h1>
+            <p>En aquesta unitat configurarem un esquema de xarxa mode amb dos switchs a mena d’exemple. Coneixent com es configuren dos swiths, configurar-ne’n més es fa de manera similar. Però abans anem a veure un poc de terminologia i tecnologia que anem a utilitzar.</p>
+            <div class="warning">
+            <p>Es pressuposa certa expertesa en tema de xarxes com saber què és una IP, un switch o un router, com es connecten els ordinadors en xarxa o configurar una estació de treball en una xarxa.</p>
+            </div>
+            <h2 data-number="2.1" id="vlan-i-lag"><span class="header-section-number">2.1</span> VLAN i LAG</h2>
+            <p>Tractarem de fer una breu explicació per entendre les VLANS sense entrar en detalls tècnics que no corresponen a aquest curs. A les xarxes virtuals per port, tal i com diu el nom, hem de configurar cadascun dels ports segons la xarxa virtual que nosaltres volem tindre. Es poden configurar tantes VLANS com el switch ho permeta. En el nostre cas, la quantitat màxima és de 256, més que suficient per al que anem a fer. A mode d’exemple podríem tenir el següent switch on cada port pertany a una o més VLANS.</p>
+            <figure>
+            <img src="switch/vlan.png" alt="Esquema d’un switch amb diferents VLANS" /><figcaption aria-hidden="true">Esquema d’un switch amb diferents VLANS</figcaption>
+            </figure>
+            <p>Hem de tenir en compte que:</p>
+            <ul>
+            <li>Hem de configurar cadascun dels ports del switch amb la VLAN corresponent. És per això que es necessari tenir <strong>switchs gestionables</strong> per a poder configurar la xarxa.</li>
+            <li>Si en fixem en la VLAN 110 en roig, podem veure que la VLAN que entra és la 110 i la que ix és la mateixa.</li>
+            <li>En canvi, al port 12 podem veure com la VLAN que ix és la 60 i la 110, ja que el port està configurat per a pertànyer a 2 VLANS.</li>
+            <li>Al port 16 passa el mateix però amb 4 VLANS, els port de la zona taronja estan configurats per a tenir 4 VLANS.</li>
+            <li>Si a un port arriba una connexió sense cap VLAN i el port està configurat amb la VLAN 10, la connexió que surt és de la VLAN 10.</li>
+            </ul>
+            <p>Per a fer-vos una idea senzilla simplement heu de tenir en compte cadascun dels quadrats. Quan penseu en la VLAN 110, penseu en els port que pertanyen a eixa VLAN. Però ara se’ns planteja la següent qüestió.</p>
+            <h3 data-number="2.1.1" id="com-sap-un-ordinador-amb-diferents-vlans-quina-xarxa-ha-descollir"><span class="header-section-number">2.1.1</span> Com sap un ordinador amb diferents VLANS quina xarxa ha d’escollir?</h3>
+            <p>Si l’ordinador suporta VLANS que no és el més habitual, es deurà de configurar a l’arxiu corresponent. Però com normalment es tracta d’una màquina de treball, li direm al port del switch on va a connectar-se l’ordinador que va a connectar-se una màquina que no entén de VLANS. A aquesta opció l’anomenem <strong>UNTAGGED</strong>. Si en lloc d’un ordinador connectem un switch (que sí entén de VLANS). Entendrà que la VLAN untagged és per a ell (per exemple un DHCP que li oferix una ip, o la xarxa per a poder accedir per a gestionar-lo) i les <strong>TAGGED</strong> serán aquelles que passaran als ports configurats amb les respectives VLANS. A mode d’exemple podem veure.</p>
+            <figure>
+            <img src="switch/vlans2.png" alt="Esquema d’un switch amb diferents VLANS" /><figcaption aria-hidden="true">Esquema d’un switch amb diferents VLANS</figcaption>
+            </figure>
+            <p>Aquesta és la situació que ens trobarem normalment al centres. En aquest cas podem veure que, arriben 4 VLANS, la 1 arriba untagged, el que significa que el switch haurà de tindre una ip de la VLAN 1. La VLAN 2+3+4 com estàn tagged, estaran connectades a la xarxa 2,3 i 4 respectivament. Com que anem a connectar un ordinador a eixe port les hem posades unttagged. Podem veure com seria la connexió entre dos ordinador connectats a la mateixa VLAN:</p>
+            <figure>
+            <img src="switch/vlanmoviment.png" alt="Recorregut entre dos ordinadors" /><figcaption aria-hidden="true">Recorregut entre dos ordinadors</figcaption>
+            </figure>
+            <div class="caution">
+            <p>Aquesta explicació no pretén ser tècnica ja aquest curs no va adreçat únicament a gent amb una formació tècnica, sinó de generar una idea sobre com funcionen les VLANs sense entrar en com es marquen les VLANS a nivell de connexió. Hi ha molta informació al respecte a la web. Això sí, és important tindre una idea de com funciona. A mesura que practiqueu amb algun switch anireu agafant soltesa.</p>
+            </div>
+            <h2 data-number="2.2" id="bondinglink-aggregation"><span class="header-section-number">2.2</span> Bonding/Link Aggregation</h2>
+            <p>El bonding és una manera de poder ampliar la velocitat de connexió entre dos màquines, poden ser bé dos ordinadors, dos switchs, o un ordinador i un switch, etc…</p>
+            <figure>
+            <img src="switch/bond.png" alt="Exemple de bonding" /><figcaption aria-hidden="true">Exemple de bonding</figcaption>
+            </figure>
+            <p>Els avantatges i consideracions que té fer un bonding entre dos màquines són:</p>
+            <ul>
+            <li>Augmentes la velocitat.</li>
+            <li>Si un cable deixa de funcionar, la connexió es manté.</li>
+            <li>Utilitzant el protocol <strong>LACP</strong> augmenta la compatibilitat entre diferents màquines.</li>
+            <li>Simplifica les connexions.</li>
+            </ul>
+            <div class="caution">
+            <p>De la mateixa manera que l’apartat anterior aquesta explicació no pretén ser tècnica sinó donar una idea. Cal incidir que per al cas que estem tractant i en funció de marques, moltes vegades s’utilitzen indistintament els termes, <strong>bonding</strong>, <strong>trunking</strong>, <strong>LAG</strong>, <strong>bundling</strong> o <strong>channeling</strong>. I segur que s’utilitzen altres terminologies que no coneguem.</p>
+            </div>
+            <h1 data-number="3" id="model-dexemple"><span class="header-section-number">3</span> Model d’exemple</h1>
+            <p>Partirem de l’exemple del següent model. Per a poder fer-lo hem utilitzat:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Dispositiu</th>
+            <th>Característiques</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Dlink DGS-12-10-48</td>
+            <td>Switch de 48 ports a 1Gb</td>
+            </tr>
+            <tr class="even">
+            <td>Netgear GS724T</td>
+            <td>Switch de 24 ports a 1 Gb</td>
+            </tr>
+            <tr class="odd">
+            <td>Servidor SEH1</td>
+            <td>Ordinador de 32 Gb i processador i7</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>L’esquema es quedaria de la seqüent manera. Una vegada tinguem dissenyat el esquema del nostre centre podem passar a configurar cadascun del switchs.</p>
+            <figure>
+            <img src="models/Model_ex.png" alt="Exemple de model de centre per a treballar" /><figcaption aria-hidden="true">Exemple de model de centre per a treballar</figcaption>
+            </figure>
+            <h2 data-number="3.1" id="configuració-dels-switchs"><span class="header-section-number">3.1</span> Configuració dels switchs</h2>
+            <p>Abans de començar cal que ens creem una taula per a definir, les adreces ip dels switch i quins ports van a tenir cadascuna de les VLANs. El rang del centre fictici que tenim creat al nostre exemple és el 172.254.254.X</p>
+            <p>Les adreces IP dels switchs seran:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Switch</th>
+            <th>Adreça</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Dlink DGS-12-10-48</td>
+            <td>172.254.254.11</td>
+            </tr>
+            <tr class="even">
+            <td>Netgear GS724T</td>
+            <td>172.254.254.10</td>
+            </tr>
+            </tbody>
+            </table>
+            <h3 data-number="3.1.1" id="configuració-de-switch-principal-amb-el-netgear-gs724t"><span class="header-section-number">3.1.1</span> Configuració de Switch principal amb el Netgear GS724T</h3>
+            <p>Basant-nos en l’exemple que este seguint l’esquema del switch quedaria de la següent manera:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Ports</th>
+            <th>VLAN</th>
+            <th>Bond</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>P1 a P4</td>
+            <td>1</td>
+            <td>No</td>
+            </tr>
+            <tr class="even">
+            <td>P5 a P10</td>
+            <td>110</td>
+            <td>No</td>
+            </tr>
+            <tr class="odd">
+            <td>P11 a P12</td>
+            <td>1,110,120,130</td>
+            <td>Si LAG1</td>
+            </tr>
+            <tr class="even">
+            <td>P13 a P16</td>
+            <td>1,110,120,130</td>
+            <td>Si LAG4</td>
+            </tr>
+            <tr class="odd">
+            <td>P17 a P20</td>
+            <td>1,110,120,130</td>
+            <td>Si LAG3</td>
+            </tr>
+            <tr class="even">
+            <td>P21 a P24</td>
+            <td>1,110,120,130</td>
+            <td>Si LAG2</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>* LAG = Link Aggregation group. És el que nosaltres estem anomenant <strong>bond</strong>.</p>
+            <p>Encara que per a configurar el switch és millor traure’t un esquema de la següent manera:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>VLANs</th>
+            <th>Ports</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>1</td>
+            <td>U-P1, U-P2, U-P3, U-P4, U-LAG1, T-LAG2, T-LAG3, T-LAG4</td>
+            </tr>
+            <tr class="even">
+            <td>110</td>
+            <td>U-P5, U-P6, U-P7, U-P8, U-P9, U-P10 T-LAG1, T-LAG2, T-LAG3, T-LAG4</td>
+            </tr>
+            <tr class="odd">
+            <td>120</td>
+            <td>T-LAG1, T-LAG2, T-LAG3, T-LAG4</td>
+            </tr>
+            <tr class="even">
+            <td>130</td>
+            <td>T-LAG1, T-LAG2, T-LAG3, T-LAG4</td>
+            </tr>
+            <tr class="odd">
+            <td>200</td>
+            <td>T-LAG2, T-LAG3, T-LAG4</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>La VLAN 200 l’utilitzem per a la <strong>xarxa de replicació de LliureX</strong>. Concepte que tractarem en l’última unitat.</p>
+            <div class="info">
+            <p>És possible que vos pregunteu el perquè del T2 i T3. Hem deixat preparat el switch per si volem crear un cluster amb altres hipervisors.</p>
+            </div>
+            <p>Abans que res per a accedir al switch hem de tindre’l dins de la mateixa xarxa. Si el switch ja està configurat i coneguem l’adreça ip i la contrasenya ens podem votar el següent pas.</p>
+            <h4 data-number="3.1.1.1" id="reinicialitzar-switch"><span class="header-section-number">3.1.1.1</span> Reinicialitzar switch</h4>
+            <p>Per a reinicialitzar el switch hem d’utilitzar un clip i mantindre durant 10 segons el clip al botó de la imatge. L’adreça per defecte per a accedir és la 192.168.0.139 (depèn sempre de marques i models)</p>
+            <figure>
+            <img src="switch/netgearreset.png" alt="Reset del switch Netgear" /><figcaption aria-hidden="true">Reset del switch Netgear</figcaption>
+            </figure>
+            <div class="warning">
+            <p><strong>Tinc en compte</strong> que si el switch ja està connectat a una xarxa aquest agafarà una adreça per DHCP.</p>
+            </div>
+            <p>Si el switch ha agafat una adreça per DHCP pots tractar d’esbrinar la seua ip amb el comandament:</p>
+            <div class="sourceCode" id="cb1"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sudo nmap -sP 172.254.254.*</span></code></pre></div>
+            <p>Utilitzem <strong>sudo</strong> ja que ens un poc més d’informació.</p>
+            <h4 data-number="3.1.1.2" id="accedir-a-switch"><span class="header-section-number">3.1.1.2</span> Accedir a switch</h4>
+            <p>Per a poder accedir al switch has de tenir configurada la xarxa de l’ordinador dins del mateix rang que el switch. Podem configurar la xarxa de la següent manera: Anem al panell de ferramentes i clickem sobre la icona del pc.</p>
+            <figure>
+            <img src="Switchs/lliuxarxa1.png" alt="Configuració de xarxa amb lliurex" /><figcaption aria-hidden="true">Configuració de xarxa amb lliurex</figcaption>
+            </figure>
+            <p>Allí canviem la configuració. Podem crear-ne una nova fent click sobre el més. En aquest cas hem configurat l’adreça 10.90.90.100, però per al switch Netgear seria la 192.168.0.100, o qualsevol que no siga la 192.168.0.239.</p>
+            <figure>
+            <img src="Switchs/lliuxarxa2.png" alt="Configuració de xarxa amb lliurex" /><figcaption aria-hidden="true">Configuració de xarxa amb lliurex</figcaption>
+            </figure>
+            <div class="caution">
+            <p>Una vegada canviada la configuració heu de desconnectar-vos i tornar-vos a connectar sinó no vos canviarà la ip.</p>
+            </div>
+            <h4 data-number="3.1.1.3" id="configuració-del-switch"><span class="header-section-number">3.1.1.3</span> Configuració del Switch</h4>
+            <p>Una vegada ja teniu la ip al mateix rang, ja podeu accedir al switch a través del navegador:</p>
+            <figure>
+            <img src="Switchs/netgear1.png" alt="Switch Netgear" /><figcaption aria-hidden="true">Switch Netgear</figcaption>
+            </figure>
+            <p>El primer que caldria fer es accedir al switch per a canviar la seua ip i posar-la dins del rang de la nostra xarxa de Aules.</p>
+            <figure>
+            <img src="Switchs/netgear2.png" alt="Anem a IP Configuration" /><figcaption aria-hidden="true">Anem a IP Configuration</figcaption>
+            </figure>
+            <figure>
+            <img src="Switchs/netgear3.png" alt="Actualitzem la IP" /><figcaption aria-hidden="true">Actualitzem la IP</figcaption>
+            </figure>
+            <p>Una vegada actualitzada la IP del switch recorda canviar la IP del teu ordinador per a poder tornar a accedir. Després anem a la secció de LAG, per a configurar cadascun dels LAG segons la imatge.</p>
+            <figure>
+            <img src="Switchs/netgear4.png" alt="Secció LAG" /><figcaption aria-hidden="true">Secció LAG</figcaption>
+            </figure>
+            <p>Quan tenim definits tots els LAGs, anem a LAG membership i afegim els ports als quals pertanyen cadascun dels switchs.</p>
+            <figure>
+            <img src="Switchs/netgear5.png" alt="LAG membership" /><figcaption aria-hidden="true">LAG membership</figcaption>
+            </figure>
+            <p>Ens ha de quedar una cosa així:</p>
+            <figure>
+            <img src="Switchs/netgear6.png" alt="Relació de LAGs a Netgear" /><figcaption aria-hidden="true">Relació de LAGs a Netgear</figcaption>
+            </figure>
+            <p>Després hem de definir les VLANS, anem a la pestanya de VLAN i configurem les nostres VLAN.</p>
+            <figure>
+            <img src="Switchs/netgear7.png" alt="Configuració VLANs" /><figcaption aria-hidden="true">Configuració VLANs</figcaption>
+            </figure>
+            <p>Ens ha de quedar una cosa així:</p>
+            <figure>
+            <img src="Switchs/netgear8.png" alt="Relació VLANs" /><figcaption aria-hidden="true">Relació VLANs</figcaption>
+            </figure>
+            <p>I afegim els ports untagged de cadascuna de els VLAN en l’apartat VLAN membership.</p>
+            <figure>
+            <img src="Switchs/netgear9.png" alt="Paràmetres de cada port" /><figcaption aria-hidden="true">Paràmetres de cada port</figcaption>
+            </figure>
+            <p>Després canviem del menú VLAN ID cadascuna de les VLAN i anem configurant-les una a una.</p>
+            <div class="warning">
+            <p>Recorda donar-li al botó Apply cadascuna de les vegades que acabes la configuració d’una VLAN.</p>
+            </div>
+            <figure>
+            <img src="Switchs/netgear10.png" alt="Canvi de VLAN" /><figcaption aria-hidden="true">Canvi de VLAN</figcaption>
+            </figure>
+            <p>El mateix amb la VLAN 120.</p>
+            <figure>
+            <img src="Switchs/netgear11.png" alt="Paràmetres VLAN 120" /><figcaption aria-hidden="true">Paràmetres VLAN 120</figcaption>
+            </figure>
+            <p>La 130.</p>
+            <figure>
+            <img src="Switchs/netgear12.png" alt="Paràmetres VLAN 130" /><figcaption aria-hidden="true">Paràmetres VLAN 130</figcaption>
+            </figure>
+            <p>I la de replicació.</p>
+            <figure>
+            <img src="Switchs/netgear13.png" alt="VLAN de replicació" /><figcaption aria-hidden="true">VLAN de replicació</figcaption>
+            </figure>
+            <div class="warning">
+            <p>Finalment i és molt important, als switchs Netgear (no amb els d’altres marques) és necessari canviar el paràmetre PVID, pel que cal anar a l’apartat PVID configuration i canviar-lo en aquells ports untagged al valor que hem donat untagged. Altres marques aquest pas es fan automàticament.</p>
+            </div>
+            <figure>
+            <img src="Switchs/netgear14.png" alt="Configuració PVID" /><figcaption aria-hidden="true">Configuració PVID</figcaption>
+            </figure>
+            <h3 data-number="3.1.2" id="configuració-de-switch-de-aula-d-link-dgs1210-48"><span class="header-section-number">3.1.2</span> Configuració de Switch de Aula D-LINK DGS1210-48</h3>
+            <p>Cal dir que, tot i que anomenem aquest switch, switch de Aula, podria ser perfectament uns witch que dona servei a les aules del voltant i a l’aula d’informàtica. La configuració d’aquest switch quedaria de la següent manera:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>VLANs</th>
+            <th>Ports</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>1</td>
+            <td>U-P1, U-P2, U-P3, U-P4, U-LAG1 (U-P47,U-P48)</td>
+            </tr>
+            <tr class="even">
+            <td>110</td>
+            <td>U-P5 a U-P16 T-LAG1 (T-P47,T-P48)</td>
+            </tr>
+            <tr class="odd">
+            <td>120</td>
+            <td>U-P17 a U-P46 T-LAG1 (T-P47,T-P48)</td>
+            </tr>
+            <tr class="even">
+            <td>130</td>
+            <td>T-LAG1 (T-P47,T-P48)</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Hem indicat els ports entre parèntesis, ja que, al contrari en el Netgear, en este switch sí que has de configurar els ports pertanyents al LAG.</p>
+            <h4 data-number="3.1.2.1" id="reinicialitzar-switch-1"><span class="header-section-number">3.1.2.1</span> Reinicialitzar switch</h4>
+            <p>Per a reinicialitzar el switch D-link hi ha que procedir de manera similar al Netgear, cal polsar el botó <em>reset</em> durant 10s aproximadament.</p>
+            <figure>
+            <img src="switch/dlinkreset.png" alt="Reinicialització del switch D-link" /><figcaption aria-hidden="true">Reinicialització del switch D-link</figcaption>
+            </figure>
+            <div class="warning">
+            <p><strong>Tinc en compte</strong> que, al igual que el Netgear si el switch ja està connectat a una xarxa aquest agafarà una adreça per DHCP. Per a fer el reset és recomanable no tenir cap cable connectat al switch.</p>
+            </div>
+            <p>Si el switch ha agafat una adreça per DHCP pots tractar d’esbrinar la seua ip amb el comandament:</p>
+            <div class="sourceCode" id="cb2"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sudo nmap -sP 172.254.254.*</span></code></pre></div>
+            <h4 data-number="3.1.2.2" id="configuració-del-switch-1"><span class="header-section-number">3.1.2.2</span> Configuració del Switch</h4>
+            <p>Una vegada tingues la ip al mateix rang, ja pots accedir a ell, la ip per defecte del switch D-link és 10.90.90.90, per tant canviarem la ip del nostre ordinador i accedirem a ell. Igualment podem utilitzar la terminal per a crear un alias. Depenent de si tens instal·lat el ifconfig o no pots utilitzar qualsevol dels següents comandaments</p>
+            <div class="sourceCode" id="cb3"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sudo ip addr addr add 10.90.90.100/24 dev eth0 label eth0:1</span></code></pre></div>
+            <div class="sourceCode" id="cb4"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sudo ifconfig eth0:1 10.90.90.100 netmask 255.255.255.0 up</span></code></pre></div>
+            <p>Després ja podem entrar al switch, la contrasenya per a poder entrar és <em>admin</em>.</p>
+            <figure>
+            <img src="Switchs/dlink1.png" alt="Login a switch D-link" /><figcaption aria-hidden="true">Login a switch D-link</figcaption>
+            </figure>
+            <p>Posteriorment configurem la IP del switch.</p>
+            <figure>
+            <img src="Switchs/dlink2.png" alt="Configuració IP" /><figcaption aria-hidden="true">Configuració IP</figcaption>
+            </figure>
+            <p>I canviem la contrasenya genèrica</p>
+            <figure>
+            <img src="Switchs/dlink3.png" alt="Canvi contrasenya" /><figcaption aria-hidden="true">Canvi contrasenya</figcaption>
+            </figure>
+            <p>Si anem a gestionar el switch a través de SNMP caldrà habilitar aquesta opció.</p>
+            <figure>
+            <img src="Switchs/dlink4.png" alt="SNMP" /><figcaption aria-hidden="true">SNMP</figcaption>
+            </figure>
+            <p>També es pot canviar la configuració de la ip desde les opcions de configuració.</p>
+            <figure>
+            <img src="Switchs/dlink5.png" alt="Configuració de IP" /><figcaption aria-hidden="true">Configuració de IP</figcaption>
+            </figure>
+            <p>Per a configurar el LAG fem el següent procediment.</p>
+            <figure>
+            <img src="Switchs/dlink7.png" alt="Configuració del LAG" /><figcaption aria-hidden="true">Configuració del LAG</figcaption>
+            </figure>
+            <p>Cal configurar el switch per a la VLAN de gestió. En el nostre cas es la 1.</p>
+            <figure>
+            <img src="Switchs/dlink8.png" alt="Habilitar VLAN de gestió" /><figcaption aria-hidden="true">Habilitar VLAN de gestió</figcaption>
+            </figure>
+            <p>Habilitem el Spanning tree.</p>
+            <div class="info">
+            <p>El spanning tree es un protocol que detecta bucles en la xarxa i pot desactivar ports si en detecta algun.</p>
+            </div>
+            <figure>
+            <img src="Switchs/dlink9.png" alt="Spanning tree" /><figcaption aria-hidden="true">Spanning tree</figcaption>
+            </figure>
+            <p>Ara es quan hem de configurar les VLAN, a la imatge podem veure ja totes les VLAN configurades. En un principi només ens apareixerà la VLAN 1, a la qual és necessari entrar ja que tots els ports están configurats en eixa VLAN. Es procedirà a passar-los a <em>Not member</em> ja que no et permetrà assignar-los a altra VLAN si ja estan configurats. Per a afegir noves VLAN hem de donar-li al botó Add.</p>
+            <figure>
+            <img src="Switchs/dlink10.png" alt="VLANs del switch" /><figcaption aria-hidden="true">VLANs del switch</figcaption>
+            </figure>
+            <figure>
+            <img src="Switchs/dlink12.png" alt="Canvi d’estat de ports i donem a Apply" /><figcaption aria-hidden="true">Canvi d’estat de ports i donem a Apply</figcaption>
+            </figure>
+            <p>Una vegada hem donat al botó Add, configurem la VID i la VLAN Name, seleccionem els ports que pertanyen a eixa VLAN i li donem a Apply.</p>
+            <figure>
+            <img src="Switchs/dlink13.png" alt="Switch D-link" /><figcaption aria-hidden="true">Switch D-link</figcaption>
+            </figure>
+            <div class="caution">
+            <p>Finalment, i en alguns switchs és de vital importància, cal salvar la configuració ja que, si hi ha un tall de subministrament elèctric el switch torna a la configuració d’abans. En aquest cas, donat que tenim un switch amb un LAG, probablement provocaríem un bucle en la xarxa i deixaria de funcionar tot el centre. Per tant hi ha que anar molt amb compte en aquests detalls.</p>
+            </div>
+            <p>Procedim a salvar la configuració:</p>
+            <figure>
+            <img src="Switchs/dlink14.png" alt="Salvem la configuració del switch" /><figcaption aria-hidden="true">Salvem la configuració del switch</figcaption>
+            </figure>
+            <figure>
+            <img src="Switchs/dlink15.png" alt="Confirmem que volem guardar la configuració" /><figcaption aria-hidden="true">Confirmem que volem guardar la configuració</figcaption>
+            </figure>
+            <p>Ara en aquests moments ja tenim tots els switch preparats per a posar en funcionament el nostre centre. Al proper tema instal·larem el Proxmox de les diferents maneres possibles i configurarem els paràmetres del servidor.</p>
+            <!-- 
+            ![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](Proxmox-logo.png)
+
+            És important tenir clar els següents conceptes abans de començar la instal·lació.
+
+            * **AMT** funciona com un sistema independent, per tant tindrà la seua pròpia ip.
+            * Els suports físics cada vegada s'utilitzen menys. Recorda quan va ser última vegada que utilitzares un CD-ROM.
+            * Anem a fer una instal·lació de proxmox. No és necessari tenir accés a la consola de Proxmox en cap moment, per tant si ja tens l'hipervisor muntat al rack, no el desmuntes.
+            * Les IPs utilitzades no corresponen amb les indicades al que recomana el SAI. És la tasca que se vos manarà!
+
+            ![Esquema orientatiu](Esquema.png)
+
+            \newpage
+
+            # Posada a punt del servidor
+
+            Per a posar a punt el servidor, és recomanable, encara que no imprescindible habilitar el AMT, per a posteriorment utilitzar la ferramenta meshcomander per a fer una instal·lació remota.
+
+            ## Habilitar AMT de Intel
+
+            Els servidors distribuïts als centres disposen de la ferramenta AMT de Intel per a poder connectar-se remotament, no sols ens permetrà arrancar l'hipervisor sinó que també ens permetrà configurar certes funcionalitats bàsiques. Però abans que res, caldrà entrar a la BIOS.
+            Per a accedir a la BIOS (Model SEH1) polsem F2 en el setup de l'ordinador.
+
+            ![BIOS del sistema](amt-conf/Desktop--2020-11-25-18-25.png)
+
+            \newpage
+
+            Una vegada dins anem a la pestanya *Advanced*.
+
+            ![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-26.png)
+
+            \newpage
+
+            I seleccionem *AMT Configuration*.
+
+            ![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-262.png)
+
+            \newpage
+
+            Canviem *MEBx Mode* i seleccionem l'opció Enter MEBx Setup
+
+            ![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-26-2.png)
+
+            \newpage
+
+            Finalment salvem els paràmetres i reiniciem.
+
+            ![Proxmox és la ferramenta que utilitzarem per a virtualitzar els servidors](amt-conf/Desktop--2020-11-25-18-27.png)
+
+            ## Configuració del AMT
+
+            Una vegada hem habilitat el AMT, entrem en la configuració del mateix i configurem els següents paràmetres.
+
+            ::: tip
+            **Info**: Per obvis motius de seguretat no es permet entrar a la configuració del AMT per VNC, pel que algunes de les següents imatges están fotografiades de la pantalla.
+            :::
+
+            Quan entren a la ferramenta de configuració del AMT, hem de logar-nos. La contrasenya d'administrador és **admin**. Posteriorment ens demanarà que canviem la contrasenya per una nova.
+
+            ::: warning
+            **Contrasenya**: Hem de respectar la política de contrasenyes, amb majúscula, minúscula i caràcter especial.
+            :::
+
+            ![Entrem a la ferramenta de configuració](mebx/-000.png)
+
+            ![Introduïm la contrasenya](mebx/-001.png)
+
+            Hem d'accedir a les següents opcions per a fer una configuració bàsica.
+
+            | Opció | Funcionalitat |
+            | -- | -- |
+            | **User Consent** | Ens permetrà poder connectar-nos al servidor per VNC sense donar permís |
+            | **Network Setup** | Per a configurar les opcions de xarxa |
+            | **Activate Network Access** | Hem de fer click sobre aquesta opció per a poder accedir a l'hipervisor |
+
+            ![Opcions que hem de configurar](mebx/-002.png)
+
+            Dins de la opció de **User Content** hem de canviar l'opció assenyalada a *NONE*.
+
+            ![Canvi d'opció](mebx/-003.png)
+
+            Per a configurar la xarxa anem a l'opció de Network Setup. 
+
+            ![Network Setup](mebx/-004.png)
+
+            Després anem a **TCP/IP Settings**
+
+            ![Seleccionar l'opció](mebx/-005.png)
+
+            I configurem la AMT segons els següents paràmetres
+
+            ::: caution
+            **Vés amb compte**: L'adreça de l'AMT és diferent a l'adreça de l'hipervisor. A més has de tenir en compte que el AMT no té el ICMP activitat, pel que si fas un *ping* no et donarà resposta.
+            :::
+
+            Els paràmetres que mostrem són uns paràmetres d'exemple que anem a utilitzar dins del nostre banc de proves.
+
+            | Opció | IP |
+            | -- | -- |
+            | IP | 172.x.y.2 – 172.x.y.254 |
+            | Máscara | 255.255.255.0 |
+            | Puerta de Enlace | 172.x.y.1 |
+            | DNS | 172.27.111.5 y 172.27.111.6 |
+
+            ![Configuració xarxa](mebx/-006.png)
+
+            ::: important
+            **Accés**: Una vegada ja tingues funcionant el AMT, podràs accedir a través del navegador amb l'adreça http://172.x.y.238:16992 ó https://172.x.y.238:16993. Hauràs de canviar l'adreça segons la que hages escollit.
+            :::
+
+            # Meshcomander
+
+            > En aquest punt hem de tenir en compte que hem d'utilitzar Windows. Si algú coneix algun programari que permeta servir una imatge .iso a través de IDE-R en LliureX seria molt interessant que ho comentara als fòrums.
+
+            El AMT ens permetrà tenir el servidor muntat dins del rack principal sense necessitat de tenir ni un monitor ni un teclat connectat. Tot i que es una ferramenta tremendament útil. Aquesta no està disponible per a cap distribució de linux, o al menys, no una versió que disposa de totes les funcionalitats que ens oferix AMT de Intel com el IDE-R.
+
+            ::: note
+            **Info**: IDE Redirect (IDE-R) permet muntar una imatge ISO remotament des d'un client. Aquesta opció és molt interessant ja que evita que necessàriament estiguem físicament presents a d'instal·lar o reinstal·lar el Proxmox. Podeu trobar més informació [ací](https://software.intel.com/content/www/us/en/develop/blogs/meshcommander-javascript-ider.html).
+            :::
+
+            Hem de descarregar el programari de la seua [pàgina web](https://www.meshcommander.com/meshcommander) i fer la instal·lació.
+
+            ![Pàgina per a descarregar el meshcomander](mesh/1.png)
+
+            ::: caution
+            **Vés amb compte**: Recorda que has d'estar a la mateixa xarxa que l'hipervisor (la xarxa d'Aules en el nostre cas). L'hipervisor no té el perquè d'estar encés per a poder accedir.
+            :::
+
+            Una vegada instal·lat i funcionant el mesh comander veurem una cosa com la següent.
+
+            ![Meshcomander captura de pantalla](mesh/2.png)
+
+            Farem click sobre *Add computer...* I configurarem el servidor amb els paràmetres del AMT que hem configurat prèviament. Podem accedir de dues maneres:
+
+            * Amb TLS, pel que utilitzarem el port **16993**
+            * Sense seguretat, utilitzarem el port **16992**
+
+            ![Configuració del meshcomander 1](mesh/3.png)
+
+            ![Configuració del meshcomander 2](mesh/4.png)
+
+            Una vegada configurat el servidor veurem la pantalla de la següent manera. Ja només en cal, donar a **connect** i podrem accedir a la configuració del nostre servidor de manera remota.
+
+            ![Pantalla on es mostra el hipervisor](mesh/5.png)
+
+            Si has escollit la connexió amb TLS, probablement t'apareixerà una advertència.
+
+            ![Indicació](mesh/6.png)
+
+            Una vegada connectat veurem la següent pantalla. No anem a parar a explicar totes les funcionalitats que disposes, sinó que ens centrarem en la instal·lació remota. Per a això cal anar a Serial-over-LAN.
+
+            ![Pantalla d'opcions de l'hipervisor](mesh/7.png)
+
+            En aquest punt hem de descarregar la ISO de Proxmox desde la seua [pàgina web](https://proxmox.com/en/downloads).
+
+            ![Opció per a descarregar el proxmox VE](mesh/proxmox.png)
+
+            Aquí farem click sobre l'opció **IDER** i seleccionarem la imatge descarregada.
+
+            ![Selecció d'imatge de Proxmox](mesh/10.png)
+
+            Una vegada seleccionada l'opció de Proxmox anirem  **Remote Desktop** i seleccionarem l'opció de **Power Actions**. Allí, hem d'escollir l'opció de *Power on to IDE-R CDROM*. Veurem que l'hipervisor es reinicia i començarà la instal·lació.
+
+            ![Remote Desktop](mesh/11.png)
+
+            ![Opció per a iniciar desde la ISO](mesh/12.png)
+
+            Finalment veurem com comença la instal·lació de Proxmox.
+
+            ![Canvi d'opció](mesh/13.png)
+
+            :::important
+            És altament recomanable tenir una connexió al menys de 1Gb, ja que sinó la instal·lació es pot fer molt pesada i poden aparèixer errades de *timeout*.
+            :::
+
+            # Instal·lació de Proxmox
+
+            Per a instal·lar Proxmox podem utilitzar l'opció explicada. És la més recomanable si ja tens el servidor muntat al rack. De tota manera, també es pot instal·lar amb una memòria usb.
+
+
+            ## Creació de usb d'arrancada de proxmox
+
+            Per a fer la instal·lació de la iso de proxmox, la millor opció és utilitzar **dd**. Per a detectar on està muntat el usb podem executar abans i després lsblk i podem veure on s'ha muntat la partició.
+
+            ```tcsh
+            lsblk
+            ```
+
+            En el nostre exemple (ja que tenim un disc dur m2 no sata, s'ha muntat en sda). Per tant el nostre comandament seria:
+
+            ```tcsh
+            dd if=./proxmox-ve_6.2-1.iso of=/dev/sda status=progress
+            ```
+
+            \awesomebox[violet]{2pt}{\faUsb}{violet}{Es recomana fugir de d'aquelles opcions que creen un usb de manera gràfica. Ja que no solen crear bé les particions. Utilitzeu sempre dd.}
+
+            ## Instal·lació de proxmox
+
+            Una vegada tenim creat el disc usb d'arrancada i iniciem amb l'usb, o a través de IDER. Veurem la següent imatge. Polsem *enter* i continuem. 
+
+            ![Pantalla inicial de la instal·lació de Proxmox](inst_proxmox/1.jpg)
+
+            Tots sabem que és important llegir-se la llicència :smirk:.
+
+            ![Llicència de Proxmox](inst_proxmox/2.jpg)
+
+            Aquesta és una de les parts més delicades i depèn del que vullgueu tenir muntat al vostre centre, també depèn de la quantitat de discs durs que tingueu instal·lats i de si voleu invertir diners en una cabina de discs durs.
+
+            ![Opcions d'instal·lació](inst_proxmox/3.jpg)
+
+            Si voleu deixar-ho en ext4. I utilitzar un únic disc per a utilitzar Proxmox i les màquines virtuals no va a donar mals resultats. L'altre disc dur el podeu utilitzar per a fer còpies de seguretat.
+
+            :::info
+            Proxmox utilitza ZFS que és una combinació d'administrador de volums i sistema de fitxers.
+            :::
+
+            ![Selecció d'opcions](inst_proxmox/4.jpg)
+
+            Les opcions que tenim són les següents:
+
+            | Sistema | Característiques  |
+            | -- | -- |
+            | RAID0 | La capacitat de tal volum és la suma de les capacitats dels discos. La fallada d'una unitat fa el volum inservible. |
+            | RAID1 | La dada és escrita idènticament a tots els discos. Aquest mode requereix com a mínim 2 discos amb la mateixa mida. |
+            | RAID10 | Una combinació de RAID0 i RAID1. Requereix com a mínim 4 discos. |
+            | RAIDZ-1 | Una variació de RAID-5, paritat sola. Requereix com a mínim 3 discos. |
+            | RAIDZ-2 | Una variació de RAID-5, paritat doble. Requereix com a mínim 4 discos. |
+            | RAIDZ-3 | Una variació damunt RAID-5, paritat triple. Requereix com a mínim 5 discos |
+
+            :::warning
+            Si heu optat per adquirir una targeta controladora per a muntar el RAID, aquesta opció no l'heu de fer servir. Sempre i quan la targeta siga reconeguda per Proxmox, es veurà com un únic disc. Les opcions que estem configurant és RAID per via software.
+            :::
+
+            L'opció més anivellada entre tots els paràmetres a tenir en compte seria l'opció de RAID1.
+
+            ![Opció recomanada](inst_proxmox/5.jpg)
+
+            Configurem la zona geogràfica.
+
+            ![Zona geogràfica](inst_proxmox/6.jpg)
+
+            Configurem el password i la contrasenya.
+
+            :::caution
+            Si estàs fent la instal·lació per IDER utilitza la arroba del camp de text ja que és possible que no la pugues escriure amb Alt Gr+2.
+            :::
+
+            ![Configuració de contrasenya](inst_proxmox/7.jpg)
+
+            Configura la xarxa segons els paràmetres del teu centre. L'exemple donat no és el corresponent al que deuries utilitzar.
+
+            ![Configuració de xarxa](inst_proxmox/8.jpg)
+
+            Comprovem que tots els paràmetres que hem configurat són els correctes i li donem a Install. De seguida començarà la instal·lació que sol ser bastant ràpida.
+
+            ![Instal·lació de proxmox](inst_proxmox/9.jpg)
+
+            Una vegada finalitzada la instal·lació. Reiniciem el sistema i passarem a la següent unitat. Configuració del Proxmox.
+
+            ![Instal·lació de proxmox](inst_proxmox/10.jpg)
+
+
+             -->
+            <h1 data-number="4" id="bibliografia-i-referències"><span class="header-section-number">4</span> Bibliografia i referències</h1>
+            <ol class="example" type="1">
+            <li>https://es.wikipedia.org/wiki/VLAN</li>
+            </ol>
+            </div>
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 ---
 title: "CONFIGURACIÓN DE RED"
-author: [Alfredo Rafael Vicente Boix i Javier Estellés Dasi]
+author: [Alfredo Rafael Vicente Boix y Javier Estellés Dasi]
 dato: "2020-11-25"
 subject: "Proxmox"
 keywords: [Red, Instalación]
@@ -39,7 +39,7 @@ En esta Unidad configuraremos la hipervisor con Proxmox. Montaremos 3 servidores
 
 | Servidor | Características |
 | -- | -- |
-| MASTER | Tendrá el LDAP y guarda el /limpio |
+| MASTER | Tendrá el LDAP y guarda el /net |
 | CENTRO | DHCP a los ordenadores del centro |
 | AULA1 | DHCP a los ordenadores del aula de informática |
 | WIFI |No montaremos el servidor WIFI en esta unidad |
@@ -61,19 +61,19 @@ El alta disponibilidad (HA) permite que cuando uno hipervisor se estropea los ot
 
 El esquema seria de la siguiente manera:
 
-![Esquema orientativo 1](Esquemas/esquemabond.png)
+![Esquema orientativo 1](Esquemes/esquemabond.png)
 
 ## Esquema 2
 
 Uno de las principales ventajas del siguiente esquema es que no utiliza VLANs, cada tarjeta de de la hipervisor va a un switch diferente. Este montaje se utiliza principalmente en centro pequeños. Igualmente permite el montaje de un cluster que podríamos conectar al router del centro en las bocas de la red VLAN. El equema seria de la siguiente manera:
 
-![Esquema orientativo 2](Esquemas/esquemasense.png)
+![Esquema orientativo 2](Esquemes/esquemasense.png)
 
 ## Esquema de máquinas virtuales
 
 Al fin los dos esquemas comparten el montaje de las máquinas virtuales puesto que la configuración de donde se conectan las tarjetas virtuales lo hacemos desde el proxmox. Hemos respetado los nombres de las tarjetas en ambos casos (vmbrX), pero se puede dar el nombre que vullgues.
 
-![Esquema conexiones máquinas virtuales](Esquemas/Conexions hipervisor.png)
+![Esquema conexiones máquinas virtuales](Esquemes/Conexions hipervisor.png)
 
 # Configuración del proxmox
 
@@ -247,8 +247,8 @@ Tenemos que recordar que cada servidor LliureX tiene que tener 3 tarjetas:
 | Tarjeta | Características |
 | -- | -- |
 | Tarjeta externa | Es la que se conectará en la red de Aulas |
-| Tarjeta interna | La que mujer servicio a los ordenadores del aula o las clases |
-| Tarjeta de replicación | Para montar el /limpio entre los servidores |
+| Tarjeta interna | Conectada a los ordenadores del aula o las clases |
+| Tarjeta de replicación | Para montar el /net entre los servidores |
 
 En nuestro caso recordamos que las tenemos configuradas de la siguiente manera:
 
@@ -293,7 +293,7 @@ Cuando iniciamos el servidor, en este caso el máster, escogemos las siguientes 
 ![Inicializar el servidor](ConProxmox/prox27.png)
 
 :::warning
-Es muy importante que habilites la opción de exportar el /limpio al servidor maestro.
+Es muy importante que habilites la opción de exportar el /net al servidor maestro.
 :::
 
 Un procedimiento extra que no nos tiene que olvidar en ningún servidor es actualizarlos siempre antes de hacer nada. Y en el máster tenemos que configurar el lliurex mirror:
@@ -309,7 +309,7 @@ De manera similar inicializamos los otros servidores:
 ![Inicializar el servidor](ConProxmox/prox32.png)
 
 :::warning
-Es muy importante que habilites la opción monta el /limpio desde el maestro.
+Es muy importante que habilites la opción monta el /net desde el maestro.
 :::
 
 # Configuraciones adicionales
@@ -337,7 +337,7 @@ Al servidor de centro y esclavo las opciones quedarían de la siguiente manera:
 Es posible que nos interese la opción de una cabina externa. Tiene numerosas ventajas, en el espacio de la cabina externa podemos tener almacenado isos, discos duros de máquinas virtuales, copias de seguridad...
 
 :::warning
-Si decidís montar el /limpio a una cabina externa. Tenéis cuidado con las ACL!!!. Puesto que suelen dar problemas. La opción en este caso más segura para que funciono es tener el /limpio en un disco duro virtual.
+Si decidís montar el /net a una cabina externa. Tenéis cuidado con las ACL!!!. Puesto que suelen dar problemas. La opción en este caso más segura para que funciono es tener el /net en un disco duro virtual.
 Además, si vayáis a tener espacio almacenado a una cabina, la cabina tiene que tener unas características adeqüades. Yo recomendaría como mínimo:
 * Posibilidad de crear un bond con 4 tarjetas de red, o tarjeta de 10G (haría falta uno switch que lo soporto)
 * Al menos 4 discos duros para montar un RAID10
@@ -363,7 +363,7 @@ En principio no sería necesario crear un backup de las máquinas virtuales pues
 
 ![Configuración de cabina](ConProxmox/prox39.png)
 
-Nos aparecerá la siguiente ventana, tenemos que tener en cuenta en qué lugar queremos hacer el backup (**Storage*). Y seleccionamos la/las máquinas virtuales que queremos hacer copia de seguridad, en un principio, en nuestro caso solo habría que hacer la copia de seguridad del Máster, puesto que es donde se guarda el /limpio y LDAP. La copia de seguridad queda programada para una fecha determinada, en principio, en un centro, un sábado a las 12 de la noche no hay ningún usuario conectado.
+Nos aparecerá la siguiente ventana, tenemos que tener en cuenta en qué lugar queremos hacer el backup (**Storage*). Y seleccionamos la/las máquinas virtuales que queremos hacer copia de seguridad, en un principio, en nuestro caso solo habría que hacer la copia de seguridad del Máster, puesto que es donde se guarda el /net y LDAP. La copia de seguridad queda programada para una fecha determinada, en principio, en un centro, un sábado a las 12 de la noche no hay ningún usuario conectado.
 
 ![Configuración de la copia de seguridad](ConProxmox/prox40.png)
 

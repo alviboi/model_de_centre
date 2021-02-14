@@ -1,0 +1,574 @@
+<!doctype html>
+<html  lang="se" >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alfredo Rafael Vicente Boix y Javier Estellés Dasi" />
+  <title>CONFIGURACIÓN DE RED</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">CONFIGURACIÓN DE RED</span>
+        <ul class="nav pull-right doc-info">
+                    <li><p class="navbar-text">Alfredo Rafael Vicente Boix y Javier Estellés Dasi</p></li>
+                            </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#introducción"><span class="toc-section-number">1</span> Introducción</a>
+        <ul>
+        <li><a href="#esquema-1"><span class="toc-section-number">1.1</span> Esquema 1</a></li>
+        <li><a href="#esquema-2"><span class="toc-section-number">1.2</span> Esquema 2</a></li>
+        <li><a href="#esquema-de-máquinas-virtuales"><span class="toc-section-number">1.3</span> Esquema de máquinas virtuales</a></li>
+        </ul></li>
+        <li><a href="#configuración-del-proxmox"><span class="toc-section-number">2</span> Configuración del proxmox</a>
+        <ul>
+        <li><a href="#máquinas-virtuales"><span class="toc-section-number">2.1</span> Máquinas virtuales</a></li>
+        <li><a href="#crear-máquina-virtual"><span class="toc-section-number">2.2</span> Crear máquina virtual</a></li>
+        <li><a href="#instalación-de-la-máquina-virtual"><span class="toc-section-number">2.3</span> Instalación de la máquina virtual</a></li>
+        </ul></li>
+        <li><a href="#configuración-de-la-red"><span class="toc-section-number">3</span> Configuración de la red</a>
+        <ul>
+        <li><a href="#esquema-1-1"><span class="toc-section-number">3.1</span> Esquema 1</a></li>
+        <li><a href="#esquema-2-1"><span class="toc-section-number">3.2</span> Esquema 2</a></li>
+        </ul></li>
+        <li><a href="#configuración-de-la-red-en-cada-máquina-virtual"><span class="toc-section-number">4</span> Configuración de la red en cada máquina virtual</a>
+        <ul>
+        <li><a href="#tarjetas-virtuales"><span class="toc-section-number">4.1</span> Tarjetas virtuales</a></li>
+        <li><a href="#inicialización-servidores"><span class="toc-section-number">4.2</span> Inicialización servidores</a></li>
+        </ul></li>
+        <li><a href="#configuraciones-adicionales"><span class="toc-section-number">5</span> Configuraciones adicionales</a>
+        <ul>
+        <li><a href="#arrancar-las-máquinas-virtuales-cuando-inicia-el-servidor"><span class="toc-section-number">5.1</span> Arrancar las máquinas virtuales cuando inicia el servidor</a></li>
+        <li><a href="#montaje-de-cabina-externa-opcional"><span class="toc-section-number">5.2</span> Montaje de cabina externa (Opcional)</a></li>
+        <li><a href="#creación-de-backup-opcional"><span class="toc-section-number">5.3</span> Creación de backup (Opcional)</a></li>
+        </ul></li>
+        <li><a href="#bibliografía-y-referencias"><span class="toc-section-number">6</span> Bibliografía y referencias</a></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+            <!-- \awesomebox[violet]{2pt}{\faRocket}{violet}{Lorem ipsum…} -->
+            <h1 data-number="1" id="introducción"><span class="header-section-number">1</span> Introducción</h1>
+            <p>En esta Unidad configuraremos la hipervisor con Proxmox. Montaremos 3 servidores con las siguientes características.</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Servidor</th>
+            <th>Características</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>MASTER</td>
+            <td>Tendrá el LDAP y guarda el /net</td>
+            </tr>
+            <tr class="even">
+            <td>CENTRO</td>
+            <td>DHCP a los ordenadores del centro</td>
+            </tr>
+            <tr class="odd">
+            <td>AULA1</td>
+            <td>DHCP a los ordenadores del aula de informática</td>
+            </tr>
+            <tr class="even">
+            <td>WIFI</td>
+            <td>No montaremos el servidor WIFI en esta unidad</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Daremos como ejemplo dos esquemas clásicos de montaje del centro. Ambós son totalmente válidos y funcionan perfectamente.</p>
+            <div class="info">
+            <p>La mayoría de pantallazos están en inglés, puesto que no tengo la costumbre de cambiado el lenguaje original de los programas. Obviamente si alguien quiere configurar los parámetros en la ventana de login al catalán o al español lo puede hacer sin problemas.</p>
+            </div>
+            <h2 data-number="1.1" id="esquema-1"><span class="header-section-number">1.1</span> Esquema 1</h2>
+            <p>En este esquema que posamos como ejemplo dos switchs tenemos 3 LAG configurados al switch principal por sí queremos montar un cluster con Proxmox hasta 3 ordenadores. Son 3 ordenadores puesto que 3 ordenadores permiten ya hacer un montaje de Alta disponibilidad, pero es un tema que explicaremos en cursos más avanzados. Este esquema es típico de centros muchos grandes que tienen varías salas de informática y lo switch principal prácticamente lo utilizan para redistribuir las VLANs y con solo que tiene montados LAGs que van a cada uno de los switch del centro.</p>
+            <div class="info">
+            <p>El alta disponibilidad (HA) permite que cuando uno hipervisor se estropea los otros cogen las máquinas virtuales del mismo y sigue dando servicio sin que el usuario lo noto. Así permite cambiar el hipervisor o arreglarlo y el servicio no es interrumpido en ningún momento. Para hacer esto es necesario montar un CEPH o una cabina externa con mucha fiabilidad.</p>
+            </div>
+            <p>El esquema seria de la siguiente manera:</p>
+            <figure>
+            <img src="Esquemes/esquemabond.png" alt="Esquema orientativo 1" /><figcaption aria-hidden="true">Esquema orientativo 1</figcaption>
+            </figure>
+            <h2 data-number="1.2" id="esquema-2"><span class="header-section-number">1.2</span> Esquema 2</h2>
+            <p>Uno de las principales ventajas del siguiente esquema es que no utiliza VLANs, cada tarjeta de de la hipervisor va a un switch diferente. Este montaje se utiliza principalmente en centro pequeños. Igualmente permite el montaje de un cluster que podríamos conectar al router del centro en las bocas de la red VLAN. El equema seria de la siguiente manera:</p>
+            <figure>
+            <img src="Esquemes/esquemasense.png" alt="Esquema orientativo 2" /><figcaption aria-hidden="true">Esquema orientativo 2</figcaption>
+            </figure>
+            <h2 data-number="1.3" id="esquema-de-máquinas-virtuales"><span class="header-section-number">1.3</span> Esquema de máquinas virtuales</h2>
+            <p>Al fin los dos esquemas comparten el montaje de las máquinas virtuales puesto que la configuración de donde se conectan las tarjetas virtuales lo hacemos desde el proxmox. Hemos respetado los nombres de las tarjetas en ambos casos (vmbrX), pero se puede dar el nombre que vullgues.</p>
+            <figure>
+            <img src="Esquemes/Conexions%20hipervisor.png" alt="Esquema conexiones máquinas virtuales" /><figcaption aria-hidden="true">Esquema conexiones máquinas virtuales</figcaption>
+            </figure>
+            <h1 data-number="2" id="configuración-del-proxmox"><span class="header-section-number">2</span> Configuración del proxmox</h1>
+            <p>Una vez tenemos instalado lo proxmox y haya reiniciado, podremos acceder en él. Toda la configuración del proxmox se realiza a través de un servidor web que puerta montado. Para acceder tenemos que hacerlo a través del puerto 8006 con certificación ssl. Sencillamente escribimos a una navegador de una estación de trabajo que esté en la misma red el siguiente:</p>
+            <div class="sourceCode" id="cb1"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://<span class="st">&quot;IP_HIPERVISOR:8006</span></span></code></pre></div>
+            <div class="info">
+            <p>Este es uno de los motivos por los cuales dejamos puertos en cada switch con la VLAN 1, para poder acceder a través de esos puertos siempre al proxmox. También se puede hacer desde cualquier ordenador del centro o el aula de informática, pero hay que habilitar el NATO en cada servidor LliureX. Y estos tienen que estar funcionando. Por lo tanto en este paso es necesario estar conectado en la red del centro.</p>
+            </div>
+            <h2 data-number="2.1" id="máquinas-virtuales"><span class="header-section-number">2.1</span> Máquinas virtuales</h2>
+            <p>Lo primero que nos pide es el usuario y contraseña que hemos configurado cuando hemos hecho la instalación:</p>
+            <figure>
+            <img src="ConProxmox/prox1.png" alt="Esquema orientativo 2" /><figcaption aria-hidden="true">Esquema orientativo 2</figcaption>
+            </figure>
+            <p>Y una vez dentro podemos ver el espacio de trabajo del proxmox:</p>
+            <figure>
+            <img src="ConProxmox/prox2.png" alt="Esquema orientativo 2" /><figcaption aria-hidden="true">Esquema orientativo 2</figcaption>
+            </figure>
+            <div class="info">
+            <p>Los siguientes pasos son opcionales, pero aconsejables. Es para acceder a las últimas actualizaciones de proxmox.</p>
+            </div>
+            <p>Una vez hemos accedido podemos configurar la lista de los repositorios de proxmox accediendo, en primer lugar al shell del hipervisor y escribimos el siguiente:</p>
+            <div class="sourceCode" id="cb2"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nano /etc/apt/sources.list.d/pve-enterprise.list</span></code></pre></div>
+            <p>Ten en cuenta que has accedido como root, así que tienes que ir mucho con cuenta con el que haces. Una vez abres el fichero cambias el repositorio por el siguiente:</p>
+            <div class="sourceCode" id="cb3"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>deb http://download.proxmox.com/debian/pve buster pve-no-subscription</span></code></pre></div>
+            <p>Se quedaría así:</p>
+            <figure>
+            <img src="ConProxmox/prox3.png" alt="Repositorio de proxmox" /><figcaption aria-hidden="true">Repositorio de proxmox</figcaption>
+            </figure>
+            <p>Ahora ya puedes actualizar desde la terminal lo proxmox para tener la última versión:</p>
+            <div class="sourceCode" id="cb4"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>apt update</span>
+            <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>apt upgrade</span></code></pre></div>
+            <h2 data-number="2.2" id="crear-máquina-virtual"><span class="header-section-number">2.2</span> Crear máquina virtual</h2>
+            <p>Antes de crear una máquina virtual tenemos que subir un iso de LliureX Server, podemos descargarla <a href="http://releases.lliurex.net/isos/19.07_64bits/">de aquí</a>. Tratamos de buscar la última versión editada.</p>
+            <p>Una vez la tenemos descarga tenemos que subirla al proxmox seleccionando el espacio *local** y haciendo click en upload:</p>
+            <figure>
+            <img src="ConProxmox/prox5.png" alt="Subir iso a proxmox" /><figcaption aria-hidden="true">Subir iso a proxmox</figcaption>
+            </figure>
+            <figure>
+            <img src="ConProxmox/prox6.png" alt="Subir iso a proxmox" /><figcaption aria-hidden="true">Subir iso a proxmox</figcaption>
+            </figure>
+            <p>Una vez tenemos hecho esto, ya podemos crear la primera maquina virtual. Vamos de hacer de ejemplo el servidor MASTER y los otros se hacen de manera similar. Hagamos click sobre **Create VM*</p>
+            <figure>
+            <img src="ConProxmox/prox7.png" alt="Crear máquina virtual" /><figcaption aria-hidden="true">Crear máquina virtual</figcaption>
+            </figure>
+            <p>Se abrirá una ventana para especificar los parámetros de configuración. En la primera ventana no hay que cambiar nada, vamos a <strong>Next</strong>:</p>
+            <figure>
+            <img src="ConProxmox/prox8.png" alt="Polsem next" /><figcaption aria-hidden="true">Polsem next</figcaption>
+            </figure>
+            <p>En este punto tenemos que seleccionar la iso que acabamos de subir:</p>
+            <figure>
+            <img src="ConProxmox/prox9.png" alt="Seleccionamos ISO" /><figcaption aria-hidden="true">Seleccionamos ISO</figcaption>
+            </figure>
+            <p>Posteriormente damos a next:</p>
+            <figure>
+            <img src="ConProxmox/prox10.png" alt="Opciones del sistema" /><figcaption aria-hidden="true">Opciones del sistema</figcaption>
+            </figure>
+            <p>Escogemos el disco llevar a utilizar, y opcionalmente cambiamos la cache a write back.</p>
+            <div class="info">
+            <p>Write-back puede dar un poco más de rendimiento al disco pero es más propenos a perder datos si hay un corte. Queda a criterio de cada cual escoger.</p>
+            </div>
+            <figure>
+            <img src="ConProxmox/prox11.png" alt="Opciones del disco llevar" /><figcaption aria-hidden="true">Opciones del disco llevar</figcaption>
+            </figure>
+            <p>Cambiamos los parámetros de la CPU, 4 cores en total es suficiente, en principio para las tareas a realizar.</p>
+            <figure>
+            <img src="ConProxmox/prox12.png" alt="Opciones del disco llevar" /><figcaption aria-hidden="true">Opciones del disco llevar</figcaption>
+            </figure>
+            <p>Damos 6Gb de memoria RAM. Este parámetro irá siempre en función de la cantidad de máquinas que vayamos a tener.</p>
+            <div class="caution">
+            <p>La suma de la memoria RAM de todas las máquinas puede ser sin problemas mayor que la cantidad de memoria RAM disponible. Eso sí, si todas las máquinas empiezan a pedir mucha memoria, el sistema se puede volver muy lento.</p>
+            </div>
+            <figure>
+            <img src="ConProxmox/prox13.png" alt="Memoria RAM" /><figcaption aria-hidden="true">Memoria RAM</figcaption>
+            </figure>
+            <p>Finalmente, no cambiamos nada a los parámetro de red y una vez instalada la máquina ya añadiremos las tarjetas virtuales. Podemos activar el checkbox de <strong>Start after created</strong> para poder iniciar la máquina una vez le damos a <strong>Finish</strong>.</p>
+            <figure>
+            <img src="ConProxmox/prox14.png" alt="Resumen de opciones" /><figcaption aria-hidden="true">Resumen de opciones</figcaption>
+            </figure>
+            <h2 data-number="2.3" id="instalación-de-la-máquina-virtual"><span class="header-section-number">2.3</span> Instalación de la máquina virtual</h2>
+            <p>Una vez configurada la máquina virtual y haya arrancado podemos ver como nos aparece un icono en la franja izquierda y se posa de color, podemos desplegar el menú contextual y polsem sobre Console:</p>
+            <figure>
+            <img src="ConProxmox/prox15.png" alt="Menú contextual de la VM en funcionamiento" /><figcaption aria-hidden="true">Menú contextual de la VM en funcionamiento</figcaption>
+            </figure>
+            <p>Podemos ver cómo ha arrancado la máquina:</p>
+            <figure>
+            <img src="ConProxmox/prox17.png" alt="Inicio de máquina virtual" /><figcaption aria-hidden="true">Inicio de máquina virtual</figcaption>
+            </figure>
+            <p>Y procedemos a su instalación tal y como hemos visto a la Unidad 1.</p>
+            <p>De manera similar, si queremos seguir todo el proceso habría que instalar los otros dos servidores con le mismo procedimiento. Lo único que hay que cambiar entre ellos sería el nombre de cadascún de ellos, nosotros hemos escogido la siguiente nomenclatura:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Nombre</th>
+            <th>Servidor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>4600xxxx.MAS</td>
+            <td>Servidor Master</td>
+            </tr>
+            <tr class="even">
+            <td>4600xxxx.CEN</td>
+            <td>Servidor de centro</td>
+            </tr>
+            <tr class="odd">
+            <td>4600xxxx.AU1</td>
+            <td>Servidor Aula informática</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Y para el administrador de cada uno de los servidor hemos escogido <strong>admin0</strong>.</p>
+            <h1 data-number="3" id="configuración-de-la-red"><span class="header-section-number">3</span> Configuración de la red</h1>
+            <p>Una vez tenemos instalados todos los servidores procedemos a configurar la red. Para acceder a la configuración de la hipervisor tenemos que seleccionar el mismo (No la máquina virtual ni lo Datacenter), y vamos a las opciones <strong>Network</strong>.</p>
+            <h2 data-number="3.1" id="esquema-1-1"><span class="header-section-number">3.1</span> Esquema 1</h2>
+            <p>Recordamos que este esquema tiene un bond al switch. Polsem sobre <strong>Create</strong> y seleccionamos la opción *Linux Bond**.</p>
+            <figure>
+            <img src="ConProxmox/prox18.png" alt="Selección de bond" /><figcaption aria-hidden="true">Selección de bond</figcaption>
+            </figure>
+            <p>Se nos abrirá la ventana siguiente y tenemos que escribir todas las tarjetas donde pose <strong>Slaves</strong>, seguidas de un espacio. La configuración quedaría de las siguiente manera:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Parámetro</th>
+            <th>Opción</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Slaves</td>
+            <td>enp1s0 enp2s0 enp3s0 enp4s0</td>
+            </tr>
+            <tr class="even">
+            <td>Modo</td>
+            <td>LACP</td>
+            </tr>
+            <tr class="odd">
+            <td>hash-policy</td>
+            <td>layer2+3</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Y polsem sobre <strong>Create</strong>.</p>
+            <figure>
+            <img src="ConProxmox/prox21.png" alt="Configuración del bond" /><figcaption aria-hidden="true">Configuración del bond</figcaption>
+            </figure>
+            <p>na vez tenemos configurado lo bond vayamos otra vez a <strong>Create</strong> y seleccionamos *Linux Bridge**. A la opción *Bridge puertos** tenemos que escribir el bond0 seguido de un punto y el número de VLAN que quieren configurar a la conexión puente.</p>
+            <figure>
+            <img src="ConProxmox/prox22.png" alt="Configuración de la conexión puente" /><figcaption aria-hidden="true">Configuración de la conexión puente</figcaption>
+            </figure>
+            <p>De manera análoga realizamos todas las otras configuraciones y nos quedaría de la siguiente manera:</p>
+            <figure>
+            <img src="ConProxmox/prox23.png" alt="Configuración de redes al proxmox" /><figcaption aria-hidden="true">Configuración de redes al proxmox</figcaption>
+            </figure>
+            <h2 data-number="3.2" id="esquema-2-1"><span class="header-section-number">3.2</span> Esquema 2</h2>
+            <p>Este esquema que no presenta jefe VLAN se haría de manera análoga al anterior, pero sin configurar el bond. Cogeríamos cada tarjeta virtual *Linux bridge** y lo enlazamos a la tarjeta de salida. El esquema quedaría de la siguiente manera:</p>
+            <figure>
+            <img src="ConProxmox/prox46xxx.png" alt="Configuración de redes al proxmox" /><figcaption aria-hidden="true">Configuración de redes al proxmox</figcaption>
+            </figure>
+            <div class="caution">
+            <p>Uno de los problemas que presenta esta configuración es saber qué tarjeta se qué, podemos ir probando y ver cuál está activa con la herramienta <strong>ip</strong> para saber cuál es qué. Podemos ir desconectant los cables ver que aparece <strong>state DOWN</strong> y asociar la conexión.</p>
+            </div>
+            <div class="sourceCode" id="cb5"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>root@cefirevalencia:~# ip link show enp4s0</span>
+            <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>5: enp4s0: <span class="kw">&lt;</span>NO-CARRIER,BROADCAST,MULTICAST,SLAVE,UP<span class="kw">&gt;</span> mtu 1500 qdisc pfifo_fasto master bond0 state DOWN modo DEFAULT group default qlen 1000</span></code></pre></div>
+            <h1 data-number="4" id="configuración-de-la-red-en-cada-máquina-virtual"><span class="header-section-number">4</span> Configuración de la red en cada máquina virtual</h1>
+            <p>Tenemos que recordar que cada servidor LliureX tiene que tener 3 tarjetas:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Tarjeta</th>
+            <th>Características</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Tarjeta externa</td>
+            <td>Es la que se conectará en la red de Aulas</td>
+            </tr>
+            <tr class="even">
+            <td>Tarjeta interna</td>
+            <td>Conectada a los ordenadores del aula o las clases</td>
+            </tr>
+            <tr class="odd">
+            <td>Tarjeta de replicación</td>
+            <td>Para montar el /net entre los servidores</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>En nuestro caso recordamos que las tenemos configuradas de la siguiente manera:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Tarjeta</th>
+            <th>nombre</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Tarjeta externa</td>
+            <td>vmbr0</td>
+            </tr>
+            <tr class="even">
+            <td>Tarjeta interna</td>
+            <td>vmbr2, vmbr3, vmbr4, vmbr5</td>
+            </tr>
+            <tr class="odd">
+            <td>Tarjeta de replicación</td>
+            <td>vmbr10</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Para configurar cada máquina virtual seleccionamos la máquina y vamos a las opciones de *Hardware<strong>, basura click sobre </strong>Add<strong> y escogemos </strong>Network device**.</p>
+            <figure>
+            <img src="ConProxmox/prox24.png" alt="Configuración de red de VM" /><figcaption aria-hidden="true">Configuración de red de VM</figcaption>
+            </figure>
+            <p>Como cuando hemos instalado la máquina virtual ya nos ha cogido la vmbr0, esa la dejamos como la externa. Y configuramos ya la interna.</p>
+            <figure>
+            <img src="ConProxmox/prox25.png" alt="Configuración de tarjeta virtual" /><figcaption aria-hidden="true">Configuración de tarjeta virtual</figcaption>
+            </figure>
+            <p>Este procedimiento lo tenemos que repetir en todos los servidores. Recuerda que el esquema de red es el siguiente:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>IP</th>
+            <th>Servidor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>172.X.Y.254</td>
+            <td>Servidor Maestro</td>
+            </tr>
+            <tr class="even">
+            <td>172.X.Y.253</td>
+            <td>Servidor de Centro</td>
+            </tr>
+            <tr class="odd">
+            <td>172.X.Y.252</td>
+            <td>Servidor de Aula 1</td>
+            </tr>
+            <tr class="even">
+            <td>172.X.Y.251</td>
+            <td>Servidor de Aula 2</td>
+            </tr>
+            <tr class="odd">
+            <td>172.X.Y.250</td>
+            <td>Servidor de Aula 3</td>
+            </tr>
+            </tbody>
+            </table>
+            <h2 data-number="4.1" id="tarjetas-virtuales"><span class="header-section-number">4.1</span> Tarjetas virtuales</h2>
+            <div class="warning">
+            <p>Es importante que nos aseguremos antes de inicializar el servidor qué tarjeta es qué, para que no nos confunden. El servidor podría empezar a dar DHCP a través de tarjeta conectada a la VLAN1 o router (dependiente del esquema) y podría dejar sin servicio en todo el centro.</p>
+            </div>
+            <p>Podemos comprobar cuál es cada tarjeta con el mando ip hecho al servidor y comparar las MAC.</p>
+            <figure>
+            <img src="ConProxmox/prox26.png" alt="Configuración de red de VM" /><figcaption aria-hidden="true">Configuración de red de VM</figcaption>
+            </figure>
+            <h2 data-number="4.2" id="inicialización-servidores"><span class="header-section-number">4.2</span> Inicialización servidores</h2>
+            <p>Cuando iniciamos el servidor, en este caso el máster, escogemos las siguientes opciones:</p>
+            <figure>
+            <img src="ConProxmox/prox27.png" alt="Inicializar el servidor" /><figcaption aria-hidden="true">Inicializar el servidor</figcaption>
+            </figure>
+            <div class="warning">
+            <p>Es muy importante que habilites la opción de exportar el /net al servidor maestro.</p>
+            </div>
+            <p>Un procedimiento extra que no nos tiene que olvidar en ningún servidor es actualizarlos siempre antes de hacer nada. Y en el máster tenemos que configurar el lliurex mirror:</p>
+            <figure>
+            <img src="ConProxmox/prox29.png" alt="Mirror" /><figcaption aria-hidden="true">Mirror</figcaption>
+            </figure>
+            <figure>
+            <img src="ConProxmox/prox30.png" alt="Mirror" /><figcaption aria-hidden="true">Mirror</figcaption>
+            </figure>
+            <figure>
+            <img src="ConProxmox/prox31.png" alt="Mirror" /><figcaption aria-hidden="true">Mirror</figcaption>
+            </figure>
+            <p>De manera similar inicializamos los otros servidores:</p>
+            <figure>
+            <img src="ConProxmox/prox32.png" alt="Inicializar el servidor" /><figcaption aria-hidden="true">Inicializar el servidor</figcaption>
+            </figure>
+            <div class="warning">
+            <p>Es muy importante que habilites la opción monta el /net desde el maestro.</p>
+            </div>
+            <h1 data-number="5" id="configuraciones-adicionales"><span class="header-section-number">5</span> Configuraciones adicionales</h1>
+            <h2 data-number="5.1" id="arrancar-las-máquinas-virtuales-cuando-inicia-el-servidor"><span class="header-section-number">5.1</span> Arrancar las máquinas virtuales cuando inicia el servidor</h2>
+            <p>Es importante que cuando se reinicie el hipervisor las máquinas virtuales arranquen automáticamente para no tener que conectarse al proxmox para ponerlas en marcha una a una. Para configurar esta opción seleccionaremos una máquina virtual y seleccionaremos la opción de configuración <strong>Options</strong> y cambiaremos los parámetros <strong>Start at boot</strong> a <strong>Yes</strong> y <strong>Start/Shutdown order</strong> a 1 en el caso del servidor maestro.</p>
+            <div class="caution">
+            <p>Es recomendable arrancar primero el maestro y dejar un tiempo para que arranco y posteriormente arrancar los esclavos. Así, a los servidores esclavos añadiremos un tiempo a <strong>Startup delay</strong>.</p>
+            </div>
+            <figure>
+            <img src="ConProxmox/prox33.png" alt="Configuración de orden de arrancada" /><figcaption aria-hidden="true">Configuración de orden de arrancada</figcaption>
+            </figure>
+            <figure>
+            <img src="ConProxmox/prox34.png" alt="Configuración de orden de arrancada" /><figcaption aria-hidden="true">Configuración de orden de arrancada</figcaption>
+            </figure>
+            <p>Al servidor de centro y esclavo las opciones quedarían de la siguiente manera:</p>
+            <figure>
+            <img src="ConProxmox/prox35.png" alt="Configuración de orden de arrancada al servidor de centro" /><figcaption aria-hidden="true">Configuración de orden de arrancada al servidor de centro</figcaption>
+            </figure>
+            <figure>
+            <img src="ConProxmox/prox36.png" alt="Configuración de orden de arrancada al servidor del aula de informática" /><figcaption aria-hidden="true">Configuración de orden de arrancada al servidor del aula de informática</figcaption>
+            </figure>
+            <h2 data-number="5.2" id="montaje-de-cabina-externa-opcional"><span class="header-section-number">5.2</span> Montaje de cabina externa (Opcional)</h2>
+            <p>Es posible que nos interese la opción de una cabina externa. Tiene numerosas ventajas, en el espacio de la cabina externa podemos tener almacenado isos, discos duros de máquinas virtuales, copias de seguridad…</p>
+            <div class="warning">
+            <p>Si decidís montar el /net a una cabina externa. Tenéis cuidado con las ACL!!!. Puesto que suelen dar problemas. La opción en este caso más segura para que funciono es tener el /net en un disco duro virtual. Además, si vayáis a tener espacio almacenado a una cabina, la cabina tiene que tener unas características adeqüades. Yo recomendaría como mínimo: * Posibilidad de crear un bond con 4 tarjetas de red, o tarjeta de 10G (haría falta uno switch que lo soporto) * Al menos 4 discos duros para montar un RAID10 * Cache de disco SSD De este modo se podría montar un sistema con Alta disponibilidad.</p>
+            </div>
+            <div class="info">
+            <p>En este curso no explicaremos como configurar una cabina para que funciono al modelo de red. Las cabinas no entran dentro de la dotación de centro, por lo tanto sería una adquisición propia del centro</p>
+            </div>
+            <p>Una vez tenemos la cabina configurada podemos añadirla a nuestro <strong>Datacenter</strong> seleccionándolo y yendo a la opción de <strong>Storage</strong>. Hagamos click sobre <strong>Add</strong> y escogemos <strong>NFS</strong>.</p>
+            <figure>
+            <img src="ConProxmox/prox37.png" alt="Configuración de cabina" /><figcaption aria-hidden="true">Configuración de cabina</figcaption>
+            </figure>
+            <p>Y seleccionamos las diferentes opciones de configuración:</p>
+            <figure>
+            <img src="ConProxmox/prox38.png" alt="Configuración de cabina" /><figcaption aria-hidden="true">Configuración de cabina</figcaption>
+            </figure>
+            <h2 data-number="5.3" id="creación-de-backup-opcional"><span class="header-section-number">5.3</span> Creación de backup (Opcional)</h2>
+            <p>En principio no sería necesario crear un backup de las máquinas virtuales puesto que hemos montado un RAID1. Pero han varías configuraciones que podemos recomendar la opción del backup. Para configurar la copia de seguridad seleccionamos el datacenter, vamos a la opción de Backup y basura click sobre <strong>Add</strong>.</p>
+            <figure>
+            <img src="ConProxmox/prox39.png" alt="Configuración de cabina" /><figcaption aria-hidden="true">Configuración de cabina</figcaption>
+            </figure>
+            <p>Nos aparecerá la siguiente ventana, tenemos que tener en cuenta en qué lugar queremos hacer el backup (**Storage*). Y seleccionamos la/las máquinas virtuales que queremos hacer copia de seguridad, en un principio, en nuestro caso solo habría que hacer la copia de seguridad del Máster, puesto que es donde se guarda el /net y LDAP. La copia de seguridad queda programada para una fecha determinada, en principio, en un centro, un sábado a las 12 de la noche no hay ningún usuario conectado.</p>
+            <figure>
+            <img src="ConProxmox/prox40.png" alt="Configuración de la copia de seguridad" /><figcaption aria-hidden="true">Configuración de la copia de seguridad</figcaption>
+            </figure>
+            <p>También es puede hacer una copia de seguridad en cualquier momento. Las copias de seguridad llevan tiempos, por lo tanto no es recomendable hacerlo en horas donde se estén utilizando los servidores.</p>
+            <figure>
+            <img src="ConProxmox/prox41.png" alt="Creación de la copia de seguridad" /><figcaption aria-hidden="true">Creación de la copia de seguridad</figcaption>
+            </figure>
+            <figure>
+            <img src="ConProxmox/prox42.png" alt="Creación de la copia de seguridad" /><figcaption aria-hidden="true">Creación de la copia de seguridad</figcaption>
+            </figure>
+            <p>Una vez tenemos la copia de seguridad hecha podemos restaurarla con <strong>Restore</strong>.</p>
+            <p>:::caution Cuando se restaura la copia de seguridad se creará una nueva máquina virtual con las mismas características que la máquina antigua y nos preguntará en qué espacio queremos instalar la nueva máquina. Tenemos que tener cuidado de no tener las dos máquinas funcionando al mismo tiempo (después de restaurarla) puesto que creará problemas de red. También tenemos que recordar deshabilitar la opción de <strong>Start at boot</strong>, sino al reiniciar el hipervisor arrancarán las dos máquinas.</p>
+            <figure>
+            <img src="ConProxmox/prox43.png" alt="Restaurar la copia de seguridad" /><figcaption aria-hidden="true">Restaurar la copia de seguridad</figcaption>
+            </figure>
+            <figure>
+            <img src="ConProxmox/prox44.png" alt="Restaurar la copia de seguridad" /><figcaption aria-hidden="true">Restaurar la copia de seguridad</figcaption>
+            </figure>
+            <h1 data-number="6" id="bibliografía-y-referencias"><span class="header-section-number">6</span> Bibliografía y referencias</h1>
+            <ol class="example" type="1">
+            <li>https://es.wikipedia.org/wiki/vlan</li>
+            </ol>
+            </div>
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>

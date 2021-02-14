@@ -1,0 +1,454 @@
+<!doctype html>
+<html  lang="can" >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alfredo Rafael Vicente Boix y Javier Estellés Dasi" />
+  <title>INSTALACIÓN DE PROXMOX</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">INSTALACIÓN DE PROXMOX</span>
+        <ul class="nav pull-right doc-info">
+                    <li><p class="navbar-text">Alfredo Rafael Vicente Boix y Javier Estellés Dasi</p></li>
+                            </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#introducción">Introducción</a></li>
+        <li><a href="#puesta-a-punto-del-servidor">Puesta a punto del servidor</a>
+        <ul>
+        <li><a href="#habilitar-amt-de-intel">Habilitar AMT de Intel</a></li>
+        <li><a href="#configuración-del-amt">Configuración del AMT</a></li>
+        </ul></li>
+        <li><a href="#meshcomander">Meshcomander</a></li>
+        <li><a href="#instalación-de-proxmox">Instalación de Proxmox</a>
+        <ul>
+        <li><a href="#creación-de-usb-de-arrancada-de-proxmox">Creación de usb de arrancada de proxmox</a></li>
+        <li><a href="#instalación-de-proxmox-1">Instalación de proxmox</a></li>
+        </ul></li>
+        <li><a href="#bibliografía-y-referencias">Bibliografía y referencias</a></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+            <!-- \awesomebox[violet]{2pt}{\faRocket}{violet}{Lorem ipsum…} -->
+            <h1 id="introducción">Introducción</h1>
+            <p>En esta unidad trataremos la instalación de Proxmox. Pero al primer capítulo veremos como nos puede resultar útil la herramienta <a href="https://www.meshcommander.com/meshcommander">meshcomander</a>.</p>
+            <figure>
+            <img src="Proxmox-logo.png" alt="Proxmox es la herramienta que utilizaremos para virtualitzar los servidores" /><figcaption aria-hidden="true">Proxmox es la herramienta que utilizaremos para virtualitzar los servidores</figcaption>
+            </figure>
+            <p>Es importante tener claro los siguientes conceptos antes de empezar la instalación.</p>
+            <ul>
+            <li><strong>AMT</strong> funciona como un sistema independiente, por lo tanto tendrá su propia ip.</li>
+            <li>Los apoyos físicos cada vez se utilizan menos. Recuerda cuando fue última vez que utilizaste un CD-ROM.</li>
+            <li>Vamos a hacer una instalación de proxmox. No es necesario tener acceso a la consola de Proxmox en ningún momento, por lo tanto si ya tenso lo hipervisor montado al rack, no lo desmontas.</li>
+            <li>Las IPs utilizadas no corresponden con las indicadas al que recomienda lo SAI. Es la tarea que se os mandará!</li>
+            </ul>
+            <figure>
+            <img src="Esquema.png" alt="Esquema orientativo" /><figcaption aria-hidden="true">Esquema orientativo</figcaption>
+            </figure>
+            <h1 id="puesta-a-punto-del-servidor">Puesta a punto del servidor</h1>
+            <p>Para posar a punto el servidor, es recomendable, aunque no imprescindible habilitar lo AMT, para posteriormente utilizar la herramienta meshcomander para hacer una instalación remota.</p>
+            <h2 id="habilitar-amt-de-intel">Habilitar AMT de Intel</h2>
+            <p>Los servidores distribuidos en los centros disponen de la herramienta AMT de Intel para poder conectarse remotamente, no solo nos permitirá arrancar lo hipervisor sino que también nos permitirá configurar ciertas funcionalidades básicas. Pero antes de que nada, habrá que entrar a la BIOS. Para acceder a la BIOS (Modelo SEH1) polsem F2 lo setup del ordenador.</p>
+            <figure>
+            <img src="amt-conf/Desktop--2020-11-25-18-25.png" alt="BIOS del sistema" /><figcaption aria-hidden="true">BIOS del sistema</figcaption>
+            </figure>
+            <p>Una vez dentro vayamos a la pestaña <em>Advanced</em>.</p>
+            <figure>
+            <img src="amt-conf/Desktop--2020-11-25-18-26.png" alt="Proxmox es la herramienta que utilizaremos para virtualitzar los servidores" /><figcaption aria-hidden="true">Proxmox es la herramienta que utilizaremos para virtualitzar los servidores</figcaption>
+            </figure>
+            <p>Y seleccionamos <em>AMT Configuration</em>.</p>
+            <figure>
+            <img src="amt-conf/Desktop--2020-11-25-18-262.png" alt="Proxmox es la herramienta que utilizaremos para virtualitzar los servidores" /><figcaption aria-hidden="true">Proxmox es la herramienta que utilizaremos para virtualitzar los servidores</figcaption>
+            </figure>
+            <p>Cambiamos <em>MEBx Modo</em> y seleccionamos la opción Entero MEBx Setup</p>
+            <figure>
+            <img src="amt-conf/Desktop--2020-11-25-18-26-2.png" alt="Proxmox es la herramienta que utilizaremos para virtualitzar los servidores" /><figcaption aria-hidden="true">Proxmox es la herramienta que utilizaremos para virtualitzar los servidores</figcaption>
+            </figure>
+            <p>Finalmente salvamos los parámetros y reiniciamos.</p>
+            <figure>
+            <img src="amt-conf/Desktop--2020-11-25-18-27.png" alt="Proxmox es la herramienta que utilizaremos para virtualitzar los servidores" /><figcaption aria-hidden="true">Proxmox es la herramienta que utilizaremos para virtualitzar los servidores</figcaption>
+            </figure>
+            <h2 id="configuración-del-amt">Configuración del AMT</h2>
+            <p>Una vez hemos habilitado lo AMT, entramos en la configuración del mismo y configuramos los siguientes parámetros.</p>
+            <div class="tip">
+            <p><strong>Info</strong>: Por obvios motivos de seguridad no se permite entrar a la configuración del AMT por VNC, por el que algunas de las siguientes imágenes están fotografiadas de la pantalla.</p>
+            </div>
+            <p>Cuando entran a la herramienta de configuración del AMT, tenemos que logar-noes. La contraseña de administrador es <strong>admin</strong>. Posteriormente nos pedirá que cambiemos la contraseña por una nueva.</p>
+            <div class="warning">
+            <p>*Contraseña**: Tenemos que respetar la política de contraseñas, con mayúscula, minúscula y carácter especial.</p>
+            </div>
+            <figure>
+            <img src="mebx/-000.png" alt="Entramos a la herramienta de configuración" /><figcaption aria-hidden="true">Entramos a la herramienta de configuración</figcaption>
+            </figure>
+            <figure>
+            <img src="mebx/-001.png" alt="Introducimos la contraseña" /><figcaption aria-hidden="true">Introducimos la contraseña</figcaption>
+            </figure>
+            <p>Tenemos que acceder a las siguientes opciones para hacer una configuración básica.</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Opción</th>
+            <th>Funcionalidad</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td><strong>User Consiente</strong></td>
+            <td>Conectarnos al servidor por VNC sin permiso</td>
+            </tr>
+            <tr class="even">
+            <td><strong>Network Setup</strong></td>
+            <td>Para configurar las opciones de red</td>
+            </tr>
+            <tr class="odd">
+            <td><strong>Activate Network Access</strong></td>
+            <td>Para poder acceder a lo hipervisor</td>
+            </tr>
+            </tbody>
+            </table>
+            <figure>
+            <img src="mebx/-002.png" alt="Opciones que tenemos que configurar" /><figcaption aria-hidden="true">Opciones que tenemos que configurar</figcaption>
+            </figure>
+            <p>Dentro de la opción de <strong>User Contento</strong> tenemos que cambiar la opción señalada a <em>NONE</em>.</p>
+            <figure>
+            <img src="mebx/-003.png" alt="Cambio de opción" /><figcaption aria-hidden="true">Cambio de opción</figcaption>
+            </figure>
+            <p>Para configurar la red vayamos a la opción de Network Setup.</p>
+            <figure>
+            <img src="mebx/-004.png" alt="Network Setup" /><figcaption aria-hidden="true">Network Setup</figcaption>
+            </figure>
+            <p>Después vamos a **TCP/IP Settings*</p>
+            <figure>
+            <img src="mebx/-005.png" alt="Seleccionar la opción" /><figcaption aria-hidden="true">Seleccionar la opción</figcaption>
+            </figure>
+            <p>Y configuramos la AMT según los siguientes parámetros</p>
+            <div class="caution">
+            <p>*Ten cuidado**: La dirección de lo AMT es diferente a la dirección de lo hipervisor. Además tienes que tener en cuenta que lo AMT no tiene lo ICMP actividad, por el que si haces uno <em>ping</em> no te dará respuesta.</p>
+            </div>
+            <p>Los parámetros que muestramos son unos parámetros de ejemplo que vayamos a utilizar dentro de nuestro banco de pruebas.</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Opción</th>
+            <th>IP</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>IP</td>
+            <td>172.x.y.2 – 172.x.y.254</td>
+            </tr>
+            <tr class="even">
+            <td>Máscara</td>
+            <td>255.255.255.0</td>
+            </tr>
+            <tr class="odd">
+            <td>Puerta de Enlace</td>
+            <td>172.x.y.1</td>
+            </tr>
+            <tr class="even">
+            <td>DNS</td>
+            <td>172.27.111.5 y 172.27.111.6</td>
+            </tr>
+            </tbody>
+            </table>
+            <figure>
+            <img src="mebx/-006.png" alt="Configuración red" /><figcaption aria-hidden="true">Configuración red</figcaption>
+            </figure>
+            <div class="importante">
+            <p>*Acceso**: Una vez ya tengas funcionando lo AMT, podrás acceder a través del navegador con la dirección http://172.x.y.238:16992 ó https://172.x.y.238:16993. Tendrás que cambiar la dirección según la que hayas escogido.</p>
+            </div>
+            <h1 id="meshcomander">Meshcomander</h1>
+            <blockquote>
+            <p>En este punto tenemos que tener en cuenta que tenemos que utilizar Windows. Si alguien conoce algún software que permita servir una imagen .iso a través de IDE-R LliureX sería muy interesante que lo comentara a los foros.</p>
+            </blockquote>
+            <p>Lo AMT nos permitirá tener el servidor montado dentro del rack principal sin necesidad de tener ni un monitor ni un teclado conectado. A pesar de que se una herramienta tremendamente útil. Esta no está disponible para ninguna distribución de linux, o al menos, no una versión que dispone de todas las funcionalidades que nos ofrece AMT de Intel como lo IDE-R.</p>
+            <div class="noto">
+            <p><strong>Info</strong>: IDE Redirect (IDE-R) permite montar una imagen ISO remotamente desde un cliente. Esta opción es muy interesante puesto que evita que necesariamente estemos físicamente presentes a de instalar o reinstalar lo Proxmox. Podéis encontrar más información <a href="https://software.intel.com/content/www/us/en/develop/blogs/meshcommander-javascript-ider.html">aquí</a>.</p>
+            </div>
+            <p>Tenemos que descargar el software de su <a href="https://www.meshcommander.com/meshcommander">página web</a> y hacer la instalación.</p>
+            <figure>
+            <img src="mesh/1.png" alt="Página para descargar lo meshcomander" /><figcaption aria-hidden="true">Página para descargar lo meshcomander</figcaption>
+            </figure>
+            <div class="caution">
+            <p>*Ten cuidado**: Recuerda que tienes que estar en la misma red que lo hipervisor (la red de Aulas en nuestro caso). Lo hipervisor no tiene el porqué de estar encendido para poder acceder.</p>
+            </div>
+            <p>Una vez instalado y funcionando lo mesh comander veremos una cosa como la siguiente.</p>
+            <figure>
+            <img src="mesh/2.png" alt="Meshcomander pantallazo" /><figcaption aria-hidden="true">Meshcomander pantallazo</figcaption>
+            </figure>
+            <p>Haremos click sobre <em>Add computer…</em> Y configuraremos el servidor con los parámetros del AMT que hemos configurado previamente. Podemos acceder de dos maneras:</p>
+            <ul>
+            <li>Con TLS, por el que utilizaremos el puerto <em>16993</em></li>
+            <li>Sin seguridad, utilizaremos el puerto <em>16992</em></li>
+            </ul>
+            <figure>
+            <img src="mesh/3.png" alt="Configuración del meshcomander 1" /><figcaption aria-hidden="true">Configuración del meshcomander 1</figcaption>
+            </figure>
+            <figure>
+            <img src="mesh/4.png" alt="Configuración del meshcomander 2" /><figcaption aria-hidden="true">Configuración del meshcomander 2</figcaption>
+            </figure>
+            <p>Una vez configurado el servidor veremos la pantalla de la siguiente manera. Ya solo hace falta, dar a <strong>connect</strong> y podremos acceder a la configuración de nuestro servidor de manera remota.</p>
+            <figure>
+            <img src="mesh/5.png" alt="Pantalla donde se muestra lo hipervisor" /><figcaption aria-hidden="true">Pantalla donde se muestra lo hipervisor</figcaption>
+            </figure>
+            <p>Si has escogido la conexión con TLS, probablemente te aparecerá una advertencia.</p>
+            <figure>
+            <img src="mesh/6.png" alt="Indicación" /><figcaption aria-hidden="true">Indicación</figcaption>
+            </figure>
+            <p>Una vez conectado veremos la siguiente pantalla. No vayamos a parar a explicar todas las funcionalidades que dispones, sino que nos centraremos en la instalación remota. Para lo cual hay que ir a Serial-over-LAN.</p>
+            <figure>
+            <img src="mesh/7.png" alt="Pantalla de opciones de lo hipervisor" /><figcaption aria-hidden="true">Pantalla de opciones de lo hipervisor</figcaption>
+            </figure>
+            <p>En este punto tenemos que descargar la ISO de Proxmox desde la suya <a href="https://proxmox.com/en/downloads">página web</a>.</p>
+            <figure>
+            <img src="mesh/proxmox.png" alt="Opción para descargar lo proxmox VIENE" /><figcaption aria-hidden="true">Opción para descargar lo proxmox VIENE</figcaption>
+            </figure>
+            <p>Aquí haremos click sobre la opción <strong>IDER</strong> y seleccionaremos la imagen descargada.</p>
+            <figure>
+            <img src="mesh/10.png" alt="Selección de imagen de Proxmox" /><figcaption aria-hidden="true">Selección de imagen de Proxmox</figcaption>
+            </figure>
+            <p>Una vez seleccionada la opción de Proxmox iremos <strong>Remote Desktop</strong> y seleccionaremos la opción de <strong>Power Actions</strong>. Allí, tenemos que escoger la opción de <em>Power donde tono IDE-R CDROM</em>. Veremos que lo hipervisor se reinicia y empezará la instalación.</p>
+            <figure>
+            <img src="mesh/11.png" alt="Remote Desktop" /><figcaption aria-hidden="true">Remote Desktop</figcaption>
+            </figure>
+            <figure>
+            <img src="mesh/12.png" alt="Opción para iniciar desde la ISO" /><figcaption aria-hidden="true">Opción para iniciar desde la ISO</figcaption>
+            </figure>
+            <p>Finalmente veremos como empieza la instalación de Proxmox.</p>
+            <figure>
+            <img src="mesh/13.png" alt="Cambio de opción" /><figcaption aria-hidden="true">Cambio de opción</figcaption>
+            </figure>
+            <div class="importando">
+            <p>Es altamente recomendable tener una conexión al menos de 1Gb, puesto que sino la instalación se puede hacer muy pesada y pueden aparecer errores de <em>timeout</em>.</p>
+            </div>
+            <h1 id="instalación-de-proxmox">Instalación de Proxmox</h1>
+            <p>Para instalar Proxmox podemos utilizar la opción explicada. Es la más recomendable si ya tenso el servidor montado al rack. De todas maneras, también se puede instalar con una memoria usb.</p>
+            <h2 id="creación-de-usb-de-arrancada-de-proxmox">Creación de usb de arrancada de proxmox</h2>
+            <p>Para hacer la instalación de la iso de proxmox, la mejor opción es utilizar <strong>dd</strong>. Para detectar donde está montado lo usb podemos ejecutar antes y después lsblk y podemos ver donde se ha montado la partición.</p>
+            <div class="sourceCode" id="cb1"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lsblk</span></code></pre></div>
+            <p>En nuestro ejemplo (puesto que tenemos un disco llevar m² no sata, se ha montado sda). Por lo tanto nuestro mando sería:</p>
+            <div class="sourceCode" id="cb2"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dd <span class="cf">if</span>=<span class="kw">.</span>/proxmox-viene_6.2-1.iso of=/dev/sda status=progress</span></code></pre></div>
+            <h2 id="instalación-de-proxmox-1">Instalación de proxmox</h2>
+            <p>Una vez tenemos creado el disco usb de arrancada e iniciamos con lo usb, o a través de IDER. Veremos la siguiente imagen. Polsem entero* y continuamos.</p>
+            <figure>
+            <img src="inst_proxmox/1.jpg" alt="Pantalla inicial de la instalación de Proxmox" /><figcaption aria-hidden="true">Pantalla inicial de la instalación de Proxmox</figcaption>
+            </figure>
+            <p>Todos sabemos que es importante leerse la licencia :smirk:.</p>
+            <figure>
+            <img src="inst_proxmox/2.jpg" alt="Licencia de Proxmox" /><figcaption aria-hidden="true">Licencia de Proxmox</figcaption>
+            </figure>
+            <p>Esta es una de las partes más delicadas y depende del que vullgueu tener montado en vuestro centro, también depende de la cantidad de discos duros que tengáis instalados y de si queréis invertir dinero en una cabina de discos duros.</p>
+            <figure>
+            <img src="inst_proxmox/3.jpg" alt="Opciones de instalación" /><figcaption aria-hidden="true">Opciones de instalación</figcaption>
+            </figure>
+            <p>Si queréis dejarlo ext4. Y utilizar un único disco para utilizar Proxmox y las máquinas virtuales no va a dar males resultados. El otro disco llevar lo podéis utilizar para hacer copias de seguridad.</p>
+            <div class="info">
+            <p>Proxmox utiliza ZFS que es una combinación de administrador de volúmenes y sistema de ficheros.</p>
+            </div>
+            <figure>
+            <img src="inst_proxmox/4.jpg" alt="Selección de opciones" /><figcaption aria-hidden="true">Selección de opciones</figcaption>
+            </figure>
+            <p>Las opciones que tenemos son las siguientes:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Sistema</th>
+            <th>Características</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>RAID0</td>
+            <td>Suma capacidades de los discos. Si falla una unidad es inservible.</td>
+            </tr>
+            <tr class="even">
+            <td>RAID1</td>
+            <td>Dato escrito idénticamente. Mínimo 2 discos de la misma medida.</td>
+            </tr>
+            <tr class="odd">
+            <td>RAID10</td>
+            <td>Una combinación de RAID0 y RAID1. Mínimo 4 discos.</td>
+            </tr>
+            <tr class="even">
+            <td>RAIDZ-1</td>
+            <td>Variación de RAID-5, paridad sola. Mínimo 3 discos.</td>
+            </tr>
+            <tr class="odd">
+            <td>RAIDZ-2</td>
+            <td>Variación de RAID-5, paridad doble. Mínimo 4 discos.</td>
+            </tr>
+            <tr class="even">
+            <td>RAIDZ-3</td>
+            <td>Variación encima RAID-5, paridad triple. Mínimo 5 discos</td>
+            </tr>
+            </tbody>
+            </table>
+            <div class="warning">
+            <p>Si habéis optado para adquirir una tarjeta controladora para montar lo RAID, esta opción no lo tenéis que usar. Siempre y cuando la tarjeta sea reconocida por Proxmox, se verá como un único disco. Las opciones que estamos configurando es RAID por vía software.</p>
+            </div>
+            <p>La opción más nivelada entre todos los parámetros a tener en cuenta sería la opción de RAID1.</p>
+            <figure>
+            <img src="inst_proxmox/5.jpg" alt="Opción recomendada" /><figcaption aria-hidden="true">Opción recomendada</figcaption>
+            </figure>
+            <p>Configuramos la zona geográfica.</p>
+            <figure>
+            <img src="inst_proxmox/6.jpg" alt="Zona geográfica" /><figcaption aria-hidden="true">Zona geográfica</figcaption>
+            </figure>
+            <p>Configuramos el password y la contraseña.</p>
+            <div class="caution">
+            <p>Si estás haciendo la instalación por IDER utiliza la arroba del campo de texto puesto que es posible que no la puedas escribir con Alto Gr+2.</p>
+            </div>
+            <figure>
+            <img src="inst_proxmox/7.jpg" alt="Configuración de contraseña" /><figcaption aria-hidden="true">Configuración de contraseña</figcaption>
+            </figure>
+            <p>Configura la red según los parámetros de tu centro. El ejemplo dado no es el correspondiente al que deberías de utilizar.</p>
+            <figure>
+            <img src="inst_proxmox/8.jpg" alt="Configuración de red" /><figcaption aria-hidden="true">Configuración de red</figcaption>
+            </figure>
+            <p>Comprobamos que todos los parámetros que hemos configurado son los correctos y le damos a Install. Enseguida empezará la instalación que suele ser bastante rápida.</p>
+            <figure>
+            <img src="inst_proxmox/9.jpg" alt="Instalación de proxmox" /><figcaption aria-hidden="true">Instalación de proxmox</figcaption>
+            </figure>
+            <p>Una vez finalizada la instalación. Reiniciamos el sistema y pasaremos a la siguiente unidad. Configuración del Proxmox.</p>
+            <figure>
+            <img src="inst_proxmox/10.jpg" alt="Instalación de proxmox" /><figcaption aria-hidden="true">Instalación de proxmox</figcaption>
+            </figure>
+            <h1 id="bibliografía-y-referencias">Bibliografía y referencias</h1>
+            <ol class="example" type="1">
+            <li>https://pve.proxmox.com/wiki/zfs_on_linux</li>
+            <li>https://www.meshcommander.com/meshcommander</li>
+            <li>https://wiki.edu.gva.es/lliurex/tiki-index.php</li>
+            <li>https://proxmox.com/en/</li>
+            </ol>
+            </div>
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>

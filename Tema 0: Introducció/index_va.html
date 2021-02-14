@@ -1,0 +1,725 @@
+<!doctype html>
+<html  lang="es" >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <meta name="author" content="Creat per José A. Múrcia" />
+  <meta name="author" content="Àngels Piera i Albert Fletes Adaptat per Alfredo Vicente" />
+  <meta name="date" content="2021-02-24" />
+  <title>INTRODUCCIÓ A LLIUREX</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc.css" />
+  
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">INTRODUCCIÓ A LLIUREX</span>
+        <ul class="nav pull-right doc-info">
+                    <li><p class="navbar-text">Creat per José A. Múrcia</p></li>
+                    <li><p class="navbar-text">Àngels Piera i Albert Fletes Adaptat per Alfredo Vicente</p></li>
+                              <li><p class="navbar-text">2021-02-24</p></li>
+                  </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#què-és-lliurex"><span class="toc-section-number">1</span> Què és LliureX</a>
+        <ul>
+        <li><a href="#programari-lliure"><span class="toc-section-number">1.1</span> Programari lliure?</a></li>
+        <li><a href="#què-aporta-lliurex"><span class="toc-section-number">1.2</span> Què aporta LliureX</a></li>
+        <li><a href="#versions-i-sabors-de-lliurex"><span class="toc-section-number">1.3</span> Versions i sabors de LliureX</a></li>
+        <li><a href="#lliurex-i-la-inclusió"><span class="toc-section-number">1.4</span> 1.4. LliureX i la inclusió</a></li>
+        <li><a href="#recursos-en-línia"><span class="toc-section-number">1.5</span> Recursos en línia</a></li>
+        </ul></li>
+        <li><a href="#obtenció-i-installació-de-lliurex"><span class="toc-section-number">2</span> Obtenció i instal·lació de LliureX</a>
+        <ul>
+        <li><a href="#installació-de-lliurex-a-lordinador"><span class="toc-section-number">2.1</span> Instal·lació de LliureX a l’ordinador</a>
+        <ul>
+        <li><a href="#obtenció-de-la-iso-de-lliurex"><span class="toc-section-number">2.1.1</span> Obtenció de la ISO de LliureX</a></li>
+        <li><a href="#creació-dun-usb-darrencada"><span class="toc-section-number">2.1.2</span> Creació d’un USB d’arrencada</a></li>
+        <li><a href="#arranc-des-de-lusb-i-installació-de-lliurex"><span class="toc-section-number">2.1.3</span> Arranc des de l’USB i instal·lació de LliureX</a></li>
+        </ul></li>
+        <li><a href="#installació-de-lliurex-sobre-windows-lliuwin"><span class="toc-section-number">2.2</span> Instal·lació de LliureX sobre Windows: LliuWin</a>
+        <ul>
+        <li><a href="#descàrrega-i-installació-de-lliuwin"><span class="toc-section-number">2.2.1</span> Descàrrega i instal·lació de LliuWin</a></li>
+        <li><a href="#descàrrega-i-installació-de-lliurex-amb-lliuwin-installer"><span class="toc-section-number">2.2.2</span> Descàrrega i instal·lació de LliureX amb LliuWin Installer</a></li>
+        </ul></li>
+        </ul></li>
+        <li><a href="#un-passeig-per-lentorn-de-lliurex"><span class="toc-section-number">3</span> Un passeig per l’entorn de LliureX</a>
+        <ul>
+        <li><a href="#lescriptiori"><span class="toc-section-number">3.1</span> L’escriptiori</a></li>
+        <li><a href="#on-estan-les-meues-coses"><span class="toc-section-number">3.2</span> On estan les meues coses?</a>
+        <ul>
+        <li><a href="#el-sistema-de-fitxers-de-lliurex"><span class="toc-section-number">3.2.1</span> El sistema de fitxers de LliureX</a></li>
+        <li><a href="#la-carpeta-dinici"><span class="toc-section-number">3.2.2</span> La carpeta d’Inici</a></li>
+        </ul></li>
+        </ul></li>
+        <li><a href="#gestió-de-programari"><span class="toc-section-number">4</span> Gestió de programari</a>
+        <ul>
+        <li><a href="#com-obtenim-el-programari"><span class="toc-section-number">4.1</span> Com obtenim el programari?</a>
+        <ul>
+        <li><a href="#abans-de-començar-lliurex-up"><span class="toc-section-number">4.1.1</span> Abans de començar: LliureX Up</a></li>
+        <li><a href="#synaptic"><span class="toc-section-number">4.1.2</span> Synaptic</a></li>
+        <li><a href="#discover"><span class="toc-section-number">4.1.3</span> Discover</a></li>
+        <li><a href="#lliurex-store"><span class="toc-section-number">4.1.4</span> LliureX Store</a></li>
+        <li><a href="#programari-al-zero-center"><span class="toc-section-number">4.1.5</span> Programari al zero-center</a></li>
+        <li><a href="#gestió-dels-repositoris-dapt-repoman"><span class="toc-section-number">4.1.6</span> Gestió dels repositoris d’APT: Repoman</a></li>
+        <li><a href="#més-informació"><span class="toc-section-number">4.1.7</span> Més informació</a></li>
+        </ul></li>
+        </ul></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+            <h1 data-number="1" id="què-és-lliurex"><span class="header-section-number">1</span> Què és LliureX</h1>
+            <p><em>LliureX</em> és la distribució GNU/Linux desenvolupada per la Generalitat Valenciana per tal de facilitar l’accés a les TIC a la comunitat educativa.</p>
+            <p>El projecte LliureX va nàixer el 2004, i actualment es troba present a tots els centres públics del País valencià, en més de 120.000 equips i servidors. L’any 2019 va rebre el premi <em>Open Awards</em> a la innovació tecnològica en el camp de l’educació<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, i s’ha convertit en un referent respecte a distribucions educatives basades en <em>programari lliure</em> a escala mundial.</p>
+            <h2 data-number="1.1" id="programari-lliure"><span class="header-section-number">1.1</span> Programari lliure?</h2>
+            <p>Quan parlem de <em>programari lliure</em>, fem referència a tot aquell <em>programari</em> del qual podem estudiar-ne el <em>codi font</em>, modificar-lo, utilitzar-lo amb qualsevol finalitat i redistribuïr-lo.</p>
+            <p>Per entendre millor aquests conceptes, podem fer un símil amb el món de la cuina. El programari o <em>software</em> en anglès, podria ser un plat, i el <em>codi font</em> seria la recepta per elaborar aquest. Amb aquestes premisses, podem tindre dues visions de què seria la cuina:</p>
+            <ul>
+            <li>Aquella que guarda en secret la recepta, per tal que ningú la puga <em>copiar</em> i mantenir-ne l’exclusivitat del plat, o bé</li>
+            <li>Aquella que publica els ingredients i el procediment pe fer-la, de manera que nosaltres la podem cuinar a casa, la podem adaptar o modificar al nostre gust, i la podem redistribuir per tal de fer-la arribar a altres per tal que la tasten o milloren. A més, com que tenim la llista d’ingredients, podem saber si hi ha algun al·lergen present.</li>
+            </ul>
+            <p>Tornant al món del programari, la primera visió seria aquella que es correspon al programari propietari, del que no en coneixem el codi font, i del que no podem saber com treballa ni què fa amb les nostres dades personals. El segon punt de vista seria el que es correspondria al programari lliure, on tot el codi és públic i obert, de manera que sabem com treballa, què fa amb les nostres dades, i podem aplicar-li qualsevol millora o adaptació.</p>
+            <blockquote>
+            <p><strong>Les quatre llibertats del programari lliure</strong></p>
+            <p>Tot programari és lliure si ens aporta les següents <em>llibertats</em>:</p>
+            <ul>
+            <li>Llibertat d’utilitzar el programari amb qualsevol finalitat,</li>
+            <li>Llibertat d’estudiar el codi font i modificar-lo per adaptar-lo a les pròpies necessitats,</li>
+            <li>Llibertat per distribuir-lo com i a qui vullguem,</li>
+            <li>Llibertat per fer millores i fer-les públiques, de manera que es beneficie tota la comunitat.</li>
+            </ul>
+            </blockquote>
+            <h2 data-number="1.2" id="què-aporta-lliurex"><span class="header-section-number">1.2</span> Què aporta LliureX</h2>
+            <p>LliureX és una variant del sistema operatiu GNU/Linux Ubuntu, modificada, millorada i adaptada a l’ecosistema educatiu valencià. LliureX és codi lliure, i a més del sistema operatiu de base, incorpora una gran varietat d’aplicacions educatives, adaptacions i desenvolupaments propis, per tal de facilitar la tasca docent, de manteniment i d’administració d’equips als docents.</p>
+            <p>D’entre les principals característiques que aporta LliureX, podem destacar:</p>
+            <ul>
+            <li>És fàcil d’utilitzar i configurar,</li>
+            <li>Suporta diversos idiomes, amb el valencià com a llengua destacada. En aquest punt, cal dir que a més de la traducció al valencià del mateix sistema s’ha col·laborat amb la traducció de parts d’Ubuntu, s’ha treballat conjuntament amb Softvalencià per a la traducció de diverses aplicacions, entre elles LibreOffice, i s’ha col·laborat també amb institucions com ARASAAC, en la traducció del banc de pictogrames i la futura web.</li>
+            <li>Inclou una bona col·lecció d’aplicacions educatives organitzades per nivells i per a tots els àmbits.</li>
+            <li>Inclou recursos educatius: activitats jclic, html, etc.</li>
+            <li>Incorpora eines de creació d’Objectes Digitals Educatius (ODE): per a crear activitats amb diferents formats.</li>
+            <li>Estalvia els costos de les llicències de programari i moltes hores de manteniment, al ser un sistema menys vulnerable a malware i pirates informàtics,</li>
+            <li>Optimitza de la dotació informàtica de centre, i ens pot aprofitar per reutilitzar equips vells, ja que està dissenyat per consumir menys recursos que altres sistemes operatius propietaris</li>
+            <li>A més del sistema operatiu per equips individuals, aporta tot un model d’aula i de centre, de manera que centralitza en servidors totes les dades del centre, i facilita la gestió remota dels equips.</li>
+            </ul>
+            <h2 data-number="1.3" id="versions-i-sabors-de-lliurex"><span class="header-section-number">1.3</span> Versions i sabors de LliureX</h2>
+            <p>LliureX llença actualitzacions completes del sistema aproximadament cada dos anys, basant-se en l’última versió LTS (<em>Long Term Support</em> d’Ubuntu). L’última versió completa, basada en Ubuntu 18.04 és LliureX 19. A més, els anys que no s’actualitza completament el sistema de base, es realitza una actualització completa del programari, i s’afegeixen millores, però sense canviar aquest sistema de base. L’última versió, LliureX 20, utilitza doncs la mateixa base que LliureX 19, però amb moltes millores afegides.</p>
+            <p>Per altra banda, cada versió té diferents <em>Sabors</em>. Podem dir que els <em>sabors</em> són adaptacions de LliureX als diferents contextos educatius en què es vagen a implantar. Així, els diferents sabors que presenta LliureX són:</p>
+            <ul>
+            <li><strong>LliureX Escriptori</strong>: Pensada per a ordinadors autònoms (no connectats a cap servidor), i amb un subconjunt d’aplicacions orientades principalment a secundària i batxillerat.</li>
+            <li><strong>LliureX Infantil</strong>: Pensada també per a ordinadors autònoms, però amb una selecció de programari per defecte més orientada a alumnes d’infantil i els primers cursos de primària.</li>
+            <li><strong>LliureX Música</strong>: Versió d’escriptori pensada per als ordinadors de l’aula de música, amb programari específic per al tractament, l’edició i la composició d’àudio.</li>
+            <li><strong>LliureX Pime</strong>: Versió d’escriptori reduïda, sense aplicacions educatives, i pensada per a xicotetes i mitjanes empreses que desitgen introduir-se al món del programari lliure.</li>
+            <li><strong>LliureX Servidor</strong>: Pensada per als servidors del centre, que centralitzen la gestió, donen suport a clients lleugers (com els ordinadors de la biblioteca), i emmagatzemen la informació dels usuaris del centre.</li>
+            <li><strong>Client</strong>: Versió d’escriptori que depèn d’un servidor, de manera que es connecta a aquest per tal de validar els usuaris i guardar en ell les dades. La versió Servidor i Client estan pensades per implantar-se al model de centre, on es dependrà d’un o diversos servidors centrals, i la resta d’ordinadors del centre seran clients. D’aquesta manera, ens connectem des d’on ens connectem, tenim disponibles les nostres dades.</li>
+            <li><strong>FP</strong>: Des de la versió de LliureX 19.07 (Juliol 2020) també es disposa d’un sabor pensat per a cicles formatius, sense les aplicacions educatives orientades a primària i secundària, i amb una selecció de programari de gestió empresarial.</li>
+            </ul>
+            <p>En aquest curs, utilitzarem la versió d’Escriptori, i si hem d’utilitzar programari preinstal·lat en altre sabor, veurem com fer-ho a la nostra instal·lació.</p>
+            <h2 data-number="1.4" id="lliurex-i-la-inclusió"><span class="header-section-number">1.4</span> 1.4. LliureX i la inclusió</h2>
+            <p>Des dels seus inicis fins al dia d’avui, LliureX ha acompanyat els centres en la seua transformació digital, i tenint en especial consideració aquella part de l’alumnat que presenta necessitats educatives especials o dificultats d’aprenentatge.</p>
+            <p>Amb la finalitat d’acostar les Tecnologies de la Informació i la Comunicació a l’alumnat amb necessitats educatives especials, i convertir-les en un element integrador i innovador, la Conselleria d’Educació, a través de la D.G. d’Innovació Tecnològica Educativa, va posar en marxa el pla INTEGRA-TIC entre els anys 2008-2010. Aquest pla contemplava dotar les aules dels centres d’Educació Especial de pissarra digital, canó projector i ordinador amb LliureX. Les dimensions de la pissarra, faciliten el treball als alumnes amb problemes motors o dificultats grafomotrius, o bé alumnes que per les seues característiques cognitives, no saben utilitzar el ratolí. A més, la PDI també presentava moltes possibilitats de treball: des de les rutines diàries, fins activitats d’aprenentatge més actives i participatives.</p>
+            <p>LliureX va estar present durant tot aquest procés amb l’adaptació i millora d’eines per al treball amb pissarres digitals com el Notebook o el desenvolupament d’aplicacions pròpies d’accessibilitat com l’eina MiniScreen per al control de la PDI per part d’alumnes amb problemes de mobilitat.</p>
+            <p>Tot i aportar una gran millora, el sistema no era perfecte. Amb el temps, s’ha hagut de millorar i adaptar a les noves circumstàncies amb l’aplicació del model de centre i han aparegut nous reptes, com la integració de les tauletes digitals a l’aula.</p>
+            <p>Ara com ara, les possibilitats que ofereix LliureX pel que fa al món de la inclusió es poden resumir en:</p>
+            <ul>
+            <li>Aplicacions del sistema i de tercers adaptades i incloses a LliureX:
+            <ul>
+            <li>Entorn d’escriptori Accessible,</li>
+            <li>Eina <em>Eviacam</em> per controlar el ratolí amb el moviment del cap,</li>
+            <li><em>AraSuite</em>, que inclou l’AraWord i el Tico, amb els pictogrames d’ARASAAC</li>
+            </ul></li>
+            <li>Eines desenvolupades específicament per a LliureX:
+            <ul>
+            <li><em>LliureX Miniscreen</em>, per al control de la PDI per a alumnes amb mobilitat reduïda,</li>
+            <li><em>Casimir Editor</em>, editor de text per a alumnes amb dificultats d’aprenentatge com la dislèxia,</li>
+            <li><em>ClassJam</em>, o l’<em>Assemblea d’aula</em>, per treballar l’Assemblea de l’aula amb la PDI</li>
+            <li><em>CloudBook</em>, per realitzar tota mena de recurs educatiu,</li>
+            </ul></li>
+            <li>A més, s’ha col·laborat amb altres projectes, entre ells:
+            <ul>
+            <li><em>Portal Aragonès de Comunicació Alternativa i Augmentativa</em> (<em>ARASAAC</em>), amb l’adaptació al valencià del seu banc de pictogrames i el lloc web,</li>
+            <li><em>joComunico</em>, de Joan Pahisa, un comunicador pictogràfic que processa el llenguatge de forma natural,</li>
+            </ul></li>
+            </ul>
+            <p>Actualment, el principal repte és millorar l’ús conjunt de les tauletes digitals amb LliureX.</p>
+            <h2 data-number="1.5" id="recursos-en-línia"><span class="header-section-number">1.5</span> Recursos en línia</h2>
+            <p>Per tal de conéixer una miqueta millor el projecte, tenim al nostre abast diferents recursos en línia que podem consultar, a través de la pàgina web del projecte <a href="https://portal.edu.gva.es/lliurex/">https://portal.edu.gva.es/lliurex/</a>, des d’on podreu conéixer les últimes notícies, la història i les motivacions del projecte, i accedir a:</p>
+            <ul>
+            <li>La pàgina de <strong>Descàrregues</strong>, des d’on podreu descarregar-vos diferents versions i sabors de LliureX,</li>
+            <li><strong>Recursos</strong>, com explicacions del model de centre o accés al material de diferents cursos de formació,</li>
+            <li>El <strong>Fòrum</strong> de LliureX, que suposa una gran base de coneixement de dubtes que han plantejat altres companys i que us permet preguntar qualevol dubte que tingueu a l’equip,</li>
+            <li>La <strong>Wiki de LliureX</strong>, que podeu accedir també a través de l’adreça web <a href="https://wiki.edu.gva.es/lliurex/tiki-index.php">https://wiki.edu.gva.es/lliurex/tiki-index.php</a>, i on podeu trobar moltíssima informació sobre les aplicacions incloses a LliureX, el model de centre, etc.</li>
+            </ul>
+            <h1 data-number="2" id="obtenció-i-installació-de-lliurex"><span class="header-section-number">2</span> Obtenció i instal·lació de LliureX</h1>
+            <p>La millor forma de treballar amb LliureX és tindre’l instal·lat a l’ordinador, ja que aprofitem tots els recursos d’aquest. Des de la versió 19.07 de LliureX (juliol 2020), també tenim disponible LliuWin, un instal·lador de LliureX com si es tractara d’una aplicació per a Windows. Una altra opció, tot i que amb les limitacions esperables de compartir els recursos de l’ordinador és fer ús de màquines virtuals.</p>
+            <p>Per tal de realitzar aquest curs, necessitareu una instal·lació de LliureX als vostres ordinadors. Anem a veure les diferents opcions que teniu al vostre abast perquè escolliu la que més us convinga.</p>
+            <h2 data-number="2.1" id="installació-de-lliurex-a-lordinador"><span class="header-section-number">2.1</span> Instal·lació de LliureX a l’ordinador</h2>
+            <p>Com hem comentat, la millor manera de treballar amb LliureX és tindre’l instal·lat al nostre ordinador. El procés general per a això serà el següent:</p>
+            <ol type="1">
+            <li>Obtenció d’una <em>imatge ISO</em> de LliureX des de la web</li>
+            <li>Creació d’un USB d’arrencada amb LliureX</li>
+            <li>Arrencada des d’USB i instal·lació del sistema</li>
+            </ol>
+            <p>Cal tindre en compte que si volem instal·lar LliureX a un ordinador que ja té un sistema operatiu prèviament instal·lat, com puga ser Windows, ens haurem d’assegurar de tindre espai suficient en disc per instal·lar LliureX. Tot i que una instal·lació neta ocupa uns 13 GB, sería convenient disposar d’un mínim de 20-30 GB lliures al disc.</p>
+            <h3 data-number="2.1.1" id="obtenció-de-la-iso-de-lliurex"><span class="header-section-number">2.1.1</span> Obtenció de la ISO de LliureX</h3>
+            <p>Per tal de descarregar LliureX, accedirem a la secció de descàrregues de la pàgina web de LliureX:</p>
+            <figure>
+            <img src="img/descarregues_1.png" width="450" alt="Accés a les descàrregues de LliureX" /><figcaption aria-hidden="true">Accés a les descàrregues de LliureX</figcaption>
+            </figure>
+            <p>En aquesta pàgina, veurem que podem descarregar qualsevol <em>Sabor</em> de les diferents versions de LliureX.</p>
+            <p>Per descarregar la versió d’escriptori, obrirem el desplegale corresponen al sabor (la barra amb el text <em>Escriptori</em> i el signe <em>+</em>), i després en el botó de decàrrega del sistema en 64 bits:</p>
+            <figure>
+            <img src="img/descarregues_2.png" width="450" alt="Accés a les descàrregues de LliureX" /><figcaption aria-hidden="true">Accés a les descàrregues de LliureX</figcaption>
+            </figure>
+            <p>Una vegada fem clic, s’iniciarà la descàrrega al nostre ordinador. Això pot tardar un temps, ja que es tracta d’un fitxer d’un pes considerable.</p>
+            <p>El fitxer descarregat, serà un fitxer amb extensió <em>.iso</em>, que haurem de bolcar sobre una memòria USB amb espai suficient, per arrancar el nostre ordinador amb ell.</p>
+            <h3 data-number="2.1.2" id="creació-dun-usb-darrencada"><span class="header-section-number">2.1.2</span> Creació d’un USB d’arrencada</h3>
+            <p>Una vegada disposem de la imatge <em>.iso</em> descarregada, haurem de bolcar-la a un dispositiu de memòria USB. Com que aquest fitxer ocupa 3.3 Gb, amb una memòria USB de 4 GB deuria ser suficient, però podem utilitzar-ne una de major capacitat. <strong>Cal tindre en compte que aquesta memòria USB s’utilitzarà de forma exclussiva per al bolcat de la imatge, pel que qualsevol fitxer que continga serà esborrat.</strong></p>
+            <p>Als següents punts, anem a veure com generar aquest USB d’arrencada tant des de LliureX com des de Windows.</p>
+            <p><strong>Creació de l’USB d’arrencada amb LliureX/Ubuntu</strong></p>
+            <p>Si volem crear l’USB d’arrencada des d’un ordinador amb LliureX o Ubuntu, ho farem a través de l’eina <em>Startup Disk Creator</em>. A la <a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Creaci%C3%B3+d%27un+USB+d%27arrancada">wiki de LliureX</a> tenim descrit aquest procés.</p>
+            <p>El que haurem de fer és buscar aquesta aplicació des del menú d’inici (<em>Sistema</em> &gt; <em>Startup Disk Creator</em>) i executar-la:</p>
+            <figure>
+            <img src="img/usb1.png" width="400" alt="Accés a Startup Disk Creator des d’Ubuntu" /><figcaption aria-hidden="true">Accés a Startup Disk Creator des d’Ubuntu</figcaption>
+            </figure>
+            <p>La pantalla principal d’aquesta aplicació ens mostra dos seccions: la part superior, amb la llista d’imatges <em>iso</em> que coneix l’aplicació (<em>Imatge de Disc Font</em>), i la part inferior (<em>Disc a utilitzar</em>), amb la llista de memòries USB connectades en eixe moment. Per tal de crear l’USB d’arrencada, haurem de tindre’l connectat abans d’iniciar l’aplicació per a què aquesta el detecte.</p>
+            <figure>
+            <img src="img/usb2.png" width="450" alt="Startup Disk Creator des d’Ubuntu" /><figcaption aria-hidden="true">Startup Disk Creator des d’Ubuntu</figcaption>
+            </figure>
+            <p>Inicialment, si no ens apareix el fitxer <em>.iso</em> que hem descarregat en la llista superior, farem clic en <em>Altres</em>, i buscarem dins el nostre ordinador la imatge que hem descarregat (generalment a la carpeta de <em>Descàrregues</em>).</p>
+            <p>Fet açò, ens haurem d’assegurar que tenim a la part superior seleccionada la imatge de LliureX que hem descarregat, i a la part inferior seleccionat el dispositiu sobre el què volem crear la imarge. Si tot és correcte, haurem de fer clic al botó <em>Crea un disc d’arrencada</em> per iniciar el procés.</p>
+            <p>En aquest moment, després d’un possible misstge advertint de la pèrdua de dades de la memòria USB, se’ns mostrarà una barra amb el progrés de la creació. Quan estiga finalitzant, és possible que hajam d’introduïr la contrassenya de l’usuari administrador, per tal de fer l’USB arrancable.</p>
+            <p>Finalment, ens mostrarà la següent finestra indicant que ha finalitzat el procés.</p>
+            <figure>
+            <img src="img/usb3.png" width="350" alt="Startup Disk Creator des d’Ubuntu" /><figcaption aria-hidden="true">Startup Disk Creator des d’Ubuntu</figcaption>
+            </figure>
+            <p>Amb això ja tindrem l’USB preparat per arrancar l’ordinador amb un sistema <em>live</em> de LliureX.</p>
+            <p>A l’article de la wiki se’ns comenta també, com a alternativa, com realitzar aquest procés des de la línia d’ordres. Aquest procés es basa en ordre des de la terminal, i requereix d’alguns coneixements més avançats, però en ocasions, pot ser-nos útil en casos en què la creació de l’usb de forma gràfica dóne problemes (bé pel format d’algunes imatges <em>iso</em>, o bé per qüestions d’espai a la memòria).</p>
+            <p><strong>Creació de l’USB d’arrencada des de Windows o Mac</strong></p>
+            <p>Per tal de crear el disc d’arrencada USB des d’altres sistemes, com Windows, MacOS, o fins i tot GNU/Linux (si no volem utilitzar l’Startup Disc Creator), farem ús de l’eina <em>Etcher</em>.</p>
+            <p>Per a això, el primer que haurem de fer és accedir a la seua web https://www.balena.io/etcher/, i descarregar-lo per al nostre sistema.</p>
+            <figure>
+            <img src="img/etcher1.png" width="300" alt="Pàgina web d’Etcher" /><figcaption aria-hidden="true">Pàgina web d’Etcher</figcaption>
+            </figure>
+            <p>Una vegada descarregat, excutem l’instal·lador, acceptem la llicència i en breu tindrem l’accés directe a Etche al nostre escriptori.</p>
+            <figure>
+            <img src="img/etcher2.png" width="300" alt="Instal·lació d’Etcher" /><figcaption aria-hidden="true">Instal·lació d’Etcher</figcaption>
+            </figure>
+            <p>L’ús d’aquesta eina és bastant senzill, i consta de tres senzills passos:</p>
+            <ol type="1">
+            <li>Fem clic a la prmiera icona <em>Flash from image</em> i seleccionem el fitxer <em>.iso</em> que hem descarregat.</li>
+            </ol>
+            <figure>
+            <img src="img/etcher3.png" width="300" alt="Selecció de la ISO" /><figcaption aria-hidden="true">Selecció de la ISO</figcaption>
+            </figure>
+            <ol start="2" type="1">
+            <li>Fem clic sobre <em>Select Drive</em>, per tal d’escollir el dispositiu USB sobre el que volem bolcar la imatge.</li>
+            </ol>
+            <figure>
+            <img src="img/etcher4.png" width="300" alt="Selecció del dispositiu" /><figcaption aria-hidden="true">Selecció del dispositiu</figcaption>
+            </figure>
+            <ol start="3" type="1">
+            <li>Finalment fem clic al botó <em>Flash</em> per fer bolcar la imatge que hem seleccionat sobre el dispositiu escollit.</li>
+            </ol>
+            <p>Amb això, ja tindrem un dispositiu USB preparat per arrancar en mode Live i provar o instal·lar LliureX amb ell.</p>
+            <h3 data-number="2.1.3" id="arranc-des-de-lusb-i-installació-de-lliurex"><span class="header-section-number">2.1.3</span> Arranc des de l’USB i instal·lació de LliureX</h3>
+            <p>El següent pas és arrancar el nostre ordinador des del dispositiu USB què hem creat. Per a això haurem d’engegar el nostre ordinador amb la memporia USB connectada, i accedir al menú d’arrencada del sistema.</p>
+            <p>Cada fabricant utilitza una tecla diferent per tal d’accedir al menú d’arrencada. A la següent taula es mostren les tecles més habituals per tal d’accedir al menú d’arrencada per a diferents fabricants:</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Marca de l’ordinador</th>
+            <th>Tecla Boot Menu</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Acer</td>
+            <td>F12</td>
+            </tr>
+            <tr class="even">
+            <td>Asus</td>
+            <td>Esc o F8, segons models</td>
+            </tr>
+            <tr class="odd">
+            <td>Dell</td>
+            <td>F12</td>
+            </tr>
+            <tr class="even">
+            <td>Fujitsu</td>
+            <td>F12</td>
+            </tr>
+            <tr class="odd">
+            <td>Gateway</td>
+            <td>F12</td>
+            </tr>
+            <tr class="even">
+            <td>HP</td>
+            <td>Esc</td>
+            </tr>
+            <tr class="odd">
+            <td>Huawei</td>
+            <td>F12</td>
+            </tr>
+            <tr class="even">
+            <td>Intel NUC</td>
+            <td>F10</td>
+            </tr>
+            <tr class="odd">
+            <td>Lenonvo</td>
+            <td>F12</td>
+            </tr>
+            <tr class="even">
+            <td>Samsung</td>
+            <td>Esc</td>
+            </tr>
+            <tr class="odd">
+            <td>Sony</td>
+            <td>F11, Esc, F10 segons models</td>
+            </tr>
+            <tr class="even">
+            <td>Toshiba</td>
+            <td>F12</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Quan reiniciem l’ordinador i premem la tecla corresponent al nostre equip, se’ns mostrarà un menú similar al següent, al què haurem d’indicar que volem arrancar des de l’USB que hem creat:</p>
+            <figure>
+            <img src="img/boot_menu.png" width="300" alt="Menú d’arrancada" /><figcaption aria-hidden="true">Menú d’arrancada</figcaption>
+            </figure>
+            <p>Una vegada seleccionada l’opció, arrancarem des de l’USB, que ens carregarà una versió <em>Live</em> de LliureX per tal de poder provar-lo i instal·lar-lo.</p>
+            <p>Veiem a continuació les diferents pantalles que se’ns presenten i les diferents opcions d’instal·lació que tenim:</p>
+            <ol type="1">
+            <li><strong>Pantalla d’arrancada de LliureX Live:</strong> En aquesta primera pantalla quan arranquem des de l’USB haurem de prémer una tecla per tal d’iniciar la sessió Live de LliureX. Si no polsem cap tecla, el sistema s’iniciarà des del disc dur de l’ordinador.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx1.png" width="350" alt="Pantalla d’arranc de LliureX Live" /><figcaption aria-hidden="true">Pantalla d’arranc de LliureX Live</figcaption>
+            </figure>
+            <ol start="2" type="1">
+            <li><strong>Menú d’inici del sistema Live</strong>, amb diferents opcions, com fer un testeig de memòria o comproar si el CD/USB d’instal·lació té defectes. Triarem l’opció <strong>Proveu LliureX sense instal·lar-lo</strong>, per iniciar el mode live i des d’ell començar la instal·lació.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx2.png" width="350" alt="Menú d’inici del sistema Live" /><figcaption aria-hidden="true">Menú d’inici del sistema Live</figcaption>
+            </figure>
+            <p>En cas que tinguem el mode UEFI activat al nostre ordinador, és possible que aquestes opcions d’arrencada canvien, donant opció a iniciar LliureX Live en mode UEFI o bé a instal·lar directament el sistema. En aquest cas, podem bé llançar directament l’instal·lador o bé arrancar la sessió Live, i des d’aquesta instal·lar LliureX directament. Disposeu d’un <a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=UEFI">extens article</a> a la wiki de LliureX sobre què és UEFI i com activar-lo i desactivar-lo a l’ordinador.</p>
+            <ol start="3" type="1">
+            <li><strong>LliureX Live</strong>: S’iniciarà LliureX en mode Live des de l’USB, i a partir d’aci podrem iniciar la instal·lació. Per a això <strong>farem doble clic a la icona <em>Instal·la la versió LliureX</em></strong> que apareix a l’escrptori.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx3.png" width="350" alt="LliureX Live" /><figcaption aria-hidden="true">LliureX Live</figcaption>
+            </figure>
+            <ol start="4" type="1">
+            <li><strong>Instal·lador de LliureX</strong>: Ara s’iniciarà l’instal·lador de LliureX. La primera finestra d’aquest assistent d’instal·lació ens demanarà quin idioma desitgem per a la instal·lació i el sistema.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx4.png" width="350" alt="Selecció d’idioma" /><figcaption aria-hidden="true">Selecció d’idioma</figcaption>
+            </figure>
+            <ol start="5" type="1">
+            <li><strong>Selecció de la distribució del teclat</strong>, en aquest cas, triarem la Disposició en <em>Espanyol</em> i la variant del català per tindre habilitat el punt volat (el de la ela geminada <em>l·l</em>).</li>
+            </ol>
+            <figure>
+            <img src="img/instllx5.png" width="350" alt="Selecció de la distribució del teclat" /><figcaption aria-hidden="true">Selecció de la distribució del teclat</figcaption>
+            </figure>
+            <ol start="6" type="1">
+            <li><strong>Selecció de la distribució de l’escriptori</strong>, on podrem triar quina aparença volem donar-li al nostre escriptori LliureX. Tenim dues opcions. La primer és la <em>distribució per defecte</em> (<em>Default Layout</em>), amb una barra superior i el <em>dock</em> a la part inferior, tal i com s’ha estat treballant a les últimes versions de LliureX. La segona opció és una distribució més clàssica (<em>Classic Layout</em>) amb una única barra a la part inferior. <strong>En principi escollirem la distribució per defecte</strong>.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx6.png" width="350" alt="Distriubució de l’escriptori" /><figcaption aria-hidden="true">Distriubució de l’escriptori</figcaption>
+            </figure>
+            <ol start="7" type="1">
+            <li><strong>Tria de programari addicional</strong>, en principi no haurem d’instal·lar aquest programari per defecte, pel que <strong>no marcarem res i polsarem en Continua</strong>.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx7.png" width="350" alt="Programari addicional" /><figcaption aria-hidden="true">Programari addicional</figcaption>
+            </figure>
+            <ol start="8" type="1">
+            <li><strong>Complements del sistema</strong>, des d’on podrem habilitar el suport de flash, així com l’enviament d’estadístiques d’ús de LliureX de forma anònima i el servei d’inventari, per recollir informació del maquinari. Al nostre cas, deixarem marcat el suport de flash i l’ús d’estadítiques.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx8.png" width="350" alt="Complements del sistema" /><figcaption aria-hidden="true">Complements del sistema</figcaption>
+            </figure>
+            <ol start="9" type="1">
+            <li><strong>Tipus d’instal·lació</strong>. Aquest és un dels punts més delicats de la instal·lació, i és on decidirem la part de disc dur que anem a dedicar a LliureX. El propi particionador ja ens suggerirà la distribució que considere més adequada segons l’espai que trobe disponible al disc dur baix l’opció de <em>particionament guiat</em>.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx9.png" width="500" alt="Tipus d’instal·lació" /><figcaption aria-hidden="true">Tipus d’instal·lació</figcaption>
+            </figure>
+            <p>Quan parlem de <em>particions</em> fem referència a les parts en què dividim, de forma lògica un disc dur, de manera que és com si tinguérem tants discs durs com particions. Cada sistema operatiu necessita ubicar el seu sistema de fitxers en una d’aquestes particions. En aquesta finestra de <em>Tipus d’instal·lació</em> tenim diverses opcions per tal de fer aquestes particions:</p>
+            <ul>
+            <li><p><em>Guiat - redimensiona disc i utilitza l’espai lliure</em>, que serà l’opció recomanada, sempre que el particionador trobe espai suficient al disc com per fer la instal·lació. A la instal·lació d’exemple que estem fent s’ha utilitzat aquest sistema, sobre un disc que ja tenia diverses particions. El sistema ha detectat la partició on més espai disponible hi havia i ens ha suggerit reduir aquesta i crear-ne una nova per instal·lar LliureX. Com veiem a la imatge, se’ns mostra l’estat actual del disc, i com quedaria després de fer la nova partició. En aquesta barra de baix, fixeu-vos que apareix una fletxa doble entre la partició que anem a redimensionar i la nova per si volem ajustar els espais. Si desitgeu ajustar l’espai, recordeu-vos de deixar uns 20GB per a la partició amb LliureX.</p></li>
+            <li><p><em>Guiat - utilitza el disc sencer</em>. En aquest cas, s’esborraria tot el contingut que tinguérem al disc, i l’utilitzaria completament per a LliureX.</p></li>
+            <li><p><em>Guiat - utilitza el disc sencer i configura LVM</em>, és semblant a l’anterior però utilitzant volums lògics ( <em>LVM, Logical Volume Manager</em>), que gestiona diverses particions com si es tractara d’una.</p></li>
+            <li><p><em>Guiat - utilitza el disc sencer i configura LVM xifrat</em>, que seria com l’anterior, però xifrant el disc.</p></li>
+            <li><p><em>Manual</em>, és l’opció més versàtil i potent, ja que ens permet gestionar les particions al nostre gust, i per tant, la més perillosa si no sabem ben bé què estem fent.</p></li>
+            </ul>
+            <p>El més recomanable, serà doncs, seguir el mode guiat que ens suggereix el reparticionament del disc.</p>
+            <p>Una vegada triem el tipus d’instal·lació ens mostrarà el següent missatge advertint que es van a fer canvis al disc, i demanant confirmació:</p>
+            <figure>
+            <img src="img/instllx10.png" width="300" alt="Confirmació dels canvis al disc" /><figcaption aria-hidden="true">Confirmació dels canvis al disc</figcaption>
+            </figure>
+            <p>Una vegada li donem a <em>Continuar</em> el sistema començarà a instal·lar-se, mentre segueix l’assistent per tal de configurar el sistema.</p>
+            <ol start="10" type="1">
+            <li><strong>Selecció de la ubicació</strong>. La següent finestra ens pregunta la regió on estem, per tal d’establir el fus horari correctament. A la part inferior de la finestra, podrem veure el progrés de la instal·lació.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx11.png" width="350" alt="Configuració regional" /><figcaption aria-hidden="true">Configuració regional</figcaption>
+            </figure>
+            <ol start="11" type="1">
+            <li><strong>Configuració de l’usuari primari</strong>. En la següent finestra configurarem el nom de l’usuari primari (que tindrà permís d’administrador), la seua contrasenya i així com el nom del sistema. A més, determinarem si cal una contrassenya per entrar a l’ordinador. Indicarem el nostre nom, el nom d’usuari que utilitzarem, la nostra contrasenya (dues vegades) i que sí que volem una contrasenya per entrar.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx12.png" width="350" alt="Creació de l’usuari" /><figcaption aria-hidden="true">Creació de l’usuari</figcaption>
+            </figure>
+            <p>12 . <strong>Últims passos de la instal·lació</strong>. Una vegada configurat el sistema, aquest segueix amb la seua instal·lació. Mentre ho fa, ens mostra les principals novetats de la versió. Ara haurem d’esperar una estona per tal que el sistema estiga instal·lat per complet.</p>
+            <figure>
+            <img src="img/instllx13.png" width="350" alt="Procés d’instal·lació" /><figcaption aria-hidden="true">Procés d’instal·lació</figcaption>
+            </figure>
+            <ol start="13" type="1">
+            <li>Quan finalitza la instal·lació per complet, ens mostra la següent finestra informant-nos, i demanant-nos si volem reiniciar l’equip o seguir amb la prova. Triem l’opció de reiniciar, i llevem l’USB quan ens diga el sistema. Quan l’ordinador s’inicie de nou, ens mostrarà el menú d’inici, al qual podrem triar quin sistema operatiu iniciar.</li>
+            </ol>
+            <figure>
+            <img src="img/instllx14.png" width="300" alt="Fi de la instal·lació" /><figcaption aria-hidden="true">Fi de la instal·lació</figcaption>
+            </figure>
+            <ul>
+            <li>Pàgina de la wiki de LliureX sobre la instal·lació: https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Instal%C2%B7laci%C3%B3+de+LliureX+16&amp;highlight=instal%C2%B7laci%C3%B3+lliurex</li>
+            </ul>
+            <h2 data-number="2.2" id="installació-de-lliurex-sobre-windows-lliuwin"><span class="header-section-number">2.2</span> Instal·lació de LliureX sobre Windows: LliuWin</h2>
+            <p>Si no desitgem dedicar una partició del disc a LliureX, des de LliureX 19.07 podem fer ús de LliuWin.</p>
+            <p>LliuWin és un instal·lador de LliureX per a Windows, de manera que es puga provar sense córrer el risc de perdre informació durant el formatat o particionament. La idea és instal·lar LliureX i poder desinstal·lar-lo com si es tractés d’una aplicació més de Windows. Per a això fa ús d’una imatge de LliureX ubicada com a un fitxer sobre el mateix sistema de fitxers de Windows. No es tracta per tant d’una virtualització de LliureX, sinò d’una instal·lació en sí, amb la diferència que en lloc de dedicar una partició del disc, aquesta s’instal·la sobre un fitxer de Windows, i és aquest qui s’encarrega d’engegar-la o d’engegar Windows. La principal diferència pel que fa al rendiment enfront d’un sistema instal·lat és que aquest últim descansa sobre el sistema de fitxers de Windows, el que fa que no siga òptim.</p>
+            <p>El procés d’instal·lació de LliuWin consta de dos passos genèrics:</p>
+            <ol type="1">
+            <li>Descàrrega i instal·lació de <em>LliuWin Installer</em></li>
+            <li>Execució de <em>LliuWin Installer</em> per descarregar la imatge de LliureX</li>
+            </ol>
+            <h3 data-number="2.2.1" id="descàrrega-i-installació-de-lliuwin"><span class="header-section-number">2.2.1</span> Descàrrega i instal·lació de LliuWin</h3>
+            <p>Per tal d’obtenir l’instal·lador de <em>LliuWin</em>, haurem d’accedir a la <a href="https://github.com/lliurex/lliuwin/releases">seua pàgina a Github</a>, i descarregar el fitxer instal·lador <code>lliuwin_installer_x64.msi</code>:</p>
+            <figure>
+            <img src="img/lliuwin1.png" width="450" alt="Pàgina de descàrrega de LliuWin" /><figcaption aria-hidden="true">Pàgina de descàrrega de LliuWin</figcaption>
+            </figure>
+            <p>Una vegada descarregat, executem l’instal·lador. Si ens apareix un misstge de protecció de Windows semblant al següent, triarem <em>Ejecutar de todas formas</em>, que ens apareix quan fem clic en <em>Más información</em>.</p>
+            <figure>
+            <img src="img/lliuwin2.png" width="300" alt="Missatge de protecció de Windows" /><figcaption aria-hidden="true">Missatge de protecció de Windows</figcaption>
+            </figure>
+            <p>Ara deixem que el programa realitze canvis a l’equip:</p>
+            <figure>
+            <img src="img/lliuwin3.png" width="300" alt="Donant permissos a l’instal·lador" /><figcaption aria-hidden="true">Donant permissos a l’instal·lador</figcaption>
+            </figure>
+            <p>I ens apareixerà la següent icona a l’escriptori (i també al menú d’aplicacions):</p>
+            <figure>
+            <img src="img/lliuwin4.png" width="100" alt="Icona de LliuWin" /><figcaption aria-hidden="true">Icona de LliuWin</figcaption>
+            </figure>
+            <p>Amb açò tindrem instal·lat <em>LliuWin Installer</em>, que ens permetrà instal·lar LliureX sobre Windows.</p>
+            <h3 data-number="2.2.2" id="descàrrega-i-installació-de-lliurex-amb-lliuwin-installer"><span class="header-section-number">2.2.2</span> Descàrrega i instal·lació de LliureX amb LliuWin Installer</h3>
+            <p>Per tal d’iniciar l’instal·lador, fem doble clic a l’accés directe de LliuWin, i seleccionem, quan ens pregunte, que volem permetre que l’aplicació realize canvis al dispositiu:</p>
+            <figure>
+            <img src="img/lliuwin5.png" width="300" alt="Permís per a LliuWin" /><figcaption aria-hidden="true">Permís per a LliuWin</figcaption>
+            </figure>
+            <p>La finestra principal de l’instal·lador ens mostrarà algunes opcions sobre la instal·lació de LliureX, com són la unitat de disc sobre la que volem descarregar la imatge (al nostre cas <code>C:</code>), l’idioma en què volem LliureX, que ocupa la instal·lació, i quin entorn d’escriptori volem (LliureX)</p>
+            <figure>
+            <img src="img/lliuwin6.png" width="400" alt="Opcions per a la descàrrega de LliuWin" /><figcaption aria-hidden="true">Opcions per a la descàrrega de LliuWin</figcaption>
+            </figure>
+            <p>Farem clic en instal·lar per començar la instal·lació. Aquest procés pot ser bastant lent, ja que ha de descarrgar tot el sistema.</p>
+            <figure>
+            <img src="img/lliuwin7.png" width="300" alt="Procés de descàrrega" /><figcaption aria-hidden="true">Procés de descàrrega</figcaption>
+            </figure>
+            <p>Quan acabe la descàrrega haurem de reiniciar per finalitzar l’assistent de configuració:</p>
+            <figure>
+            <img src="img/lliuwin8.png" width="300" alt="Procés de descàrrega" /><figcaption aria-hidden="true">Procés de descàrrega</figcaption>
+            </figure>
+            <p>I quan arranquem Windows, ens demanarà quin dels dos sistemes arrancar:</p>
+            <figure>
+            <img src="img/lliuwin10.png" width="400" alt="Selecció del sistema operatiu des de Windows" /><figcaption aria-hidden="true">Selecció del sistema operatiu des de Windows</figcaption>
+            </figure>
+            <figure>
+            <img src="img/lliuwin9.png" width="400" alt="LliureX sobre Windows" /><figcaption aria-hidden="true">LliureX sobre Windows</figcaption>
+            </figure>
+            <p>Amb açò hem aconseguit realitzar una instal·lació de LliureX sobre un ordinador sense necessitat de fer particions del disc dur, com si es tractara d’una aplicació més. En el moment en què vulguem desinstal·lar-lo, ho férem d’igual manera com si es tractara d’una aplicació Windows.</p>
+            <h1 data-number="3" id="un-passeig-per-lentorn-de-lliurex"><span class="header-section-number">3</span> Un passeig per l’entorn de LliureX</h1>
+            <p>Des de la versió 19 de LliureX, s’utilitza l’entorn d’escriptori Plasma, de KDE en lloc de Mate o Gnome que s’ha utilitzat en versions anteriors. Es tracta d’un escriptori que respecta els recursos del sistema i li dóna un aspecte més modern i útil.</p>
+            <p>Tot i que no entrarem a veure’l en detall, anem a fer una breu passejada per l’escriptori per tal de conéixer, quin serà el nostre entorn de treball.</p>
+            <h2 data-number="3.1" id="lescriptiori"><span class="header-section-number">3.1</span> L’escriptiori</h2>
+            <p>A la Wiki de LliureX teniu disponible <a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Primers-passos-en-el-nou-entorn-de-LliureX-19">l’article Primers passos en el nou entorn de LliureX 19</a> on se us parla més extensament de l’escriptori de LliureX 19. En aquest apartat anem a fer-ne un resum, <strong>basant-nos en la configuració d’escriptori per defecte</strong> i posant atenció a aquells aspectes que més ens interessaran per al desenvolupament del curs.</p>
+            <p>Quan iniciem sessió, l’aspecte del nostre escriptori és el que es mostra a la imatge següent, on podem distingir tres àrees ben diferenciades:</p>
+            <ul>
+            <li>L’<strong>Escriptori</strong>,</li>
+            <li>La <strong>barra superior</strong> o <strong>barra de menú</strong>,</li>
+            <li>El <strong><em>Dock</em></strong> inferior o <strong>barra de tasques</strong>.</li>
+            </ul>
+            <figure>
+            <img src="img/escriptori1.png" width="500" alt="Escriptori de LliureX" /><figcaption aria-hidden="true">Escriptori de LliureX</figcaption>
+            </figure>
+            <p>Com podem veure, la barra de menú consta de diverses parts:</p>
+            <ul>
+            <li>El <strong>Menú d’inici</strong>, a través del qual podrem accedir a les aplicacions, organitzades per categories, o buscar-les a través del quadre de cerca, així com gestionar la sessió i l’aturada de l’ordinador a través de l’opció <em>Energia/Sessió</em>. A més, a la part esquerra disposarem d’una barra de <em>Preferits</em>, amb accessos directes a les aplicacions més importants, tals com el navegador Firefox, el centre de control, el Zero Center, el gestor de fitxers Dolphin, la LliureX Store o la terminal. A la part superior d’aquesta barra d’accessos directes tindrem també tres accessos per eixir de la sessió, reiniciar l’equip o apagar-lo.</li>
+            <li><strong>Llocs</strong> o <strong>Directoris Habituals</strong>, ens mostrarà aquelles ubicacions més usuals del nostre equip, com la nostra carpeta personal (<em>Inici</em>), la carpeta de l’Escriptori, els Documents o les Baixades, entre d’altres.</li>
+            <li>Botó per <strong>Netejar l’esriptori</strong>, minimitzant totes les finestres de les aplicacions que tinguem en execució,</li>
+            <li>La <strong>Safata del Sistema</strong>, que mostra els <em>ginys</em> o <em>widgets</em> d’aplicacions que tinguen bé notificacions disponibles (com per exemple què hi ha actualitzacions disponibles), o accés a algunes funcionalitats, com gestionar el volum, la xarxa, el Bluetooth o el porta-retalls. Si passem el ratolí sobre els ginys, ens mostrarà la informació sobre aquest. Alguns d’aquests <em>ginys</em> ens permeten també realitzar certes accions, en fer clic sobre elles.</li>
+            <li>El <strong>Calendari</strong>, on per defecte es mostra l’hora del sisema, i ens mostra el calendari complet si fem clic sobre ell.</li>
+            <li>El <strong>Selector d’usuari</strong>, on se’ns mostra el nostre nom d’usuari. Si fem clic sobre ell, se’ns mostraran opcions per iniciar una nova sessió, bloquejar la pantalla, o eixir de la sessió actual.</li>
+            </ul>
+            <p>Per la seua banda, a la part inferior es troba el <em>Dock</em> o <em>Gestor de tasques</em>, a través del qual podrem accedir de manera ràpida a les diferents aplicacions que tinguem en execució. Aquesta barra també disposa d’alguns accessos directes a les aplicacions més comunes, com el Firefox, el gestor de fitxers o les preferències del sistema. Si volem afegir alguna aplicació a aquesta barra, per tal d’iniciar-la amb un sol clic des de l’escriptori, només hem de localitzar-la al menú i arrossegar-la fins aci.</p>
+            <h2 data-number="3.2" id="on-estan-les-meues-coses"><span class="header-section-number">3.2</span> On estan les meues coses?</h2>
+            <p>Els nostres documents, i fitxers en general es guarden a la nostra carpeta d’usuari. És convenient conéixer com s’organitza aquesta per tal de mantenir una organització coherent, i saber on guardem tot allò que fem.</p>
+            <h3 data-number="3.2.1" id="el-sistema-de-fitxers-de-lliurex"><span class="header-section-number">3.2.1</span> El sistema de fitxers de LliureX</h3>
+            <p>Com sabem, tant els documents com els programes s’emmagatzemen a una partició del disc dur, i dins d’aquesta, s’organitzen el que es coneix com a <em>directoris</em>, o més habitualment <strong><em>carpetes</em></strong>. Aquests directoris s’organitzen de forma jeràrquica, és a dir, unes carpetes dins d’altres. Anem a veure en general com s’organitzen estes carpetes a nivell de sistema, i després com ho fan en la nostra carpeta d’usuari.</p>
+            <p>A escala de sistema, existeix un directori (carpeta), anomenat <em>directori arrel</em> a partir del qual <em>pengen</em> la resta de directoris. És a dir, és la <em>carpeta</em> que conté la resta de carpetes. LliureX segueix l’estructura de carpetes recomanada per l’estàndard FHS (<em>Filesystem Hierarchy Standard</em>), una norma que defineix els directoris principals i els seus continguts en el sistema operatiu GNU/Linux.</p>
+            <figure>
+            <img src="img/carpeta_arrel.png" width="400" alt="Carpeta arrel del sistema" /><figcaption aria-hidden="true">Carpeta arrel del sistema</figcaption>
+            </figure>
+            <p>Algunes de les carpetes més importants d’aquesta organització són:</p>
+            <ul>
+            <li><strong>/bin</strong>: Amb els programes essencials de la línia d’ordres necessaris per a una sessió d’usuari (còpia de fitxers, llistar directoris, etc.)</li>
+            <li><strong>/boot</strong>: Encarregada de la posada en marxa del sistema,</li>
+            <li><strong>/etc</strong>: Que conté fitxers de configuració del sistema,</li>
+            <li><strong>/home</strong>: Amb les carpetes de treball dels usuaris. Dins aquesta carpeta hi haurà una carpeta de treball per a cada usuari del sistema.</li>
+            <li><strong>/media</strong>: Carpeta on es <em>muntaran</em> els dispositius que connectem a l’ordinador, com puguen ser les memòries USB. Els sistemes Linux, a diferència de Windows, no generen una nova unitat (D:, E:, etc.) quan connectem un dispositiu, sinó que afigen carpetes dins aquesta carpeta. Els accessos que hi tindrem a <em>Dispositius</em>, faran referència a aquestes carpetes.</li>
+            <li><strong>/opt</strong>: Carpeta amb programes opcionals que tenen una configuració personalitzada pera cada usuari.</li>
+            <li><strong>/root</strong>: Carpeta personal de l’administrador del sistema. Per motius de seguretat, aquesta no es troba dins el directori <em>/home</em>.</li>
+            <li><strong>/sbin</strong>: Amb els programes essencials de la línia d’ordres que només pot utilitzar l’usuari administrador,</li>
+            <li><strong>/usr</strong>: Amb la majoria d’aplicacions i utilitats multiusuari del sistema.</li>
+            </ul>
+            <p>Com hem comentat, hi ha més carpetes a l’arrel del sistema, però amb les què hem comentat ens és suficient per fer-nos una idea de les més importants.</p>
+            <h3 data-number="3.2.2" id="la-carpeta-dinici"><span class="header-section-number">3.2.2</span> La carpeta d’Inici</h3>
+            <p>Ens centrem ara al directori <em>/home</em>, que contindrà una carpeta amb el nom de cada usuari. Aquesta serà la carpeta que, des del punt de vista del nostre usuari se’ns mostrarà com la carpeta d’<em>Inici</em>:</p>
+            <figure>
+            <img src="img/carpeta_usuari.png" width="400" alt="Carpeta de l’usuari" /><figcaption aria-hidden="true">Carpeta de l’usuari</figcaption>
+            </figure>
+            <p>La finestra anterior mostra l’aplicació <em>Dolphin</em>, que és l’explorador de fitxers de l’entorn KDE. Per accedir a ella, ho hem fet a través de l’accés directe que hi ha a la barra de tasques inferior, amb la icona d’una carpeta. També hi podem accedir a través del <em>menú d’inici</em> i la seua barra lateral de <em>Preferits</em>, o bé a través dels <em>Directoris Habituals</em> o <em>Llocs</em>.</p>
+            <p>Com veiem, aquesta carpeta d’inici conté altres carpetes, tals com:</p>
+            <ul>
+            <li><strong>Baixades</strong>, on es guardaran de forma predeterminada els fitxers que descarreguem des del navegador o altres aplicacions,</li>
+            <li><strong>Documents</strong>, on es guarden de forma predeterminada els documents,</li>
+            <li><strong>Escriptori</strong>, que conté els fitxers que tenim al nostre escriptori, és a dir, els fitxers i carpetes que deixem a l’escriptori, s’emmagatzemarà realment en aquesta carpeta.</li>
+            <li><strong>Imatges</strong>, on es guarden de forma predeterminada les nostres imatges,</li>
+            <li><strong>Música</strong>, on es guardaran els fitxers d’àudio de forma predeterminada,</li>
+            <li><strong>Vídeos</strong>, on es guarden els nostres vídeos.</li>
+            </ul>
+            <p>Dins aquesta carpeta personal, podem crear tantes carpetes i fitxers com desitgem, però convé mantenir una mínima organització per saber al cap del temps on tenim els nostres fitxers.</p>
+            <p>El sistema operatiu i les aplicacions també emmagatzemen algunes carpetes dins la nostra carpeta d’inici, amb informació personalitzada per al nostre usuari. Aquestes carpetes i fitxers començaran per un punt (.), i seran <em>invisibles</em> al Dolphin.</p>
+            <blockquote>
+            <p><strong><em>La carpeta d’Inici al model de centre</em></strong></p>
+            <p>Quan treballem amb el model de centre, cal tindre en compte que tant la carpeta de <strong><em>Documents</em></strong> com la d’<strong><em>Escriptori</em></strong>, s’emmagatzemen al servidor, i són enllaçades a la nostra carpeta d’Inici quan iniciem sessió. D’aquesta manera, ens ubiquem a l’ordinador què ens ubiquem, tindrem sempre disponible el contingut del nostre escriptori i els nostres documents. Per altra banda, ni les descàrregues, ni les imatges ni altres carpetes que creem a la nostra carpeta d’inici es guardaran al servidor. Per tant, tot allò que desitgem conservar i tenir accessible en cada ordinador on seiem haurà de guardar-se bé a l’escriptori o bé a la carpeta de Documents.</p>
+            </blockquote>
+            <p>Tot seguit, podem veure, de forma gràfica la relació entre tots els elements que acabem de comentar, així com la seua relació amb el menú de <em>Llocs</em> o <em>Directoris Habituals</em>:</p>
+            <figure>
+            <img src="img/escriptori2.png" width="500" alt="Escriptori de LliureX" /><figcaption aria-hidden="true">Escriptori de LliureX</figcaption>
+            </figure>
+            <h1 data-number="4" id="gestió-de-programari"><span class="header-section-number">4</span> Gestió de programari</h1>
+            <p>Les aplicacions es componen de diversos fitxers, tant executables com de configuració o recursos, com puguen ser les imatges, icones, o documents. Quan instal·lem una aplicació, tots aquests recursos s’ubiquen al seu lloc respectiu dins el sistema.</p>
+            <p>La forma que tenen els sistemes GNU/Linux de distribuir i gestionar les aplicacions és mitjançant el que es coneixen com <strong><em>paquets</em></strong>. Un paquet és un fitxer comprimit, que conté, a més dels fitxers necessaris informació sobre aquest (versió, desenvolupador, web, etc.).</p>
+            <p>El sistema de paquets utilitzats de forma natural en Ubuntu i per tant en LliureX és del format <em>Debian</em>, un fitxer comprimit amb extensió <code>.deb</code>, que conté tota aquesta informació i els fitxers.</p>
+            <p>Als últims anys, s’han incorporat altres sistemes de distribució de paquets, com el format <em>Snap</em> o <em>Appimage</em>, que presenten menys problemes pel que fa a dependències amb altres paquets, però que poden tindre un pes considerablement superior als <em>.deb</em>.</p>
+            <h2 data-number="4.1" id="com-obtenim-el-programari"><span class="header-section-number">4.1</span> Com obtenim el programari?</h2>
+            <p>Si recordem, una de les llibertats del programari era la llibertat de distribuir i compartir el programari. Això possibilita la creació de grans <em>magatzems</em> de programari lliure, als quals podem accedir a través d’una aplicació i buscar tot allò que necessitem. Aquests magatzems reben el nom de <em>repositoris</em> o <em>Dipòsits</em> de programari.</p>
+            <p>Al nostre sistema tindrem diverses eines per tal d’obtenir programari dels repositoris. Algunes d’elles per línia d’ordres i altres amb interfície gràfica. Anem a veure les principals eines que tenim disponibles amb interfície gràfica.</p>
+            <h3 data-number="4.1.1" id="abans-de-començar-lliurex-up"><span class="header-section-number">4.1.1</span> Abans de començar: LliureX Up</h3>
+            <p>LliureX Up és l’actualitzador de LliureX, pel que no és en sí una eina per obtenir programari nou, sinó per actualitzar el que ja tenim.</p>
+            <p>Quan hi ha actualitzacions disponibles, LliureX Up ens ho indicarà a la <em>safata del sistema</em>, i ens permetrà descarregar i instal·lar totes les noves versions del programari que ja tenim instal·lat.</p>
+            <p>És una bona pràctica mantenir actualitzat el nostre sistema, tant per les actualitzacions de seguretat que resolen problemes del programari que tenim instal·lat, com per noves funcionalitats.</p>
+            <p>Per tal d’accedir al LliureX Up, ho farem a través del menú d’<em>Inici</em> &gt; <em>Administració de LliureX</em> &gt; <em>Actualitzador de LliureX</em>:</p>
+            <figure>
+            <img src="img/lliurex_up1.png" width="250" alt="LliureX Up" /><figcaption aria-hidden="true">LliureX Up</figcaption>
+            </figure>
+            <p>Només llançar l’actualitzador, es realitzaran diverses accions per tal de <em>refrescar</em> totes les llistes de paquets disponibles als repositoris. El sistema de paquets, manté unes llistes amb tot el programari disponible als repositoris, i el primer que fa LliureX Up en iniciar-se és actualitzar aquestes llistes. Després compara les aplicacions que tenim instal·lades amb aquestes llistes, per detectar si hi ha versions noves per instal·lar.</p>
+            <figure>
+            <img src="img/lliurex_up2.png" width="250" alt="LliureX Up" /><figcaption aria-hidden="true">LliureX Up</figcaption>
+            </figure>
+            <p>En cas que el sistema estiga actualitzat ens ho indicarà:</p>
+            <figure>
+            <img src="img/lliurex_up3.png" width="250" alt="LliureX Up" /><figcaption aria-hidden="true">LliureX Up</figcaption>
+            </figure>
+            <p>Si tenim alguna actualització disponible, el sistema ens mostrarà la versió actual de LliureX (cada actualització de qualsevol paquet als repositoris de LliureX implica un canvi en la versió general). A la següent imatge podem veure que tenim la versió 19.200727, però està disponible la 19.200731.1. També ens diu que tenim 4 paquets per actualitzar (podem veure quins són amb el botó <em>Visualitza els paquets</em>) i la grandària d’aquesta actualització.</p>
+            <figure>
+            <img src="img/lliurex_up4.png" width="250" alt="LliureX Up" /><figcaption aria-hidden="true">LliureX Up</figcaption>
+            </figure>
+            <p>Quan fem clic al botó <em>Actualitza ara</em>, començarà l’actualització dels paquets, i ens avisarà quan acabe:</p>
+            <figure>
+            <img src="img/lliurex_up5.png" width="250" alt="LliureX Up" /><figcaption aria-hidden="true">LliureX Up</figcaption>
+            </figure>
+            <p>Ara ja només ens queda tancar la finestra i ja tindrem el nostre sistema i la llista de paquets completament actualitzada.</p>
+            <p>Ara sí, passem a continuació a veure les diferents eines que tenim per tal de descarregar programari a LliureX.</p>
+            <h3 data-number="4.1.2" id="synaptic"><span class="header-section-number">4.1.2</span> Synaptic</h3>
+            <p>L’eina Synaptic ens permet buscar i instal·lar paquets en format <em>.deb</em>, i ha estat una de les principals eines d’instal·lació de programari a LliureX des dels inicis.</p>
+            <p>Per tal d’iniciar el Synaptic, ho farem a través del menú d’<em>Inici</em> &gt; <em>Sistema</em> &gt; <em>Gestor de Paquets Synaptic</em>.</p>
+            <figure>
+            <img src="img/synaptic1.png" width="250" alt="Accés a Synaptic" /><figcaption aria-hidden="true">Accés a Synaptic</figcaption>
+            </figure>
+            <p>Només obrir l’aplicació ens demanarà que introduïm la nostra contrasenya, per assegurar-se que som un administrador del sistema (ja que només l’administrador podrà instal·lar programes al sistema):</p>
+            <figure>
+            <img src="img/synaptic2.png" width="300" alt="Accés a Synaptic" /><figcaption aria-hidden="true">Accés a Synaptic</figcaption>
+            </figure>
+            <p>Una vegada introduïm la nostra contrasenya, se’ns mostrarà la finestra principal de Synaptic:</p>
+            <figure>
+            <img src="img/synaptic3.png" width="500" alt="Synaptic" /><figcaption aria-hidden="true">Synaptic</figcaption>
+            </figure>
+            <p>Come es mostra a la imatge, disposem de diverses seccions a l’aplicació. Les que més útils ens seran serà la <em>barra d’eines</em> i la <em>llista de paquets</em>.</p>
+            <p>Si ens fixem en la <em>Barra d’eines</em>, el primer botó que apareix és el de <em>Refresca</em>. Aquest botó realitza una operació que ja coneixem, i és que actualitza la llista de paquets disponibles (el primer dels passos que fa el LliureX Up).</p>
+            <p>Des d’aquesta eina, podem també actualitzar les aplicacions gestionades en format <em>.deb</em>. Si volguérem fer una actualització, faríem clic al botó <em>Marca les actualitzacions</em>, de manera que Synaptic marcarà per actualitzar totes les aplicacions que estiguen desactualitzades. Si només volem actualitzar des del Synaptic, farem clic en <em>Aplica</em> i el nostre sistema s’actualitzarà.</p>
+            <p>Finalment, ens centrem en el botó <em>Cerca</em> de la barra d’eines. Si fem clic en ell, se’ns obrirà un diàleg on podrem introduir el nom o alguna paraula de la descripció del paquet que estem buscant:</p>
+            <figure>
+            <img src="img/synaptic4.png" width="300" alt="Synaptic" /><figcaption aria-hidden="true">Synaptic</figcaption>
+            </figure>
+            <p>A la imatge de l’exemple hem escrit el text “Casimir”, per buscar l’editor de text <em>Casimir Editor</em>, per a alumnes amb problemes de dislèxia (Veurem aquesta aplicació a la pròxima unitat).</p>
+            <p>Si fem clic en Cerca, ens apareixerà la llista de paquets que coincideixen amb els criteris indicats, i fent doble clic a l’aplicació, ens permetrà marcar-la per instal·lar-la.</p>
+            <p>Una vegada marcades totes les aplicacions a instal·lar o actualitzar, recordeu que cal fer clic en <em>Aplica</em> per tal de fer la instal·lació i/o actualització.</p>
+            <h3 data-number="4.1.3" id="discover"><span class="header-section-number">4.1.3</span> Discover</h3>
+            <p>L’eina Discover és el gestor de programari per defecte de l’escriptori Plasma de KDE, i ens permet instal·lar les aplicacions <em>catalogades</em> en aquest escriptori.</p>
+            <p>Per tal d’obrir el Discover, ho fem també a través del menú d’<em>Inici</em> &gt; <em>Sistema</em> &gt; <em>Discover</em></p>
+            <figure>
+            <img src="img/discover1.png" width="300" alt="Accés a Discover" /><figcaption aria-hidden="true">Accés a Discover</figcaption>
+            </figure>
+            <p>La interfície del Discover és una miqueta més senzilla que la del Synaptic, i en ella podem distingir:</p>
+            <ul>
+            <li>Una <strong>barra de cerca</strong> per introduir directament el nom o part de la descripció per buscar una aplicació,</li>
+            <li>Un <strong>cercador d’aplicacions</strong>, organitzades per categories, on també se’ns permet buscar <strong><em>complements d’aplicacions</em></strong>, com puguen ser paquets de personalització o temàtica d’aplicacions, o bé <strong><em>Complements de Plasma</em></strong>, com puguen ser nous estris, temes, etc.</li>
+            </ul>
+            <figure>
+            <img src="img/discover2.png" width="400" alt="Accés a Discover" /><figcaption aria-hidden="true">Accés a Discover</figcaption>
+            </figure>
+            <p>Tinguem en compte que el Discover té accés als repositoris catalogats pel propi <em>Plasma</em>. Si busquem, per exemple <em>Casimir</em> a la barra de cerca, veurem que ara no ens troba l’aplicació, ja que aquesta no està catalogada per KDE.</p>
+            <p>Amb el Discover, una vegada hem trobat l’aplicació que volem, només caldrà fer clic al botó <em>Instal·lar</em> per descarregar-la i instal·lar-la al nostre equip.</p>
+            <h3 data-number="4.1.4" id="lliurex-store"><span class="header-section-number">4.1.4</span> LliureX Store</h3>
+            <p>La LliureX Store facilita la instal·lació d’aplicacions de diferents origes i formats (<em>.deb</em>, Snap, Appimage)</p>
+            <p>Per accedir a la LliureX Store ho farem a través del Menú d’<em>Inici</em>, bé a través de l’accés directe de la barra de favorits de l’esquerra, o bé a través del submenú <em>Administració de LliureX</em> &gt; <em>LliureX Store</em>:</p>
+            <figure>
+            <img src="img/store1.png" width="300" alt="Accés a la LliureX Store" /><figcaption aria-hidden="true">Accés a la LliureX Store</figcaption>
+            </figure>
+            <p>Al següent gràfic veiem les diferents vistes que se’ns poden presentar a la LliureX Store:</p>
+            <figure>
+            <img src="img/store2.png" width="500" alt="Accés a la LliureX Store" /><figcaption aria-hidden="true">Accés a la LliureX Store</figcaption>
+            </figure>
+            <ul>
+            <li>Disposem d’una <strong>Vista Principal</strong>, on se’ns mostra:
+            <ul>
+            <li>Una barra superior amb el <em>menú desplegable de navegació</em>, i un quadre per buscar aplicacions,</li>
+            <li>Una secció d’<strong>aplicacions destacades</strong>,</li>
+            <li>Una secció amb les diferents <strong>Categories</strong> en què es troba organitzat el programari.</li>
+            </ul></li>
+            <li>Si fem click al desplegable del <strong>Menú de navegació</strong>, se’ns mostrarà aquest menú, amb accessos a la <em>Vista d’Inici</em>, per si estem en altra finestra, a <em>Les nostres aplicacions</em>, amb les aplicacions instal·lades al sistema, i una llista amb les <em>Categories de programari</em>, equivalent a les que ens apareixen a la vista principal.</li>
+            <li>Quan fem clic amb el ratolí sobre una categoria, tant des del <em>Menú de Navegació</em> com des de la vista principal, accedirem a la <strong>Vista de la Categoría</strong> en qüestió, la qual ens mostrarà:
+            <ul>
+            <li>Un menú a l’esquerra amb les subcategories, i</li>
+            <li>Una llista d’aplicacions corresponents a la categoria.</li>
+            </ul></li>
+            <li>Quan fem clic en una aplicació, se’ns obrirà una <em>Vista d’aplicació</em>, amb una descripció d’aquesta (sovint en anglès), i els detalls de la instal·lació (versió, categoria, llicència i mida), així com, a la part inferior una llista d’aplicacions relacionades amb ella. També veurem un botó per tal d’instal·lar l’aplicació, prèvia autenticació com a administradors. En cas que es tracte d’una aplicació ja instal·lada se’ns donarà l’opció d’obrir l’aplicació o desinstal·lar-la.</li>
+            </ul>
+            <p>A l’apartat final <em>Més Informació</em> disposeu d’enllaços a la wiki amb més detalls sobre la LliureX Store.</p>
+            <h3 data-number="4.1.5" id="programari-al-zero-center"><span class="header-section-number">4.1.5</span> Programari al zero-center</h3>
+            <p>L’aplicació Zero Center és una eina què ens permet configurar certs aspectes de LliureX, respecte a la seua configuració i funcionalitat. Es tracta d’una eina molt potent i amb moltes funcionalitats, però ara ens centrarem només en la possibilitat d’instal·lació de programari i recursos.</p>
+            <p>Per tal d’accedir al <em>Zero Center</em>, podem fer-ho a través del menú d’inici, tant des del seu accés directe a la barra de <em>Favorits</em> com des del submenú <em>Administració de LliureX</em> &gt; <em>Zero Center, centre de control de LliureX</em>:</p>
+            <figure>
+            <img src="img/zerocenter1.png" width="300" alt="Accés al Zero Center" /><figcaption aria-hidden="true">Accés al Zero Center</figcaption>
+            </figure>
+            <p>Existeixen certes aplicacions, que no es distribueixen de forma estàndard, o que no es troben a cap <em>repositori</em> o <em>dipòsit de programari</em>, sinó que cal accedir a la seua web i descarregar-la, o que requereixen realitzar certes adaptacions del sistema perquè funcionen correctament.</p>
+            <p>D’entre les diferents categories (Sistema, Configuració, Suport, Programari, Internet i Recursos), la que ens interessa ara per ara és la de <em>Programari</em>.</p>
+            <figure>
+            <img src="img/zerocenter2.png" width="400" alt="Zero Center" /><figcaption aria-hidden="true">Zero Center</figcaption>
+            </figure>
+            <p>En ell podrem veure les diverses aplicacions que és capaç d’instal·lar. Entre elles podem trobar aplicacions com l’instal·lador d’Adobe Flash, Google Earth, o la que utilitzarem en unitats posteriors, l’<em>AraSuite</em>.</p>
+            <p>Si ens fixem, a sobre del <em>banner</em> de cada aplicació hi apareix un indicador dient si l’aplicació està instal·lada (configurat) o no ho està (Sense configurar). Quan passem el ratolí per sobre cada aplicació, veuem també una breu descripció d’aquesta:</p>
+            <figure>
+            <img src="img/zerocenter3.png" width="400" alt="Zero Center" /><figcaption aria-hidden="true">Zero Center</figcaption>
+            </figure>
+            <p>Si volem instal·lar-la, només caldrà fer clic per obrir l’instal·lador EPI (<em>Easy Package Installer</em>) que s’encarregarà de la instal·lació:</p>
+            <figure>
+            <img src="img/zerocenter4.png" width="300" alt="Zero Center" /><figcaption aria-hidden="true">Zero Center</figcaption>
+            </figure>
+            <h3 data-number="4.1.6" id="gestió-dels-repositoris-dapt-repoman"><span class="header-section-number">4.1.6</span> Gestió dels repositoris d’APT: Repoman</h3>
+            <p>Finalment, anem a veure l’eina Repoman (<strong>Repo</strong>sitory <strong>Man</strong>ager). Aquesta no és una eina per instal·lar paques, sinó per gestionar els diferents repositoris o dipòsits de programari configurats al nostre ordinador.</p>
+            <p>Al nostre sistema, podem tindre tants repositoris configurats com desitgem. De manera predeterminada, a LliureX només tindrem configurats els dipòsits de programari de LliureX, però podem configurar tots els què desitgem.</p>
+            <p>Per tal d’accedir a l’eina, ho fem a través del menú d’<em>Inici</em> &gt; <em>Administració de LliureX</em> &gt; <em>RepoMan</em>, o directament buscant-lo a la barra de cerca del menú d’inici.</p>
+            <figure>
+            <img src="img/repoman0.png" width="300" alt="Zero Center" /><figcaption aria-hidden="true">Zero Center</figcaption>
+            </figure>
+            <p>La primera pantalla que ens mostra l’eina és la d’<strong>Opcions</strong>, amb enllaços a les diferents seccions, les quals també se’ns mostren al quadre de l’esquerra. Les diferents opcions disponibles que tenim són:</p>
+            <ul>
+            <li><p>Gestionar els <strong>repositoris per defecte</strong>, on podrem:</p>
+            <ul>
+            <li>Activar o desactivar els <strong><em>repositoris de LliureX des d’Internet</em></strong> (de manera predeterminada en la versió d’escriptori estan activats)</li>
+            <li>Activar o desactivar els <strong><em>repositoris de LliureX des d’un Mirror</em></strong> o Rèplica del centre. Si treballem en un model de centre i disposem d’una rèplica dels repositoris de LliureX al servidor, aquesta seria l’opció més adequada.</li>
+            <li>Activar o desactivar els <strong><em>repositoris d’Ubuntu</em></strong>. De manera predeterminada estan desactivats, i podem activar-los si necessitem programari d’Ubuntu que no estiga a LliureX. <strong>En cas que un paquet estiga tant als repositoris d’Ubuntu com als de LliureX, tindrà preferència el del repositori de LliureX, encara que hi haja una versió més actualitzada a Ubuntu.</strong></li>
+            </ul></li>
+            <li><p><strong>Gestionar repositoris personalitzats</strong>, on podrem configurar altres repositoris externs a LliureX i a Ubuntu. Per afegir un nou repositori fem clic al botó que hi ha a sobre el requadre dels repositoris, i afegim la seua adreça web, junt amb el nom i una descripció. En principi, no haurem d’afegir cap repositori extern, ja que les aplicacions amb què treballarem es troben als repositoris per defecte. De tota manera, si ho necessitàrem en algun moment, explicaríem en detall com fer-ho.</p></li>
+            <li><p><strong>Eines del sistema</strong>, des d’on podrem actualitzar les llistes de programari, llançar l’actualitzador LliureX Up o la LliureX Store.</p></li>
+            </ul>
+            <figure>
+            <img src="img/repoman1.png" width="500" alt="Zero Center" /><figcaption aria-hidden="true">Zero Center</figcaption>
+            </figure>
+            <h3 data-number="4.1.7" id="més-informació"><span class="header-section-number">4.1.7</span> Més informació</h3>
+            <p>Com hem comentat al principi, la Wiki és la millor font d’informació que podem trobar-nos sobre LliureX. Respecte a la instal·lació de programari què hem vist en aquest apartat, podeu consultar els següents articles, que tot i basar-se en versions prèvies de LliureX, ens poden ser de gran utilitat.</p>
+            <ul>
+            <li><a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Cerca%2Bi%2Bgesti%25C3%25B3%2Bde%2Bprogrames">Cerca i gestió de programes</a>, per a LliureX 15.05, però totalment vàlida la part de Synaptic i l’eina <code>apt</code> de línia d’ordres.</li>
+            <li><a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=repoman">Gestió de Repositoris</a>.</li>
+            <li><a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=LliureX%2BStore_va&amp;highlight=lliurex%20store">Guía de la LliureX Store</a>, per a la versió 16.</li>
+            <li><a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=LliureX+Store_va+videoguia&amp;highlight=lliurex+store">Videotutorial de la LliureX Store</a>, per a LliureX 16.</li>
+            <li><a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Aplicacions-AppImage-al-LliureX&amp;highlight=lliurex+store">Aplicacions AppImage en LliureX</a></li>
+            <li><a href="https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Zero%2Bcenter_va&amp;highlight=zero%20center">Zero Center</a></li>
+            </ul>
+            <section class="footnotes" role="doc-endnotes">
+            <hr />
+            <ol>
+            <li id="fn1" role="doc-endnote"><p>https://portal.edu.gva.es/lliurex/?p=1433<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+            </ol>
+            </section>
+            </div>
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>

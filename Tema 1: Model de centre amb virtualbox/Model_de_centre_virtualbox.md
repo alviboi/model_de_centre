@@ -4,8 +4,8 @@ author: [Alfredo Rafael Vicente Boix i Javier Estellés Dasi]
 date: "2021-02-24"
 subject: "Proxmox"
 keywords: [Xarxa, Instal·lació]
-subtitle: "Exemple d'esquema de xarxa en el model de centre"
-lang: "es"
+subtitle: "Exemple d'un centre amb Virtualbox sense Proxmox"
+lang: "ca"
 page-background: "background10.pdf"
 titlepage: true,
 titlepage-rule-color: "360049"
@@ -94,6 +94,10 @@ Un esquema bastant habitual que ens trobem als centres és el següent:
 
 ![Esquema orientatiu 1](Esquemes/model1.png)
 
+:::warning
+A l'esquema es mostra un servidor NFS d'arxius. A l'últim donarem unes recomanacions de  com es munta un servidor NFS, però has de tenir en compte que aquest tipus de servidors donen molts problemes per a muntar el /net, donat un problema amn les ACLs i el NFS v3, per tant es recomana deixar el /net al MASTER. Es pot muntar al servidor NFS com un disc del PROXMOX (qcow per exemple), les ACLs no donaran problemes en eixe cas.
+:::
+
 En aquest esquema ens trobem 3 servidors, on el servidor mestre guarda la base de de dades per a autentificar-se tots els usuaris (LDAP), i pot donar servei a la xarxa de professorat.
 
 Un esquema més adient seria aquest:
@@ -116,7 +120,7 @@ Anem a realitzar el muntatge d'un model de centre pas a pas amb totes les seues 
 Heu de tenir en compte que ací no parlarem de tot el programari que ve amb LliureX, com el harvester, libreoffice, programes de disseny, etc... En aquest curs ens centrarem exclusivament en el muntatge i configuració del model de centre
 ::: 
 
-## Instal·lació de Lliurex -->
+## Instal·lació de Lliurex
 
 :::note
 Podeu trobar l'última ISO per a descarregar [ací](http://releases.lliurex.net/isos/19.07_64bits/lliurex-servidor_64bits_19_latest.iso).
@@ -138,13 +142,19 @@ Clickem sobre **Nueva** i seguim el següent exemple:
 
 ![Nom: 4600xxxx.MAS](model/3.png)
 
-![RAM: amb 2,5 Gb serà suficient per a provar coses](model/4.png)
+![RAM: amb 2-2,5 GB serà suficient per a provar coses](model/4.png)
 
 ![Per defecte el que hi ha](model/5.png)
 
 ![Per defecte el que hi ha](model/6.png)
 
 ![Reservat dinàmicament](model/7.png)
+
+![El tamany recomanat per al MASTER és 90 GB](model/7.1.png)
+
+:::caution
+Si és un servidor MASTER que va a allotjar el mirror, has de donar bastant espai per a que càpiga el mirror (mínim 70GB, a les proves s'han utilitzat 90GB).
+:::
 
 ![Màquina creada](model/8.png)
 
@@ -387,7 +397,13 @@ I després iniciem llum:
 
 ![Llum](model/57.png)
 
-Una vegada hem inciat Llum anem a l'opció d'importar/exportar d'Ítaca i importem els usuaris.
+Una vegada hem iniciat Llum anem a l'opció d'importar/exportar d'Ítaca i importem els usuaris.
+
+:::warning
+Es podria tenir un model de centre funcionant amb servidors virtualitzats sobre una mateixa LliureX? Sí, enlloc de PROXMOX, podríem tenir com a sistema base una LliureX i enllaçar la targeta externa de cada servidor a la targeta física on està connectat el switch per a l'Aula d'informàtica, per als ordinadors del centre, etc... Però no tindríem gestió remota (o seria més complicat). I LliureX no es un sistema pensat per a tal fi. PROXMOX sí.
+:::
+
+
 
 
 
